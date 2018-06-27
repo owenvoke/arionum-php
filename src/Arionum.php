@@ -182,6 +182,21 @@ class Arionum
     }
 
     /**
+     * Retrieve the transactions of a specified block.
+     *
+     * @param string $blockId
+     * @return array
+     * @throws ApiException
+     */
+    public function getBlockTransactions(string $blockId): array
+    {
+        return $this->getJson([
+            'q'     => 'getBlockTransactions',
+            'block' => $blockId,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
