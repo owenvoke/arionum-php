@@ -111,6 +111,21 @@ class Arionum
     }
 
     /**
+     * Retrieve a specified transaction by its id.
+     *
+     * @param string $transactionId
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getTransaction(string $transactionId): \stdClass
+    {
+        return $this->getJson([
+            'q'           => 'getTransaction',
+            'transaction' => $transactionId,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
