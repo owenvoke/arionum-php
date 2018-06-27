@@ -60,4 +60,15 @@ class ArionumTest extends TestCase
         $this->assertInternalType('string', $data);
         $this->assertEquals('6e6WaupsT6FzH2', $data);
     }
+
+    /**
+     *
+     * @throws ApiException
+     */
+    public function testGetBalance()
+    {
+        $data = $this->arionum->getBalance(self::TEST_ADDRESS);
+        $this->assertInternalType('string', $data);
+        $this->assertTrue(is_numeric($data));
+    }
 }
