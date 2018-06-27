@@ -167,6 +167,21 @@ class Arionum
     }
 
     /**
+     * Retrieve a block by its height.
+     *
+     * @param int $height
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getBlock(int $height): \stdClass
+    {
+        return $this->getJson([
+            'q'      => 'getBlock',
+            'height' => $height,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
