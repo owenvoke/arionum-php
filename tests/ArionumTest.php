@@ -49,4 +49,15 @@ class ArionumTest extends TestCase
         $this->expectException(ApiException::class);
         $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
+
+    /**
+     *
+     * @throws ApiException
+     */
+    public function testGetBase58()
+    {
+        $data = $this->arionum->getBase58('dataIsHere');
+        $this->assertInternalType('string', $data);
+        $this->assertEquals('6e6WaupsT6FzH2', $data);
+    }
 }
