@@ -12,11 +12,12 @@ use PHPUnit\Framework\TestCase;
 class ArionumTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
-    const TEST_NODE = 'https://aro.pxgamer.xyz';
-    const TEST_ADDRESS = '51sJ4LbdKzhyGy4zJGqodNLse9n9JsVT2rdeH92w7cf3qQuSDJupvjbUT1UBr7r1SCUAXG97saxn7jt2edKb4v4J';
-    const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
-    const TEST_TRANSACTION_ID = '2bAhimfbpzbKuH2E3uFZjK2cBQ9KrUtSvHPXdnGYSqYRE6tYVkLYa9hqTZpyjp6s2ZVoxpWaz5JvgyL8sYjM8Zsq';
-    const TEST_BLOCK_ID = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';
+    public const TEST_NODE = 'https://aro.pxgamer.xyz';
+    public const TEST_ADDRESS = '51sJ4LbdKzhyGy4zJGqodNLse9n9JsVT2rdeH92w7cf3qQuSDJupvjbUT1UBr7r1SCUAXG97saxn7jt2edKb4v4J';
+    public const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
+    public const TEST_TRANSACTION_ID = '2bAhimfbpzbKuH2E3uFZjK2cBQ9KrUtSvHPXdnGYSqYRE6tYVkLYa9hqTZpyjp6s2ZVoxpWaz5JvgyL8sYjM8Zsq';
+    public const TEST_BLOCK_ID = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';
+    public const TEST_RANDOM_NUMBER = 84;
     // phpcs:enable
 
     /**
@@ -186,5 +187,16 @@ class ArionumTest extends TestCase
     {
         $data = $this->arionum->getMempoolSize();
         $this->assertInternalType('int', $data);
+    }
+
+    /**
+     * @covers ::getRandomNumber
+     * @throws ApiException
+     */
+    public function testGetRandomNumber()
+    {
+        $data = $this->arionum->getRandomNumber(1, 1, 100, self::TEST_NODE);
+        $this->assertInternalType('int', $data);
+        $this->assertEquals(self::TEST_RANDOM_NUMBER, $data);
     }
 }
