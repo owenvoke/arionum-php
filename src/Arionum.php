@@ -210,6 +210,19 @@ class Arionum
     }
 
     /**
+     * Retrieve the number of transactions in the mempool.
+     *
+     * @return int
+     * @throws ApiException
+     */
+    public function getMempoolSize(): int
+    {
+        return $this->getJson([
+            'q' => 'mempoolSize',
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
