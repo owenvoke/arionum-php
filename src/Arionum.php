@@ -223,6 +223,27 @@ class Arionum
     }
 
     /**
+     * Retrieve a random number based on a specified block.
+     *
+     * @param int         $height
+     * @param int         $minimum
+     * @param int|null    $maximum
+     * @param string|null $seed
+     * @return int
+     * @throws ApiException
+     */
+    public function getRandomNumber(int $height, int $minimum, int $maximum, string $seed = null): int
+    {
+        return $this->getJson([
+            'q'      => 'randomNumber',
+            'height' => $height,
+            'min'    => $minimum,
+            'max'    => $maximum,
+            'seed'   => $seed,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
