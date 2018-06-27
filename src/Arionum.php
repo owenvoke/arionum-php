@@ -21,6 +21,10 @@ class Arionum
      * The API status code for a failed response.
      */
     public const API_STATUS_ERROR = 'error';
+    /**
+     * Default error message when the status is unknown.
+     */
+    public const ERROR_UNKNOWN_STATUS = 'Unknown status code returned.';
 
     /**
      * @var string
@@ -50,7 +54,7 @@ class Arionum
     /**
      * @return Client
      */
-    public function getClient(): Client
+    private function getClient(): Client
     {
         if (!$this->client instanceof Client) {
             $this->client = new Client([
@@ -59,5 +63,40 @@ class Arionum
         }
 
         return $this->client;
+    }
+
+    /**
+     * @param array $query
+     * @return mixed
+     * @throws \Exception
+     */
+    private function getJson(array $query)
+    {
+        return $this->decodeResponse(
+            $this->getClient()
+                ->get($this->getNodeAddress().self::API_ENDPOINT, ['query' => $query])
+                ->getBody()
+                ->getContents()
+        );
+    }
+
+    /**
+     * @param string $json
+     * @return mixed
+     * @throws \Exception
+     */
+    private function decodeResponse(string $json)
+    {
+        $data = \GuzzleHttp\json_decode($json);
+
+        if ($data->status === self::API_STATUS_ERROR) {
+            throw new \Exception($data->data);
+        }
+
+        if ($data->status === self::API_STATUS_OK) {
+            return $data->data;
+        }
+
+        throw new \Exception(self::ERROR_UNKNOWN_STATUS);
     }
 }
