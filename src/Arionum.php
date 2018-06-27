@@ -12,7 +12,15 @@ class Arionum
     /**
      * The request endpoint for API calls.
      */
-    const API_ENDPOINT = '/api.php';
+    public const API_ENDPOINT = '/api.php';
+    /**
+     * The API status code for a successful response.
+     */
+    public const API_STATUS_OK = 'ok';
+    /**
+     * The API status code for a failed response.
+     */
+    public const API_STATUS_ERROR = 'error';
 
     /**
      * @var string
@@ -39,7 +47,10 @@ class Arionum
         $this->nodeAddress = $nodeAddress;
     }
 
-    public function getClient()
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
     {
         if (!$this->client instanceof Client) {
             $this->client = new Client([
