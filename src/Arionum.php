@@ -36,6 +36,8 @@ class Arionum
     private $client;
 
     /**
+     * Retrieve the address for a specified public key.
+     *
      * @param string $publicKey
      * @return string
      * @throws ApiException
@@ -45,6 +47,21 @@ class Arionum
         return $this->getJson([
                 'q'          => 'getAddress',
                 'public_key' => $publicKey,
+            ]);
+    }
+
+    /**
+     * Convert a string to Base58.
+     *
+     * @param string $data
+     * @return string
+     * @throws ApiException
+     */
+    public function getBase58(string $data): string
+    {
+        return $this->getJson([
+                'q'          => 'base58',
+                'data' => $data,
             ]);
     }
 
