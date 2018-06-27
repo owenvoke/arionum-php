@@ -81,6 +81,21 @@ class Arionum
     }
 
     /**
+     * Retrieve the pending balance of a specified address (includes pending transactions).
+     *
+     * @param string $address
+     * @return string
+     * @throws ApiException
+     */
+    public function getPendingBalance(string $address): string
+    {
+        return $this->getJson([
+            'q'    => 'getPendingBalance',
+            'account' => $address,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
