@@ -32,7 +32,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @covers ::getAddress
      * @throws ApiException
      */
     public function testThrowsExceptionOnInvalidPublicKey()
@@ -42,7 +42,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @covers ::getAddress
      * @throws ApiException
      */
     public function testGetAddress()
@@ -53,7 +53,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @covers ::getBase58
      * @throws ApiException
      */
     public function testGetBase58()
@@ -64,7 +64,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @covers ::getBalance
      * @throws ApiException
      */
     public function testGetBalance()
@@ -86,7 +86,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getPendingBalance
+     * @covers ::getTransactions
      * @throws ApiException
      */
     public function testGetTransactions()
