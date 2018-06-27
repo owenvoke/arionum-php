@@ -35,7 +35,24 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getAddress
+     *
+     */
+    public function testGetNodeAddress()
+    {
+        $data = $this->arionum->getNodeAddress();
+        $this->assertEquals(self::TEST_NODE, $data);
+    }
+
+    /**
+     *
+     */
+    public function testSetNodeAddress()
+    {
+        $this->arionum->setNodeAddress(self::TEST_NODE);
+        $this->assertEquals(self::TEST_NODE, $this->arionum->getNodeAddress());
+    }
+
+    /**
      * @throws ApiException
      */
     public function testThrowsExceptionOnInvalidPublicKey()
@@ -45,7 +62,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getAddress
      * @throws ApiException
      */
     public function testGetAddress()
@@ -56,7 +72,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getBase58
      * @throws ApiException
      */
     public function testGetBase58()
@@ -67,7 +82,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getBalance
      * @throws ApiException
      */
     public function testGetBalance()
@@ -78,7 +92,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getPendingBalance
      * @throws ApiException
      */
     public function testGetPendingBalance()
@@ -89,7 +102,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getTransactions
      * @throws ApiException
      */
     public function testGetTransactions()
@@ -100,7 +112,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getTransaction
      * @throws ApiException
      */
     public function testGetTransaction()
@@ -111,7 +122,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getPublicKey
      * @throws ApiException
      */
     public function testGetPublicKey()
@@ -122,7 +132,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::generateAccount
      * @throws ApiException
      */
     public function testGenerateAccount()
@@ -135,7 +144,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getCurrentBlock
      * @throws ApiException
      */
     public function testGetCurrentBlock()
@@ -147,7 +155,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getBlock
      * @throws ApiException
      */
     public function testGetBlock()
@@ -159,7 +166,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getBlockTransactions
      * @throws ApiException
      */
     public function testGetBlockTransactions()
@@ -170,7 +176,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getNodeVersion
      * @throws ApiException
      */
     public function testGetNodeVersion()
@@ -180,7 +185,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getMempoolSize
      * @throws ApiException
      */
     public function testGetMempoolSize()
@@ -190,7 +194,6 @@ class ArionumTest extends TestCase
     }
 
     /**
-     * @covers ::getRandomNumber
      * @throws ApiException
      */
     public function testGetRandomNumber()
