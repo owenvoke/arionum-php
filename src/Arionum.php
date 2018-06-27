@@ -38,6 +38,7 @@ class Arionum
     /**
      * @param string $publicKey
      * @return string
+     * @throws ApiException
      */
     public function getAddress(string $publicKey): string
     {
@@ -81,7 +82,7 @@ class Arionum
     /**
      * @param array $query
      * @return mixed
-     * @throws \Exception
+     * @throws ApiException
      */
     private function getJson(array $query)
     {
@@ -96,20 +97,20 @@ class Arionum
     /**
      * @param string $json
      * @return mixed
-     * @throws \Exception
+     * @throws ApiException
      */
     private function decodeResponse(string $json)
     {
         $data = \GuzzleHttp\json_decode($json);
 
         if ($data->status === self::API_STATUS_ERROR) {
-            throw new \Exception($data->data);
+            throw new ApiException($data->data);
         }
 
         if ($data->status === self::API_STATUS_OK) {
             return $data->data;
         }
 
-        throw new \Exception(self::ERROR_UNKNOWN_STATUS);
+        throw new ApiException(self::ERROR_UNKNOWN_STATUS);
     }
 }
