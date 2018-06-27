@@ -11,10 +11,11 @@ use PHPUnit\Framework\TestCase;
  */
 class ArionumTest extends TestCase
 {
+    // phpcs:disable Generic.Files.LineLength
     const TEST_NODE = 'https://aro.pxgamer.xyz';
     const TEST_ADDRESS = '51sJ4LbdKzhyGy4zJGqodNLse9n9JsVT2rdeH92w7cf3qQuSDJupvjbUT1UBr7r1SCUAXG97saxn7jt2edKb4v4J';
-    // phpcs:disable Generic.Files.LineLength
     const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
+    const TEST_TRANSACTION_ID = '2bAhimfbpzbKuH2E3uFZjK2cBQ9KrUtSvHPXdnGYSqYRE6tYVkLYa9hqTZpyjp6s2ZVoxpWaz5JvgyL8sYjM8Zsq';
     // phpcs:enable
 
     /**
@@ -93,6 +94,17 @@ class ArionumTest extends TestCase
     {
         $data = $this->arionum->getTransactions(self::TEST_ADDRESS);
         $this->assertInternalType('array', $data);
+        $this->assertNotEmpty($data);
+    }
+
+    /**
+     * @covers ::getTransaction
+     * @throws ApiException
+     */
+    public function testGetTransaction()
+    {
+        $data = $this->arionum->getTransaction(self::TEST_TRANSACTION_ID);
+        $this->assertInstanceOf(\stdClass::class, $data);
         $this->assertNotEmpty($data);
     }
 }
