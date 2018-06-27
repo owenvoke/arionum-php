@@ -36,6 +36,19 @@ class Arionum
     private $client;
 
     /**
+     * @param string $publicKey
+     * @return string
+     */
+    public function getAddress(string $publicKey): string
+    {
+        return $this->getJson([
+                'q'          => 'getAddress',
+                'public_key' => $publicKey,
+            ]
+        );
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
