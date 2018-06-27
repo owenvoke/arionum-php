@@ -197,6 +197,19 @@ class Arionum
     }
 
     /**
+     * Retrieve the version of the node.
+     *
+     * @return string
+     * @throws ApiException
+     */
+    public function getNodeVersion(): string
+    {
+        return $this->getJson([
+            'q' => 'version',
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
