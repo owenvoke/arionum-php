@@ -167,4 +167,14 @@ class ArionumTest extends TestCase
         $this->assertInternalType('array', $data);
         $this->assertNotEmpty($data);
     }
+
+    /**
+     * @covers ::getNodeVersion
+     * @throws ApiException
+     */
+    public function testGetNodeVersion()
+    {
+        $data = $this->arionum->getNodeVersion();
+        $this->assertInternalType('string', $data);
+    }
 }
