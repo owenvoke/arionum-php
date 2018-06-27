@@ -141,6 +141,19 @@ class Arionum
     }
 
     /**
+     * Generate a new public/private key pair and return these with the address.
+     *
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function generateAccount(): \stdClass
+    {
+        return $this->getJson([
+            'q' => 'generateAccount',
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
