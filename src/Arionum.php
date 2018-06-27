@@ -45,9 +45,9 @@ class Arionum
     public function getAddress(string $publicKey): string
     {
         return $this->getJson([
-                'q'          => 'getAddress',
-                'public_key' => $publicKey,
-            ]);
+            'q'          => 'getAddress',
+            'public_key' => $publicKey,
+        ]);
     }
 
     /**
@@ -60,9 +60,9 @@ class Arionum
     public function getBase58(string $data): string
     {
         return $this->getJson([
-                'q'          => 'base58',
-                'data' => $data,
-            ]);
+            'q'    => 'base58',
+            'data' => $data,
+        ]);
     }
 
     /**
