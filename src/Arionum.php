@@ -126,6 +126,21 @@ class Arionum
     }
 
     /**
+     * Retrieve the public key of a specified address.
+     *
+     * @param string $address
+     * @return string
+     * @throws ApiException
+     */
+    public function getPublicKey(string $address): string
+    {
+        return $this->getJson([
+            'q'       => 'getPublicKey',
+            'account' => $address,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
