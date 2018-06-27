@@ -75,7 +75,7 @@ class Arionum
     public function getBalance(string $address): string
     {
         return $this->getJson([
-            'q'    => 'getBalance',
+            'q'       => 'getBalance',
             'account' => $address,
         ]);
     }
@@ -90,7 +90,22 @@ class Arionum
     public function getPendingBalance(string $address): string
     {
         return $this->getJson([
-            'q'    => 'getPendingBalance',
+            'q'       => 'getPendingBalance',
+            'account' => $address,
+        ]);
+    }
+
+    /**
+     * Retrieve the transactions of a specified address.
+     *
+     * @param string $address
+     * @return array
+     * @throws ApiException
+     */
+    public function getTransactions(string $address): array
+    {
+        return $this->getJson([
+            'q'       => 'getTransactions',
             'account' => $address,
         ]);
     }
