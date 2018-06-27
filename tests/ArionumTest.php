@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class ArionumTest
+ *
+ * @coversDefaultClass \pxgamer\Arionum\Arionum
  */
 class ArionumTest extends TestCase
 {
@@ -73,7 +75,7 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @covers ::getPendingBalance
      * @throws ApiException
      */
     public function testGetPendingBalance()
@@ -81,5 +83,16 @@ class ArionumTest extends TestCase
         $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
         $this->assertTrue(is_numeric($data));
+    }
+
+    /**
+     * @covers ::getPendingBalance
+     * @throws ApiException
+     */
+    public function testGetTransactions()
+    {
+        $data = $this->arionum->getTransactions(self::TEST_ADDRESS);
+        $this->assertInternalType('array', $data);
+        $this->assertNotEmpty($data);
     }
 }
