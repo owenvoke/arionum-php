@@ -33,21 +33,21 @@ class ArionumTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testGetAddress()
+    public function testThrowsExceptionOnInvalidPublicKey()
     {
-        $data = $this->arionum->getAddress(self::TEST_PUBLIC_KEY);
-        $this->assertInternalType('string', $data);
-        $this->assertEquals(self::TEST_ADDRESS, $data);
+        $this->expectException(ApiException::class);
+        $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
 
     /**
      *
      * @throws ApiException
      */
-    public function testThrowsExceptionOnInvalidPublicKey()
+    public function testGetAddress()
     {
-        $this->expectException(ApiException::class);
-        $this->arionum->getAddress('INVALID-PUBLIC-KEY');
+        $data = $this->arionum->getAddress(self::TEST_PUBLIC_KEY);
+        $this->assertInternalType('string', $data);
+        $this->assertEquals(self::TEST_ADDRESS, $data);
     }
 
     /**
@@ -68,6 +68,17 @@ class ArionumTest extends TestCase
     public function testGetBalance()
     {
         $data = $this->arionum->getBalance(self::TEST_ADDRESS);
+        $this->assertInternalType('string', $data);
+        $this->assertTrue(is_numeric($data));
+    }
+
+    /**
+     *
+     * @throws ApiException
+     */
+    public function testGetPendingBalance()
+    {
+        $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
         $this->assertTrue(is_numeric($data));
     }
