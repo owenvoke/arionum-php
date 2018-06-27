@@ -118,4 +118,17 @@ class ArionumTest extends TestCase
         $this->assertInternalType('string', $data);
         $this->assertTrue(($data === self::TEST_PUBLIC_KEY || $data === ''));
     }
+
+    /**
+     * @covers ::generateAccount
+     * @throws ApiException
+     */
+    public function testGenerateAccount()
+    {
+        $data = $this->arionum->generateAccount();
+        $this->assertInstanceOf(\stdClass::class, $data);
+        $this->assertObjectHasAttribute('address', $data);
+        $this->assertObjectHasAttribute('public_key', $data);
+        $this->assertObjectHasAttribute('private_key', $data);
+    }
 }
