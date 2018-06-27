@@ -143,4 +143,16 @@ class ArionumTest extends TestCase
         $this->assertObjectHasAttribute('id', $data);
         $this->assertObjectHasAttribute('signature', $data);
     }
+
+    /**
+     * @covers ::getBlock
+     * @throws ApiException
+     */
+    public function testGetBlock()
+    {
+        $data = $this->arionum->getBlock(1);
+        $this->assertInstanceOf(\stdClass::class, $data);
+        $this->assertObjectHasAttribute('id', $data);
+        $this->assertObjectHasAttribute('signature', $data);
+    }
 }
