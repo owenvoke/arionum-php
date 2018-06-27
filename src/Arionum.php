@@ -66,6 +66,21 @@ class Arionum
     }
 
     /**
+     * Retrieve the balance of a specified address.
+     *
+     * @param string $address
+     * @return string
+     * @throws ApiException
+     */
+    public function getBalance(string $address): string
+    {
+        return $this->getJson([
+            'q'    => 'getBalance',
+            'account' => $address,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
