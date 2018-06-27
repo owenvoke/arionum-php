@@ -177,4 +177,14 @@ class ArionumTest extends TestCase
         $data = $this->arionum->getNodeVersion();
         $this->assertInternalType('string', $data);
     }
+
+    /**
+     * @covers ::getMempoolSize
+     * @throws ApiException
+     */
+    public function testGetMempoolSize()
+    {
+        $data = $this->arionum->getMempoolSize();
+        $this->assertInternalType('int', $data);
+    }
 }
