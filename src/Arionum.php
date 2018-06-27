@@ -45,8 +45,7 @@ class Arionum
         return $this->getJson([
                 'q'          => 'getAddress',
                 'public_key' => $publicKey,
-            ]
-        );
+            ]);
     }
 
     /**
