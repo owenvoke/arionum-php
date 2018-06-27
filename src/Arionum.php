@@ -154,6 +154,19 @@ class Arionum
     }
 
     /**
+     * Retrieve the current block as an object.
+     *
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getCurrentBlock(): \stdClass
+    {
+        return $this->getJson([
+            'q' => 'currentBlock',
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
