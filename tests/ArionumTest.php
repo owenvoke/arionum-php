@@ -105,6 +105,17 @@ class ArionumTest extends TestCase
     {
         $data = $this->arionum->getTransaction(self::TEST_TRANSACTION_ID);
         $this->assertInstanceOf(\stdClass::class, $data);
-        $this->assertNotEmpty($data);
+        $this->assertObjectHasAttribute('version', $data);
+    }
+
+    /**
+     * @covers ::getPublicKey
+     * @throws ApiException
+     */
+    public function testGetPublicKey()
+    {
+        $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
+        $this->assertInternalType('string', $data);
+        $this->assertTrue(($data === self::TEST_PUBLIC_KEY || $data === ''));
     }
 }
