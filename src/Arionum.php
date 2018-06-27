@@ -17,14 +17,6 @@ class Arionum
      * The API status code for a successful response.
      */
     public const API_STATUS_OK = 'ok';
-    /**
-     * The API status code for a failed response.
-     */
-    public const API_STATUS_ERROR = 'error';
-    /**
-     * Default error message when the status is unknown.
-     */
-    public const ERROR_UNKNOWN_STATUS = 'Unknown status code returned.';
 
     /**
      * @var string
@@ -297,14 +289,10 @@ class Arionum
     {
         $data = \GuzzleHttp\json_decode($json);
 
-        if ($data->status === self::API_STATUS_ERROR) {
-            throw new ApiException($data->data);
-        }
-
         if ($data->status === self::API_STATUS_OK) {
             return $data->data;
         }
 
-        throw new ApiException(self::ERROR_UNKNOWN_STATUS);
+        throw new ApiException($data->data);
     }
 }
