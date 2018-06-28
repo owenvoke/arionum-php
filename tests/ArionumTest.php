@@ -18,6 +18,8 @@ class ArionumTest extends TestCase
     public const TEST_TRANSACTION_ID = '2bAhimfbpzbKuH2E3uFZjK2cBQ9KrUtSvHPXdnGYSqYRE6tYVkLYa9hqTZpyjp6s2ZVoxpWaz5JvgyL8sYjM8Zsq';
     public const TEST_BLOCK_ID = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';
     public const TEST_RANDOM_NUMBER = 84;
+    public const TEST_SEND_KEY1 = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSD1Hm7fGpQAgh1goGj8G47RmU68i3mP4erGGrJ1LNBzEy4di4jZKA2Z6ee96VxaDMUnzSthyzMSyhqF1DbLwNKPim2';
+    public const TEST_SEND_KEY2 = 'Lzhp9LopCDbzk3eSdzuL5f9cR9ng12s6gNonQET3kSLtZU4MbQVreDRFjoWcEdUyeUN3tKwpR4AuakWfT6LeCg4trqQ2YSy2q1pUCJppyPBFW89m3xZKhFgMhJgApkevYxYyn1GPDEpmuSUkYhDfEf68xrGNYAhEc';
     // phpcs:enable
 
     /**
@@ -191,6 +193,28 @@ class ArionumTest extends TestCase
     {
         $data = $this->arionum->getMempoolSize();
         $this->assertInternalType('int', $data);
+    }
+
+    /**
+     * This should never have enough funds.
+     *
+     * @throws ApiException
+     */
+    public function testSendTransaction()
+    {
+        $this->expectException(ApiException::class);
+        $this->expectExceptionMessage('Not enough funds');
+
+        $transaction = new Transaction();
+        $transaction->setValue(1.0);
+        $transaction->setDestinationAddress(self::TEST_ADDRESS);
+        // phpcs:disable Generic.Files.LineLength
+        $transaction->setPublicKey(self::TEST_SEND_KEY1);
+        $transaction->setPrivateKey(self::TEST_SEND_KEY2);
+        // phpcs:enable
+        $transaction->setMessage('This should fail.');
+
+        $this->arionum->sendTransaction($transaction);
     }
 
     /**
