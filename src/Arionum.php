@@ -91,7 +91,7 @@ class Arionum
      * Retrieve the transactions of a specified address.
      *
      * @param string $address
-     * @return array
+     * @return \stdClass[]
      * @throws ApiException
      */
     public function getTransactions(string $address): array
@@ -177,7 +177,7 @@ class Arionum
      * Retrieve the transactions of a specified block.
      *
      * @param string $blockId
-     * @return array
+     * @return \stdClass[]
      * @throws ApiException
      */
     public function getBlockTransactions(string $blockId): array
