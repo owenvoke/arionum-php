@@ -11,45 +11,45 @@ class Transaction
      * The value to send in the transaction.
      * @var float
      */
-    private $val;
+    public $val;
     /**
      * The destination address.
      * @var string
      */
-    private $dst;
+    public $dst;
     /**
      * The sender's public key.
      * @var string
      */
-    private $public_key;
+    public $public_key;
     /**
      * The transaction signature.
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
      * @var string
      */
-    private $signature;
+    public $signature;
     /**
      * The sender's private key. Only required if no signature is provided.
      * @var string
      */
-    private $private_key;
+    public $private_key;
     /**
      * The transaction date in unix timestamp format.
      * This is required when the transaction is pre-signed.
      * @var int
      * @see https://epochconverter.com
      */
-    private $date;
+    public $date;
     /**
      * A message to be included with the transaction. Maximum 128 chars.
      * @var string
      */
-    private $message;
+    public $message;
     /**
      * The version of the transaction.
      * @var int
      */
-    private $version = 1;
+    public $version = 1;
 
     /**
      * @return float
