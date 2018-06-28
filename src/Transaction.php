@@ -52,27 +52,11 @@ class Transaction
     public $version = 1;
 
     /**
-     * @return float
-     */
-    public function getValue(): float
-    {
-        return $this->val;
-    }
-
-    /**
      * @param float $val
      */
     public function setValue(float $val): void
     {
         $this->val = $val;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDestinationAddress(): string
-    {
-        return $this->dst;
     }
 
     /**
@@ -84,27 +68,11 @@ class Transaction
     }
 
     /**
-     * @return string
-     */
-    public function getPublicKey(): string
-    {
-        return $this->public_key;
-    }
-
-    /**
      * @param string $public_key
      */
     public function setPublicKey(string $public_key): void
     {
         $this->public_key = $public_key;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSignature(): string
-    {
-        return $this->signature;
     }
 
     /**
@@ -116,27 +84,11 @@ class Transaction
     }
 
     /**
-     * @return string
-     */
-    public function getPrivateKey(): string
-    {
-        return $this->private_key;
-    }
-
-    /**
      * @param string $private_key
      */
     public function setPrivateKey(string $private_key): void
     {
         $this->private_key = $private_key;
-    }
-
-    /**
-     * @return int
-     */
-    public function getDate(): int
-    {
-        return $this->date;
     }
 
     /**
@@ -148,27 +100,11 @@ class Transaction
     }
 
     /**
-     * @return string
-     */
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
-
-    /**
      * @param string $message
      */
     public function setMessage(string $message): void
     {
         $this->message = $message;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVersion(): int
-    {
-        return $this->version;
     }
 
     /**
