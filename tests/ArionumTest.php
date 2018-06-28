@@ -210,9 +210,12 @@ class ArionumTest extends TestCase
         $transaction->setDestinationAddress(self::TEST_ADDRESS);
         // phpcs:disable Generic.Files.LineLength
         $transaction->setPublicKey(self::TEST_SEND_KEY1);
+        $transaction->setSignature('');
         $transaction->setPrivateKey(self::TEST_SEND_KEY2);
         // phpcs:enable
         $transaction->setMessage('This should fail.');
+        $transaction->setDate(time());
+        $transaction->setVersion(1);
 
         $this->arionum->sendTransaction($transaction);
     }
