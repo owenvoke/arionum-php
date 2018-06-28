@@ -202,6 +202,22 @@ class Arionum
     }
 
     /**
+     * Send a transaction.
+     *
+     * @param Transaction $transaction
+     * @return string
+     * @throws ApiException
+     */
+    public function sendTransaction(Transaction $transaction): string
+    {
+        $data = array_merge((array)$transaction, [
+            'q' => 'send',
+        ]);
+
+        return $this->getJson($data);
+    }
+
+    /**
      * Retrieve the number of transactions in the mempool.
      *
      * @return int
