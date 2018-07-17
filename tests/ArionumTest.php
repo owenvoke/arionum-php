@@ -9,24 +9,6 @@ class ArionumTest extends TestCase
 {
     /**
      * @test
-     */
-    public function itGetsTheNodeAddress()
-    {
-        $data = $this->arionum->getNodeAddress();
-        $this->assertEquals(self::TEST_NODE, $data);
-    }
-
-    /**
-     * @test
-     */
-    public function itSetsTheNodeAddress()
-    {
-        $this->arionum->setNodeAddress(self::TEST_NODE);
-        $this->assertEquals(self::TEST_NODE, $this->arionum->getNodeAddress());
-    }
-
-    /**
-     * @test
      * @expectedException \pxgamer\Arionum\ApiException
      */
     public function itThrowsAnExceptionOnInvalidPublicKey()
@@ -157,16 +139,6 @@ class ArionumTest extends TestCase
         $data = $this->arionum->getBlockTransactions(self::TEST_BLOCK_ID);
         $this->assertInternalType('array', $data);
         $this->assertNotEmpty($data);
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
-    public function itGetsTheVersionForTheCurrentNode()
-    {
-        $data = $this->arionum->getNodeVersion();
-        $this->assertInternalType('string', $data);
     }
 
     /**
