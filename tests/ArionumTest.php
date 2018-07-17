@@ -31,17 +31,6 @@ class ArionumTest extends TestCase
      * @test
      * @throws ApiException
      */
-    public function itGetsABase58ValueForInputData()
-    {
-        $data = $this->arionum->getBase58('dataIsHere');
-        $this->assertInternalType('string', $data);
-        $this->assertEquals('6e6WaupsT6FzH2', $data);
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
     public function itGetsTheBalanceForATestAddress()
     {
         $data = $this->arionum->getBalance(self::TEST_ADDRESS);
