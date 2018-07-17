@@ -31,39 +31,6 @@ class ArionumTest extends TestCase
      * @test
      * @throws ApiException
      */
-    public function itGetsTheBalanceForATestAddress()
-    {
-        $data = $this->arionum->getBalance(self::TEST_ADDRESS);
-        $this->assertInternalType('string', $data);
-        $this->assertTrue(is_numeric($data));
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
-    public function itGetsThePendingBalanceForATestAddress()
-    {
-        $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
-        $this->assertInternalType('string', $data);
-        $this->assertTrue(is_numeric($data));
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
-    public function itGetsTheTransactionsForATestAddress()
-    {
-        $data = $this->arionum->getTransactions(self::TEST_ADDRESS);
-        $this->assertInternalType('array', $data);
-        $this->assertNotEmpty($data);
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
     public function itGetsATransactionByItsId()
     {
         $data = $this->arionum->getTransaction(self::TEST_TRANSACTION_ID);
@@ -80,19 +47,6 @@ class ArionumTest extends TestCase
         $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
         $this->assertTrue(($data === self::TEST_PUBLIC_KEY || $data === ''));
-    }
-
-    /**
-     * @test
-     * @throws ApiException
-     */
-    public function itGeneratesANewAccount()
-    {
-        $data = $this->arionum->generateAccount();
-        $this->assertInstanceOf(\stdClass::class, $data);
-        $this->assertObjectHasAttribute('address', $data);
-        $this->assertObjectHasAttribute('public_key', $data);
-        $this->assertObjectHasAttribute('private_key', $data);
     }
 
     /**
