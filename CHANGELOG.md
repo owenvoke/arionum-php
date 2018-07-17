@@ -4,12 +4,12 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
-## v1.1.1 - 2018-07-17
+## v1.1.2 - 2018-07-17
 
 ### Changed
 - Allow build failures on Nightly builds ([e69cf12](https://github.com/pxgamer/arionum-php/commit/e69cf1243c40e8fa6fc0aa80676c4298fcaf2722))
 
-## v1.1.0 - 2018-07-17
+## v1.1.1 - 2018-07-17
 
 ### Changed
 - Refactor all unit tests into separate classes ([589d589](https://github.com/pxgamer/arionum-php/commit/589d589ab734ee8243c73e9538248bb9b5b9109d))
