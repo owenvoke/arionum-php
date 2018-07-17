@@ -4,6 +4,12 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## v1.1.0 - 2018-07-17
+
+### Changed
+- Refactor all unit tests into separate classes ([589d589](https://github.com/pxgamer/arionum-php/commit/589d589ab734ee8243c73e9538248bb9b5b9109d))
+- Refactor the names of the unit test methods ([589d589](https://github.com/pxgamer/arionum-php/commit/589d589ab734ee8243c73e9538248bb9b5b9109d))
+
 ## v1.1.0 - 2018-06-28
 
 ### Added
