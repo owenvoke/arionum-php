@@ -7,6 +7,10 @@ namespace pxgamer\Arionum;
  */
 class TransactionTest extends TestCase
 {
+    // phpcs:disable Generic.Files.LineLength
+    private const TEST_TRANSACTION_ID = '2bAhimfbpzbKuH2E3uFZjK2cBQ9KrUtSvHPXdnGYSqYRE6tYVkLYa9hqTZpyjp6s2ZVoxpWaz5JvgyL8sYjM8Zsq';
+    // phpcs:enable
+
     /**
      * @test
      * @throws ApiException

@@ -7,6 +7,10 @@ namespace pxgamer\Arionum;
  */
 class KeyTest extends TestCase
 {
+    // phpcs:disable Generic.Files.LineLength
+    private const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
+    // phpcs:enable
+
     /**
      * @test
      * @expectedException \pxgamer\Arionum\ApiException
