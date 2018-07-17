@@ -6,8 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class ArionumTest
- *
- * @coversDefaultClass \pxgamer\Arionum\Arionum
  */
 class ArionumTest extends TestCase
 {
