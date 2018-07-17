@@ -37,36 +37,37 @@ class ArionumTest extends TestCase
     }
 
     /**
-     *
+     * @test
      */
-    public function testGetNodeAddress()
+    public function itGetsTheNodeAddress()
     {
         $data = $this->arionum->getNodeAddress();
         $this->assertEquals(self::TEST_NODE, $data);
     }
 
     /**
-     *
+     * @test
      */
-    public function testSetNodeAddress()
+    public function itSetsTheNodeAddress()
     {
         $this->arionum->setNodeAddress(self::TEST_NODE);
         $this->assertEquals(self::TEST_NODE, $this->arionum->getNodeAddress());
     }
 
     /**
-     * @throws ApiException
+     * @test
+     * @expectedException \pxgamer\Arionum\ApiException
      */
-    public function testThrowsExceptionOnInvalidPublicKey()
+    public function itThrowsAnExceptionOnInvalidPublicKey()
     {
-        $this->expectException(ApiException::class);
         $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetAddress()
+    public function itGetsAnAddressFromAPublicKey()
     {
         $data = $this->arionum->getAddress(self::TEST_PUBLIC_KEY);
         $this->assertInternalType('string', $data);
@@ -74,9 +75,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetBase58()
+    public function itGetsABase58ValueForInputData()
     {
         $data = $this->arionum->getBase58('dataIsHere');
         $this->assertInternalType('string', $data);
@@ -84,9 +86,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetBalance()
+    public function itGetsTheBalanceForATestAddress()
     {
         $data = $this->arionum->getBalance(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
@@ -94,9 +97,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetPendingBalance()
+    public function itGetsThePendingBalanceForATestAddress()
     {
         $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
@@ -104,9 +108,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetTransactions()
+    public function itGetsTheTransactionsForATestAddress()
     {
         $data = $this->arionum->getTransactions(self::TEST_ADDRESS);
         $this->assertInternalType('array', $data);
@@ -114,9 +119,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetTransaction()
+    public function itGetsATransactionByItsId()
     {
         $data = $this->arionum->getTransaction(self::TEST_TRANSACTION_ID);
         $this->assertInstanceOf(\stdClass::class, $data);
@@ -124,9 +130,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetPublicKey()
+    public function itGetsThePublicKeyForAnAddress()
     {
         $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
@@ -134,9 +141,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGenerateAccount()
+    public function itGeneratesANewAccount()
     {
         $data = $this->arionum->generateAccount();
         $this->assertInstanceOf(\stdClass::class, $data);
@@ -146,9 +154,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetCurrentBlock()
+    public function itGetsTheCurrentBlock()
     {
         $data = $this->arionum->getCurrentBlock();
         $this->assertInstanceOf(\stdClass::class, $data);
@@ -157,9 +166,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetBlock()
+    public function itGetsABlockByItsHeight()
     {
         $data = $this->arionum->getBlock(1);
         $this->assertInstanceOf(\stdClass::class, $data);
@@ -168,9 +178,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetBlockTransactions()
+    public function itGetsTheTransactionsForASpecificBlock()
     {
         $data = $this->arionum->getBlockTransactions(self::TEST_BLOCK_ID);
         $this->assertInternalType('array', $data);
@@ -178,18 +189,20 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetNodeVersion()
+    public function itGetsTheVersionForTheCurrentNode()
     {
         $data = $this->arionum->getNodeVersion();
         $this->assertInternalType('string', $data);
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetMempoolSize()
+    public function itGetsTheNumberOfTransactionsInTheMempool()
     {
         $data = $this->arionum->getMempoolSize();
         $this->assertInternalType('int', $data);
@@ -198,13 +211,12 @@ class ArionumTest extends TestCase
     /**
      * This should never have enough funds.
      *
-     * @throws ApiException
+     * @test
+     * @expectedException \pxgamer\Arionum\ApiException
+     * @expectedExceptionMessage Not enough funds
      */
-    public function testSendTransaction()
+    public function itThrowsAnExceptionWhenSendingATransactionFromAnEmptyAccount()
     {
-        $this->expectException(ApiException::class);
-        $this->expectExceptionMessage('Not enough funds');
-
         $transaction = new Transaction();
         $transaction->setValue(1.0);
         $transaction->setDestinationAddress(self::TEST_ADDRESS);
@@ -221,9 +233,10 @@ class ArionumTest extends TestCase
     }
 
     /**
+     * @test
      * @throws ApiException
      */
-    public function testGetRandomNumber()
+    public function itGetsARandomlyGeneratedNumber()
     {
         $data = $this->arionum->getRandomNumber(1, 1, 100, self::TEST_NODE);
         $this->assertInternalType('int', $data);
