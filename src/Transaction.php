@@ -53,65 +53,89 @@ class Transaction
 
     /**
      * @param float $val
+     * @return $this
      */
-    public function setValue(float $val): void
+    public function setValue(float $val): Transaction
     {
         $this->val = $val;
+
+        return $this;
     }
 
     /**
      * @param string $dst
+     * @return $this
      */
-    public function setDestinationAddress(string $dst): void
+    public function setDestinationAddress(string $dst): Transaction
     {
         $this->dst = $dst;
+
+        return $this;
     }
 
     /**
      * @param string $public_key
+     * @return $this
      */
-    public function setPublicKey(string $public_key): void
+    public function setPublicKey(string $public_key): Transaction
     {
         $this->public_key = $public_key;
+
+        return $this;
     }
 
     /**
      * @param string $signature
+     * @return $this
      */
-    public function setSignature(string $signature): void
+    public function setSignature(string $signature): Transaction
     {
         $this->signature = $signature;
+
+        return $this;
     }
 
     /**
      * @param string $private_key
+     * @return $this
      */
-    public function setPrivateKey(string $private_key): void
+    public function setPrivateKey(string $private_key): Transaction
     {
         $this->private_key = $private_key;
+
+        return $this;
     }
 
     /**
      * @param int $date
+     * @return $this
      */
-    public function setDate(int $date): void
+    public function setDate(int $date): Transaction
     {
         $this->date = $date;
+
+        return $this;
     }
 
     /**
      * @param string $message
+     * @return $this
      */
-    public function setMessage(string $message): void
+    public function setMessage(string $message): Transaction
     {
         $this->message = $message;
+
+        return $this;
     }
 
     /**
      * @param int $version
+     * @return $this
      */
-    public function setVersion(int $version): void
+    public function setVersion(int $version): Transaction
     {
         $this->version = $version;
+
+        return $this;
     }
 }
