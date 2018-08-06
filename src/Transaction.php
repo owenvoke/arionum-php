@@ -52,66 +52,90 @@ class Transaction
     public $version = 1;
 
     /**
-     * @param float $val
+     * @param float $value
+     * @return $this
      */
-    public function setValue(float $val): void
+    public function setValue(float $value): Transaction
     {
-        $this->val = $val;
+        $this->val = $value;
+
+        return $this;
     }
 
     /**
-     * @param string $dst
+     * @param string $destinationAddress
+     * @return $this
      */
-    public function setDestinationAddress(string $dst): void
+    public function setDestinationAddress(string $destinationAddress): Transaction
     {
-        $this->dst = $dst;
+        $this->dst = $destinationAddress;
+
+        return $this;
     }
 
     /**
-     * @param string $public_key
+     * @param string $publicKey
+     * @return $this
      */
-    public function setPublicKey(string $public_key): void
+    public function setPublicKey(string $publicKey): Transaction
     {
-        $this->public_key = $public_key;
+        $this->public_key = $publicKey;
+
+        return $this;
     }
 
     /**
      * @param string $signature
+     * @return $this
      */
-    public function setSignature(string $signature): void
+    public function setSignature(string $signature): Transaction
     {
         $this->signature = $signature;
+
+        return $this;
     }
 
     /**
-     * @param string $private_key
+     * @param string $privateKey
+     * @return $this
      */
-    public function setPrivateKey(string $private_key): void
+    public function setPrivateKey(string $privateKey): Transaction
     {
-        $this->private_key = $private_key;
+        $this->private_key = $privateKey;
+
+        return $this;
     }
 
     /**
      * @param int $date
+     * @return $this
      */
-    public function setDate(int $date): void
+    public function setDate(int $date): Transaction
     {
         $this->date = $date;
+
+        return $this;
     }
 
     /**
      * @param string $message
+     * @return $this
      */
-    public function setMessage(string $message): void
+    public function setMessage(string $message): Transaction
     {
         $this->message = $message;
+
+        return $this;
     }
 
     /**
      * @param int $version
+     * @return $this
      */
-    public function setVersion(int $version): void
+    public function setVersion(int $version): Transaction
     {
         $this->version = $version;
+
+        return $this;
     }
 }
