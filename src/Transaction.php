@@ -52,34 +52,34 @@ class Transaction
     public $version = 1;
 
     /**
-     * @param float $val
+     * @param float $value
      * @return $this
      */
-    public function setValue(float $val): Transaction
+    public function setValue(float $value): Transaction
     {
-        $this->val = $val;
+        $this->val = $value;
 
         return $this;
     }
 
     /**
-     * @param string $dst
+     * @param string $destinationAddress
      * @return $this
      */
-    public function setDestinationAddress(string $dst): Transaction
+    public function setDestinationAddress(string $destinationAddress): Transaction
     {
-        $this->dst = $dst;
+        $this->dst = $destinationAddress;
 
         return $this;
     }
 
     /**
-     * @param string $public_key
+     * @param string $publicKey
      * @return $this
      */
-    public function setPublicKey(string $public_key): Transaction
+    public function setPublicKey(string $publicKey): Transaction
     {
-        $this->public_key = $public_key;
+        $this->public_key = $publicKey;
 
         return $this;
     }
@@ -96,12 +96,12 @@ class Transaction
     }
 
     /**
-     * @param string $private_key
+     * @param string $privateKey
      * @return $this
      */
-    public function setPrivateKey(string $private_key): Transaction
+    public function setPrivateKey(string $privateKey): Transaction
     {
-        $this->private_key = $private_key;
+        $this->private_key = $privateKey;
 
         return $this;
     }
