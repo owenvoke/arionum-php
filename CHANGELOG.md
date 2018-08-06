@@ -4,6 +4,12 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## v1.2.0 - 2018-08-06
+
+### Changed
+- Allow method chaining for Transactions ([#3](https://github.com/pxgamer/arionum-php/issues/3))
+- Rename some variable names in the Transaction class ([6fb2d33](https://github.com/pxgamer/arionum-php/commit/6fb2d33542c74d9daf6d972a0d429986a49b0e22))
+
 ## v1.1.2 - 2018-07-17
 
 ### Changed
