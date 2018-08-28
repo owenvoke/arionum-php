@@ -4,6 +4,12 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## v1.3.0 - 2018-08-28
+
+### Added
+- Add support for the `masternodes` method ([#4](https://github.com/pxgamer/arionum-php/issues/4))
+- Add support for the `getAlias` method ([#5](https://github.com/pxgamer/arionum-php/issues/5))
+
 ## v1.2.0 - 2018-08-06
 
 ### Changed
