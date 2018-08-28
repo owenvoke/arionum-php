@@ -252,6 +252,34 @@ class Arionum
     }
 
     /**
+     * Retrieve a list of registered masternodes on the network.
+     *
+     * @return array
+     * @throws ApiException
+     */
+    public function getMasternodes(): array
+    {
+        return $this->getJson([
+            'q' => 'masternodes',
+        ])->masternodes;
+    }
+
+    /**
+     * Retrieve the alias for an account by it's address.
+     *
+     * @param string $address
+     * @return string
+     * @throws ApiException
+     */
+    public function getAlias(string $address): string
+    {
+        return $this->getJson([
+            'q'       => 'getAlias',
+            'account' => $address,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string

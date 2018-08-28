@@ -45,4 +45,15 @@ class OtherTest extends TestCase
         $this->assertInternalType('int', $data);
         $this->assertEquals(self::TEST_RANDOM_NUMBER, $data);
     }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itGetsAListOfMasternodes()
+    {
+        $data = $this->arionum->getMasternodes();
+        $this->assertInternalType('array', $data);
+        $this->assertNotEmpty($data);
+    }
 }

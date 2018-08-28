@@ -110,6 +110,18 @@ $arionum->getMempoolSize();
 $arionum->getRandomNumber(1, 1, 1000);
 ```
 
+**Get a list of available masternodes on the network**
+
+```php
+$arionum->getMasternodes();
+```
+
+**Get the alias for a specific address**
+
+```php
+$arionum->getAlias('address');
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
