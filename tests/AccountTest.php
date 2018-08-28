@@ -61,6 +61,6 @@ class AccountTest extends TestCase
     {
         $data = $this->arionum->getAlias(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
-        $this->assertEquals('PXGAMER');
+        $this->assertEquals('PXGAMER', $data);
     }
 }

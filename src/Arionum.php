@@ -268,10 +268,10 @@ class Arionum
      * Retrieve the alias for an account by it's address.
      *
      * @param string $address
-     * @return array
+     * @return string
      * @throws ApiException
      */
-    public function getAlias(string $address): array
+    public function getAlias(string $address): string
     {
         return $this->getJson([
             'q'       => 'getAlias',
