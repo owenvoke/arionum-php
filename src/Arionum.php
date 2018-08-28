@@ -252,6 +252,19 @@ class Arionum
     }
 
     /**
+     * Retrieve a list of registered masternodes on the network.
+     *
+     * @return array
+     * @throws ApiException
+     */
+    public function getMasternodes(): array
+    {
+        return $this->getJson([
+            'q' => 'masternodes',
+        ])->masternodes;
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
