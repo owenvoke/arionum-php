@@ -52,4 +52,15 @@ class AccountTest extends TestCase
         $this->assertInternalType('array', $data);
         $this->assertNotEmpty($data);
     }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itGetsTheAliasForASpecificAddress()
+    {
+        $data = $this->arionum->getAlias(self::TEST_ADDRESS);
+        $this->assertInternalType('string', $data);
+        $this->assertEquals('PXGAMER');
+    }
 }
