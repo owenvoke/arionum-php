@@ -121,6 +121,17 @@ $arionum->getMasternodes();
 ```php
 $arionum->getAlias('address');
 ```
+**Send()**
+```$transaction = new Transaction();
+
+$transaction->setValue(1);
+$transaction->setDestinationAddress('...'); 
+$transaction->setPublicKey('...');
+$transaction->setSignature('...');
+$transaction->setMessage('...');
+$transaction->setDate(time());
+
+$arionum->sendTransaction($transaction);```
 
 ## Change log
 
