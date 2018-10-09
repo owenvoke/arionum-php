@@ -32,7 +32,7 @@ class Arionum
      *
      * @param string $nodeAddress
      */
-    public function __construct(string $nodeAddress = null)
+    public function __construct(string $nodeAddress)
     {
         $this->nodeAddress = $nodeAddress;
     }
