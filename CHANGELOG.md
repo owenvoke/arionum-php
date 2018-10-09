@@ -4,10 +4,15 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## [Unreleased]
+
+### Removed
+- Remove the `setNodeAddress` method from the `Arionum` class ([30e0ae4a](https://github.com/pxgamer/arionum-php/commit/30e0ae4a2fb13c41f62971bc8b95a86914ad7246))
+
 ## [v1.4.0] - 2018-10-09
 
 ### Added
-- Add a constructor method for the Arionum class ([aec52f7e](https://github.com/pxgamer/arionum-php/commit/aec52f7ec5eab75790a83a960354cfa7a40d79fd))
+- Add a constructor method for the `Arionum` class ([aec52f7e](https://github.com/pxgamer/arionum-php/commit/aec52f7ec5eab75790a83a960354cfa7a40d79fd))
 
 ### Deprecated
 - Add notice of deprecation for the `setNodeAddress()` method ([7ae3927f](https://github.com/pxgamer/arionum-php/commit/7ae3927fa607adf4eba6d6bee9cb6a470beaf044))
@@ -48,6 +53,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ### Added
 - Initial release
 
+[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...HEAD
 [v1.4.0]: https://github.com/pxgamer/arionum-php/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/pxgamer/arionum-php/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/pxgamer/arionum-php/compare/v1.1.2...v1.2.0
