@@ -298,15 +298,6 @@ class Arionum
     }
 
     /**
-     * @deprecated 2.0.0 This will no longer be available and should be set through the constructor.
-     * @param string $nodeAddress
-     */
-    public function setNodeAddress(string $nodeAddress): void
-    {
-        $this->nodeAddress = $nodeAddress;
-    }
-
-    /**
      * @return Client
      */
     private function getClient(): Client
