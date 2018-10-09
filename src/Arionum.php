@@ -28,6 +28,16 @@ class Arionum
     private $client;
 
     /**
+     * Arionum constructor.
+     *
+     * @param string $nodeAddress
+     */
+    public function __construct(string $nodeAddress = null)
+    {
+        $this->nodeAddress = $nodeAddress;
+    }
+
+    /**
      * Retrieve the address for a specified public key.
      *
      * @param string $publicKey
@@ -288,6 +298,7 @@ class Arionum
     }
 
     /**
+     * @deprecated 2.0.0 This will no longer be available and should be set through the constructor.
      * @param string $nodeAddress
      */
     public function setNodeAddress(string $nodeAddress): void

@@ -22,8 +22,7 @@ $ composer require pxgamer/arionum-php
 **Set the node base URI**
 
 ```php
-$arionum = new pxgamer\Arionum\Arionum();
-$arionum->setNodeAddress('https://node-uri-here');
+$arionum = new pxgamer\Arionum\Arionum('https://node-uri-here');
 ```
 
 **Get an address from a public key**
@@ -120,6 +119,21 @@ $arionum->getMasternodes();
 
 ```php
 $arionum->getAlias('address');
+```
+
+**Send a transaction**
+
+```php
+$transaction = new Transaction();
+
+$transaction->setValue(1);
+$transaction->setDestinationAddress('...'); 
+$transaction->setPublicKey('...');
+$transaction->setSignature('...');
+$transaction->setMessage('...');
+$transaction->setDate(time());
+
+$arionum->sendTransaction($transaction);
 ```
 
 ## Change log
