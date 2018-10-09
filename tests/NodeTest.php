@@ -18,15 +18,6 @@ class NodeTest extends TestCase
 
     /**
      * @test
-     */
-    public function itSetsTheNodeAddress()
-    {
-        $this->arionum->setNodeAddress(self::TEST_NODE);
-        $this->assertEquals(self::TEST_NODE, $this->arionum->getNodeAddress());
-    }
-
-    /**
-     * @test
      * @throws ApiException
      */
     public function itGetsTheVersionForTheCurrentNode()
