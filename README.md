@@ -22,8 +22,7 @@ $ composer require pxgamer/arionum-php
 **Set the node base URI**
 
 ```php
-$arionum = new pxgamer\Arionum\Arionum();
-$arionum->setNodeAddress('https://node-uri-here');
+$arionum = new pxgamer\Arionum\Arionum('https://node-uri-here');
 ```
 
 **Get an address from a public key**
