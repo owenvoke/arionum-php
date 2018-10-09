@@ -304,7 +304,7 @@ class Arionum
     {
         if (!$this->client instanceof Client) {
             $this->client = new Client([
-                'base_uri' => $this->nodeAddress,
+                'base_uri' => $this->getNodeAddress(),
             ]);
         }
 
