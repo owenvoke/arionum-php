@@ -24,7 +24,6 @@ class TestCase extends BaseTestCase
      */
     public function setUp()
     {
-        $this->arionum = new Arionum();
-        $this->arionum->setNodeAddress(self::TEST_NODE);
+        $this->arionum = new Arionum(self::TEST_NODE);
     }
 }

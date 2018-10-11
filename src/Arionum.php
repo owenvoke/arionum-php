@@ -3,6 +3,8 @@
 namespace pxgamer\Arionum;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use function GuzzleHttp\json_decode;
 
 /**
  * Class Arionum
@@ -23,18 +25,20 @@ class Arionum
      */
     private $nodeAddress;
     /**
-     * @var Client
+     * @var ClientInterface
      */
     private $client;
 
     /**
      * Arionum constructor.
      *
-     * @param string $nodeAddress
+     * @param string               $nodeAddress
+     * @param ClientInterface|null $client
      */
-    public function __construct(string $nodeAddress = null)
+    public function __construct(string $nodeAddress, ClientInterface $client = null)
     {
         $this->nodeAddress = $nodeAddress;
+        $this->client = $client ?? new Client();
     }
 
     /**
@@ -298,25 +302,10 @@ class Arionum
     }
 
     /**
-     * @deprecated 2.0.0 This will no longer be available and should be set through the constructor.
-     * @param string $nodeAddress
-     */
-    public function setNodeAddress(string $nodeAddress): void
-    {
-        $this->nodeAddress = $nodeAddress;
-    }
-
-    /**
      * @return Client
      */
     private function getClient(): Client
     {
-        if (!$this->client instanceof Client) {
-            $this->client = new Client([
-                'base_uri' => $this->nodeAddress,
-            ]);
-        }
-
         return $this->client;
     }
 
@@ -342,7 +331,7 @@ class Arionum
      */
     private function decodeResponse(string $json)
     {
-        $data = \GuzzleHttp\json_decode($json);
+        $data = json_decode($json);
 
         if ($data->status === self::API_STATUS_OK) {
             return $data->data;
