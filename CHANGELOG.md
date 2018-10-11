@@ -4,10 +4,14 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
-## [Unreleased]
+## [v2.0.0] - 2018-10-11
+
+### Added
+- Add support for custom `Guzzle\ClientInterface` instance in constructor ([ead482fa](https://github.com/pxgamer/arionum-php/commit/ead482faafc4bec6da8aed244911dd7933c456d9))
 
 ### Removed
 - Remove the `setNodeAddress` method from the `Arionum` class ([30e0ae4a](https://github.com/pxgamer/arionum-php/commit/30e0ae4a2fb13c41f62971bc8b95a86914ad7246))
+- Remove unnecessary `base_uri` definition for Guzzle ([a035dd3f](https://github.com/pxgamer/arionum-php/commit/a035dd3f6243b2b9c651f56439d3ab90037c666b))
 
 ## [v1.4.0] - 2018-10-09
 
@@ -53,7 +57,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...develop
+[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...develop
+[v2.0.0]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...v2.0.0
 [v1.4.0]: https://github.com/pxgamer/arionum-php/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/pxgamer/arionum-php/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/pxgamer/arionum-php/compare/v1.1.2...v1.2.0
