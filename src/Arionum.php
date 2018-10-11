@@ -105,14 +105,16 @@ class Arionum
      * Retrieve the transactions of a specified address.
      *
      * @param string $address
+     * @param int    $limit
      * @return \stdClass[]
      * @throws ApiException
      */
-    public function getTransactions(string $address): array
+    public function getTransactions(string $address, int $limit = 100): array
     {
         return $this->getJson([
             'q'       => 'getTransactions',
             'account' => $address,
+            'limit'   => $limit,
         ]);
     }
 
