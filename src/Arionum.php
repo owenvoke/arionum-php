@@ -296,6 +296,19 @@ class Arionum
     }
 
     /**
+     * Retrieve details about the nodes sanity process.
+     *
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getSanityDetails(): \stdClass
+    {
+        return $this->getJson([
+            'q' => 'sanity',
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
