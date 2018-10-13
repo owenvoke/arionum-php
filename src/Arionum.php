@@ -105,14 +105,16 @@ class Arionum
      * Retrieve the transactions of a specified address.
      *
      * @param string $address
+     * @param int    $limit
      * @return \stdClass[]
      * @throws ApiException
      */
-    public function getTransactions(string $address): array
+    public function getTransactions(string $address, int $limit = 100): array
     {
         return $this->getJson([
             'q'       => 'getTransactions',
             'account' => $address,
+            'limit'   => $limit,
         ]);
     }
 
@@ -290,6 +292,32 @@ class Arionum
         return $this->getJson([
             'q'       => 'getAlias',
             'account' => $address,
+        ]);
+    }
+
+    /**
+     * Retrieve details about the nodes sanity process.
+     *
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getSanityDetails(): \stdClass
+    {
+        return $this->getJson([
+            'q' => 'sanity',
+        ]);
+    }
+
+    /**
+     * Retrieve details about the node.
+     *
+     * @return \stdClass
+     * @throws ApiException
+     */
+    public function getNodeInfo(): \stdClass
+    {
+        return $this->getJson([
+            'q' => 'node-info',
         ]);
     }
 
