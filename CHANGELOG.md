@@ -4,6 +4,13 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## [v2.1.0] - 2018-10-13
+
+### Added
+- Add an optional `limit` parameter to the `getTransactions` method ([64c9a69](https://github.com/pxgamer/arionum-php/commit/64c9a694ac5c2b8a1b18f1ace438b0eda28e2990))
+- Add the `getSanityDetails` method ([f5a87ac](https://github.com/pxgamer/arionum-php/commit/f5a87acb3efcb57291e619d04bcab3638339fdaf))
+- Add the `getNodeInfo` method ([71fa043](https://github.com/pxgamer/arionum-php/commit/71fa043d264fced09236a1352ca0772797a148a6))
+
 ## [v2.0.0] - 2018-10-11
 
 ### Added
@@ -57,7 +64,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...develop
+[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...develop
+[v2.1.0]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...v2.0.0
 [v1.4.0]: https://github.com/pxgamer/arionum-php/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/pxgamer/arionum-php/compare/v1.2.0...v1.3.0
