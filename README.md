@@ -136,6 +136,18 @@ $transaction->setDate(time());
 $arionum->sendTransaction($transaction);
 ```
 
+**Get details about the nodes sanity process**
+
+```php
+$arionum->getSanityDetails();
+```
+
+**Get details about the node**
+
+```php
+$arionum->getNodeInfo();
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
