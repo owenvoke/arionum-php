@@ -91,7 +91,7 @@ final class Transaction
      * @param string $message
      * @return self
      */
-    public static function makeAliasSendTransaction(string $alias, float $value, string $message = ''): self
+    public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): self
     {
         $transaction = new self();
 
@@ -110,7 +110,7 @@ final class Transaction
      * @param string $alias
      * @return self
      */
-    public static function makeAliasSetTransaction(string $address, string $alias): self
+    public static function makeAliasSetInstance(string $address, string $alias): self
     {
         $transaction = new self();
 
@@ -130,7 +130,7 @@ final class Transaction
      * @param string $address
      * @return self
      */
-    public static function makeMasternodeCreate(string $ipAddress, string $address): self
+    public static function makeMasternodeCreateInstance(string $ipAddress, string $address): self
     {
         $transaction = new self();
 
@@ -149,7 +149,7 @@ final class Transaction
      * @param string $address
      * @return self
      */
-    public static function makeMasternodePause(string $address): self
+    public static function makeMasternodePauseInstance(string $address): self
     {
         $transaction = new self();
 
@@ -163,7 +163,7 @@ final class Transaction
      * @param string $address
      * @return self
      */
-    public static function makeMasternodeResume(string $address): self
+    public static function makeMasternodeResumeInstance(string $address): self
     {
         $transaction = new self();
 
@@ -177,7 +177,7 @@ final class Transaction
      * @param string $address
      * @return self
      */
-    public static function makeMasternodeRelease(string $address): self
+    public static function makeMasternodeReleaseInstance(string $address): self
     {
         $transaction = new self();
 
