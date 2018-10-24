@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ### Added
 - Add the `checkSignature` method ([#11](https://github.com/pxgamer/arionum-php/issues/11))
+- Add new helper generation methods for the `Transaction` class ([#10](https://github.com/pxgamer/arionum-php/issues/10))
 
 ## [v2.1.0] - 2018-10-13
 
