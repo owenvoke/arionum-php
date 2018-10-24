@@ -7,6 +7,21 @@ namespace pxgamer\Arionum;
  */
 class Transaction
 {
+    /** @var int The transaction version for sending to an address. */
+    public const VERSION_STANDARD = 1;
+    /** @var int The transaction version for sending to an alias. */
+    public const VERSION_ALIAS_SEND = 2;
+    /** @var int The transaction version for setting an alias. */
+    public const VERSION_ALIAS_SET = 3;
+    /** @var int The transaction version for creating a masternode. */
+    public const VERSION_MASTERNODE_CREATE = 100;
+    /** @var int The transaction version for pausing a masternode. */
+    public const VERSION_MASTERNODE_PAUSE = 101;
+    /** @var int The transaction version for resuming a masternode. */
+    public const VERSION_MASTERNODE_RESUME = 102;
+    /** @var int The transaction version for releasing a masternode. */
+    public const VERSION_MASTERNODE_RELEASE = 103;
+
     /**
      * The value to send in the transaction.
      * @var float
@@ -49,7 +64,7 @@ class Transaction
      * The version of the transaction.
      * @var int
      */
-    public $version = 1;
+    public $version = self::VERSION_STANDARD;
 
     /**
      * @param float $value
