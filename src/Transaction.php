@@ -28,6 +28,11 @@ final class Transaction
      */
     public $val;
     /**
+     * The fee for the transaction.
+     * @var float
+     */
+    public $fee;
+    /**
      * The destination address.
      * @var string
      */
@@ -93,6 +98,17 @@ final class Transaction
     public function setValue(float $value): self
     {
         $this->val = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param float $fee
+     * @return $this
+     */
+    public function setFee(float $fee): self
+    {
+        $this->fee = $fee;
 
         return $this;
     }
