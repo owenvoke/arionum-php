@@ -70,7 +70,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...develop
+[Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
 [v2.1.0]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...v2.0.0
 [v1.4.0]: https://github.com/pxgamer/arionum-php/compare/v1.3.0...v1.4.0
