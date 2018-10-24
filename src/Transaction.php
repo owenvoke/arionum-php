@@ -90,7 +90,7 @@ final class Transaction
      * @param float $value
      * @return $this
      */
-    public function setValue(float $value): Transaction
+    public function setValue(float $value): self
     {
         $this->val = $value;
 
@@ -101,7 +101,7 @@ final class Transaction
      * @param string $destinationAddress
      * @return $this
      */
-    public function setDestinationAddress(string $destinationAddress): Transaction
+    public function setDestinationAddress(string $destinationAddress): self
     {
         $this->dst = $destinationAddress;
 
@@ -112,7 +112,7 @@ final class Transaction
      * @param string $publicKey
      * @return $this
      */
-    public function setPublicKey(string $publicKey): Transaction
+    public function setPublicKey(string $publicKey): self
     {
         $this->public_key = $publicKey;
 
@@ -123,7 +123,7 @@ final class Transaction
      * @param string $signature
      * @return $this
      */
-    public function setSignature(string $signature): Transaction
+    public function setSignature(string $signature): self
     {
         $this->signature = $signature;
 
@@ -134,7 +134,7 @@ final class Transaction
      * @param string $privateKey
      * @return $this
      */
-    public function setPrivateKey(string $privateKey): Transaction
+    public function setPrivateKey(string $privateKey): self
     {
         $this->private_key = $privateKey;
 
@@ -145,7 +145,7 @@ final class Transaction
      * @param int $date
      * @return $this
      */
-    public function setDate(int $date): Transaction
+    public function setDate(int $date): self
     {
         $this->date = $date;
 
@@ -156,7 +156,7 @@ final class Transaction
      * @param string $message
      * @return $this
      */
-    public function setMessage(string $message): Transaction
+    public function setMessage(string $message): self
     {
         $this->message = $message;
 
@@ -167,7 +167,7 @@ final class Transaction
      * @param int $version
      * @return $this
      */
-    public function setVersion(int $version): Transaction
+    public function setVersion(int $version): self
     {
         $this->version = $version;
 
