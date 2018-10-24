@@ -132,6 +132,24 @@ final class Transaction
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for pausing a masternode.
+     *
+     * @param string $address
+     * @return self
+     */
+    public static function makeMasternodePause(string $address): self
+    {
+        $transaction = new self();
+
+        $transaction->setVersion(self::VERSION_MASTERNODE_PAUSE);
+        $transaction->setDestinationAddress($address);
+        $transaction->setValue(0.00000001);
+        $transaction->setFee(0.00000001);
+
+        return $transaction;
+    }
+
+    /**
      * @param float $value
      * @return $this
      */
