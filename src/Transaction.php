@@ -77,7 +77,7 @@ final class Transaction
      * @param string $alias
      * @param float  $value
      * @param string $message
-     * @return Transaction
+     * @return self
      */
     public static function makeAliasSendTransaction(string $alias, float $value, string $message = ''): self
     {
@@ -96,7 +96,7 @@ final class Transaction
      *
      * @param string $address
      * @param string $alias
-     * @return Transaction
+     * @return self
      */
     public static function makeAliasSetTransaction(string $address, string $alias): self
     {
@@ -107,6 +107,26 @@ final class Transaction
         $transaction->setValue(0.00000001);
         $transaction->setFee(10);
         $transaction->setMessage($alias);
+
+        return $transaction;
+    }
+
+    /**
+     * Retrieve a pre-populated Transaction instance for creating a masternode.
+     *
+     * @param string $ipAddress
+     * @param string $address
+     * @return self
+     */
+    public static function makeMasternodeCreate(string $ipAddress, string $address): self
+    {
+        $transaction = new self();
+
+        $transaction->setVersion(self::VERSION_MASTERNODE_CREATE);
+        $transaction->setDestinationAddress($address);
+        $transaction->setValue(100000);
+        $transaction->setFee(10);
+        $transaction->setMessage($ipAddress);
 
         return $transaction;
     }
