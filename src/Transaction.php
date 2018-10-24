@@ -25,6 +25,14 @@ final class Transaction
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
     /** @var int The default fee for masternode commands. */
     public const FEE_MASTERNODE_COMMAND = 0.00000001;
+    /** @var int The value for masternode creation. */
+    public const VALUE_MASTERNODE_CREATE = 100000;
+    /** @var int The value for masternode creation. */
+    public const FEE_MASTERNODE_CREATE = 10;
+    /** @var int The value for alias creation. */
+    public const VALUE_ALIAS_SET = 0.00000001;
+    /** @var int The fee for alias creation. */
+    public const FEE_ALIAS_SET = 10;
 
     /**
      * The value to send in the transaction.
@@ -108,8 +116,8 @@ final class Transaction
 
         $transaction->setVersion(self::VERSION_ALIAS_SET);
         $transaction->setDestinationAddress($address);
-        $transaction->setValue(0.00000001);
-        $transaction->setFee(10);
+        $transaction->setValue(self::VALUE_ALIAS_SET);
+        $transaction->setFee(self::FEE_ALIAS_SET);
         $transaction->setMessage($alias);
 
         return $transaction;
@@ -128,8 +136,8 @@ final class Transaction
 
         $transaction->setVersion(self::VERSION_MASTERNODE_CREATE);
         $transaction->setDestinationAddress($address);
-        $transaction->setValue(100000);
-        $transaction->setFee(10);
+        $transaction->setValue(self::VALUE_MASTERNODE_CREATE);
+        $transaction->setFee(self::FEE_MASTERNODE_CREATE);
         $transaction->setMessage($ipAddress);
 
         return $transaction;
