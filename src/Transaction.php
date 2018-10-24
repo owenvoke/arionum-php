@@ -92,6 +92,26 @@ final class Transaction
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for setting an alias.
+     *
+     * @param string $address
+     * @param string $alias
+     * @return Transaction
+     */
+    public static function makeAliasSetTransaction(string $address, string $alias): self
+    {
+        $transaction = new self();
+
+        $transaction->setVersion(self::VERSION_ALIAS_SET);
+        $transaction->setDestinationAddress($address);
+        $transaction->setValue(0.00000001);
+        $transaction->setFee(10);
+        $transaction->setMessage($alias);
+
+        return $transaction;
+    }
+
+    /**
      * @param float $value
      * @return $this
      */
