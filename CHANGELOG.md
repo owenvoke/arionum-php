@@ -4,6 +4,11 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## [Unreleased]
+
+### Added
+- Add the `checkSignature` method ([#11](https://github.com/pxgamer/arionum-php/issues/11))
+
 ## [v2.1.0] - 2018-10-13
 
 ### Added
