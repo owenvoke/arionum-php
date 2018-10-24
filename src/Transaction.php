@@ -146,11 +146,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(self::VERSION_MASTERNODE_PAUSE);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
-        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
-
-        return $transaction;
+        return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -164,11 +160,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(self::VERSION_MASTERNODE_RESUME);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
-        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
-
-        return $transaction;
+        return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -182,11 +174,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(self::VERSION_MASTERNODE_RELEASE);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
-        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
-
-        return $transaction;
+        return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -286,5 +274,20 @@ final class Transaction
         $this->version = $version;
 
         return $this;
+    }
+
+    /**
+     * Set the default fee and value for masternode commands.
+     * @param string $address
+     * @param self   $transaction
+     * @return self
+     */
+    private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): self
+    {
+        $transaction->setDestinationAddress($address);
+        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
+        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
+
+        return $transaction;
     }
 }
