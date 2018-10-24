@@ -150,6 +150,24 @@ final class Transaction
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for resuming a masternode.
+     *
+     * @param string $address
+     * @return self
+     */
+    public static function makeMasternodeResume(string $address): self
+    {
+        $transaction = new self();
+
+        $transaction->setVersion(self::VERSION_MASTERNODE_RESUME);
+        $transaction->setDestinationAddress($address);
+        $transaction->setValue(0.00000001);
+        $transaction->setFee(0.00000001);
+
+        return $transaction;
+    }
+
+    /**
      * @param float $value
      * @return $this
      */
