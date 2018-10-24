@@ -3,7 +3,6 @@
 namespace pxgamer\Arionum;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use function GuzzleHttp\json_decode;
 
 /**
@@ -25,17 +24,17 @@ class Arionum
      */
     private $nodeAddress;
     /**
-     * @var ClientInterface
+     * @var Client
      */
     private $client;
 
     /**
      * Arionum constructor.
      *
-     * @param string               $nodeAddress
-     * @param ClientInterface|null $client
+     * @param string      $nodeAddress
+     * @param Client|null $client
      */
-    public function __construct(string $nodeAddress, ClientInterface $client = null)
+    public function __construct(string $nodeAddress, Client $client = null)
     {
         $this->nodeAddress = $nodeAddress;
         $this->client = $client ?? new Client();
@@ -251,7 +250,7 @@ class Arionum
      *
      * @param int         $height
      * @param int         $minimum
-     * @param int|null    $maximum
+     * @param int         $maximum
      * @param string|null $seed
      * @return int
      * @throws ApiException
