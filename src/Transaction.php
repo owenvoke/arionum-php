@@ -21,6 +21,10 @@ final class Transaction
     public const VERSION_MASTERNODE_RESUME = 102;
     /** @var int The transaction version for releasing a masternode. */
     public const VERSION_MASTERNODE_RELEASE = 103;
+    /** @var int The default value for masternode commands. */
+    public const VALUE_MASTERNODE_COMMAND = 0.00000001;
+    /** @var int The default fee for masternode commands. */
+    public const FEE_MASTERNODE_COMMAND = 0.00000001;
 
     /**
      * The value to send in the transaction.
@@ -143,8 +147,8 @@ final class Transaction
 
         $transaction->setVersion(self::VERSION_MASTERNODE_PAUSE);
         $transaction->setDestinationAddress($address);
-        $transaction->setValue(0.00000001);
-        $transaction->setFee(0.00000001);
+        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
+        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
 
         return $transaction;
     }
@@ -161,8 +165,8 @@ final class Transaction
 
         $transaction->setVersion(self::VERSION_MASTERNODE_RESUME);
         $transaction->setDestinationAddress($address);
-        $transaction->setValue(0.00000001);
-        $transaction->setFee(0.00000001);
+        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
+        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
 
         return $transaction;
     }
@@ -179,8 +183,8 @@ final class Transaction
 
         $transaction->setVersion(self::VERSION_MASTERNODE_RELEASE);
         $transaction->setDestinationAddress($address);
-        $transaction->setValue(0.00000001);
-        $transaction->setFee(0.00000001);
+        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
+        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
 
         return $transaction;
     }
