@@ -268,6 +268,25 @@ class Arionum
     }
 
     /**
+     * Check that a signature is valid against a public key.
+     *
+     * @param string $signature
+     * @param string $data
+     * @param string $publicKey
+     * @return bool
+     * @throws ApiException
+     */
+    public function checkSignature(string $signature, string $data, string $publicKey): bool
+    {
+        return $this->getJson([
+            'q'          => 'checkSignature',
+            'signature'  => $signature,
+            'data'       => $data,
+            'public_key' => $publicKey,
+        ]);
+    }
+
+    /**
      * Retrieve a list of registered masternodes on the network.
      *
      * @return array

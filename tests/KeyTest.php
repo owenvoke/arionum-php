@@ -9,6 +9,8 @@ class KeyTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
     private const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
+    private const TEST_SIGNATURE = 'AN1rKroKawax5azYrLbasV7VycYAvQXFKrJ69TFYEfmanXwVRrUQTCx5gQ1eVNMgEVzrEz3VzLsfrVVpUYqgB5eT2qsFtaSsw';
+    private const TEST_SIGNATURE_COMPONENTS = '1.00000000-0.00250000-PXGAMER--2-'.self::TEST_PUBLIC_KEY.'-1533911370';
     // phpcs:enable
 
     /**
@@ -40,5 +42,35 @@ class KeyTest extends TestCase
         $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
         $this->assertTrue(($data === self::TEST_PUBLIC_KEY || $data === ''));
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itChecksThatASignatureIsValid()
+    {
+        $data = $this->arionum->checkSignature(
+            self::TEST_SIGNATURE,
+            self::TEST_SIGNATURE_COMPONENTS,
+            self::TEST_PUBLIC_KEY
+        );
+
+        $this->assertTrue($data);
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itChecksThatASignatureIsInvalid()
+    {
+        $data = $this->arionum->checkSignature(
+            self::TEST_SIGNATURE,
+            'invalid-string',
+            self::TEST_PUBLIC_KEY
+        );
+
+        $this->assertFalse($data);
     }
 }
