@@ -5,7 +5,7 @@ namespace pxgamer\Arionum;
 /**
  * Class Transaction
  */
-class Transaction
+final class Transaction
 {
     /** @var int The transaction version for sending to an address. */
     public const VERSION_STANDARD = 1;
@@ -65,6 +65,26 @@ class Transaction
      * @var int
      */
     public $version = self::VERSION_STANDARD;
+
+    /**
+     * Retrieve a pre-populated Transaction instance for sending to an alias.
+     *
+     * @param string $alias
+     * @param float  $value
+     * @param string $message
+     * @return Transaction
+     */
+    public static function makeAliasSendTransaction(string $alias, float $value, string $message = ''): self
+    {
+        $transaction = new self();
+
+        $transaction->setVersion(self::VERSION_ALIAS_SEND);
+        $transaction->setDestinationAddress($alias);
+        $transaction->setValue($value);
+        $transaction->setMessage($message);
+
+        return $transaction;
+    }
 
     /**
      * @param float $value
