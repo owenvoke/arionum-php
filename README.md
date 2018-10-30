@@ -19,7 +19,7 @@ $ composer require pxgamer/arionum-php
 
 ## Usage
 
-Please see [Usage Doc](documentation/usage.md) for full information on how to use this library.
+Please see [Usage Doc](docs/usage.md) for full information on how to use this library.
 
 ## Change log
 
@@ -27,7 +27,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-Please see [Testing Doc](documentation/testing.md) for more information on what has changed recently.
+Please see [Testing Doc](docs/testing.md) for more information on what has changed recently.
 
 ## Contributing
 
