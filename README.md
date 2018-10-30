@@ -11,7 +11,11 @@ An API wrapper for the Arionum cryptocurrency node.
 
 ## Install
 
-Please see [Installation Doc](documentation/installation.md) for full information on how to use this library.
+Via Composer
+
+```bash
+$ composer require pxgamer/arionum-php
+```
 
 ## Usage
 
