@@ -340,6 +340,24 @@ final class Arionum
     }
 
     /**
+     * Check that an address is valid.
+     * Optionally validate it against the corresponding public key.
+     *
+     * @param string      $address
+     * @param string|null $publicKey An optional corresponding public key.
+     * @return bool
+     * @throws ApiException
+     */
+    public function checkAddress(string $address, ?string $publicKey = null): bool
+    {
+        return $this->getJson([
+            'q'          => 'checkAddress',
+            'account'    => $address,
+            'public_key' => $publicKey,
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getNodeAddress(): string
