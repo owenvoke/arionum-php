@@ -154,6 +154,12 @@ $arionum->getSanityDetails();
 $arionum->getNodeInfo();
 ```
 
+**Check the validity of a signature**
+
+```php
+$arionum->checkSignature('signature', 'data', 'public_key');
+```
+
 **Check the validity of an address**
 
 ```php
