@@ -118,6 +118,23 @@ final class Arionum
     }
 
     /**
+     * Retrieve the transactions of a specified public key.
+     *
+     * @param string $publicKey
+     * @param int    $limit
+     * @return \stdClass[]
+     * @throws ApiException
+     */
+    public function getTransactionsByPublicKey(string $publicKey, int $limit = 100): array
+    {
+        return $this->getJson([
+            'q'          => 'getTransactions',
+            'public_key' => $publicKey,
+            'limit'      => $limit,
+        ]);
+    }
+
+    /**
      * Retrieve a specified transaction by its id.
      *
      * @param string $transactionId
