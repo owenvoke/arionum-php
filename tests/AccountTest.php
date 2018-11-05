@@ -57,10 +57,32 @@ class AccountTest extends TestCase
      * @test
      * @throws ApiException
      */
+    public function itGetsTheTransactionsForATestPublicKey()
+    {
+        $data = $this->arionum->getTransactionsByPublicKey(self::TEST_PUBLIC_KEY);
+        $this->assertInternalType('array', $data);
+        $this->assertNotEmpty($data);
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
     public function itGetsTheAliasForASpecificAddress()
     {
         $data = $this->arionum->getAlias(self::TEST_ADDRESS);
         $this->assertInternalType('string', $data);
         $this->assertEquals('PXGAMER', $data);
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itChecksThatTheAddressIsValid()
+    {
+        $data = $this->arionum->checkAddress(self::TEST_ADDRESS);
+        $this->assertInternalType('bool', $data);
+        $this->assertTrue($data);
     }
 }
