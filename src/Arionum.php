@@ -3,13 +3,12 @@
 namespace pxgamer\Arionum;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use function GuzzleHttp\json_decode;
 
 /**
  * Class Arionum
  */
-class Arionum
+final class Arionum
 {
     /**
      * The request endpoint for API calls.
@@ -25,17 +24,17 @@ class Arionum
      */
     private $nodeAddress;
     /**
-     * @var ClientInterface
+     * @var Client
      */
     private $client;
 
     /**
      * Arionum constructor.
      *
-     * @param string               $nodeAddress
-     * @param ClientInterface|null $client
+     * @param string      $nodeAddress
+     * @param Client|null $client
      */
-    public function __construct(string $nodeAddress, ClientInterface $client = null)
+    public function __construct(string $nodeAddress, Client $client = null)
     {
         $this->nodeAddress = $nodeAddress;
         $this->client = $client ?? new Client();
@@ -87,6 +86,36 @@ class Arionum
     }
 
     /**
+     * Retrieve the balance of a specified alias.
+     *
+     * @param string $alias
+     * @return string
+     * @throws ApiException
+     */
+    public function getBalanceByAlias(string $alias): string
+    {
+        return $this->getJson([
+            'q'     => 'getBalance',
+            'alias' => $alias,
+        ]);
+    }
+
+    /**
+     * Retrieve the balance of a specified public key.
+     *
+     * @param string $publicKey
+     * @return string
+     * @throws ApiException
+     */
+    public function getBalanceByPublicKey(string $publicKey): string
+    {
+        return $this->getJson([
+            'q'          => 'getBalance',
+            'public_key' => $publicKey,
+        ]);
+    }
+
+    /**
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
      * @param string $address
@@ -115,6 +144,23 @@ class Arionum
             'q'       => 'getTransactions',
             'account' => $address,
             'limit'   => $limit,
+        ]);
+    }
+
+    /**
+     * Retrieve the transactions of a specified public key.
+     *
+     * @param string $publicKey
+     * @param int    $limit
+     * @return \stdClass[]
+     * @throws ApiException
+     */
+    public function getTransactionsByPublicKey(string $publicKey, int $limit = 100): array
+    {
+        return $this->getJson([
+            'q'          => 'getTransactions',
+            'public_key' => $publicKey,
+            'limit'      => $limit,
         ]);
     }
 
@@ -251,7 +297,7 @@ class Arionum
      *
      * @param int         $height
      * @param int         $minimum
-     * @param int|null    $maximum
+     * @param int         $maximum
      * @param string|null $seed
      * @return int
      * @throws ApiException
@@ -264,6 +310,25 @@ class Arionum
             'min'    => $minimum,
             'max'    => $maximum,
             'seed'   => $seed,
+        ]);
+    }
+
+    /**
+     * Check that a signature is valid against a public key.
+     *
+     * @param string $signature
+     * @param string $data
+     * @param string $publicKey
+     * @return bool
+     * @throws ApiException
+     */
+    public function checkSignature(string $signature, string $data, string $publicKey): bool
+    {
+        return $this->getJson([
+            'q'          => 'checkSignature',
+            'signature'  => $signature,
+            'data'       => $data,
+            'public_key' => $publicKey,
         ]);
     }
 
@@ -318,6 +383,24 @@ class Arionum
     {
         return $this->getJson([
             'q' => 'node-info',
+        ]);
+    }
+
+    /**
+     * Check that an address is valid.
+     * Optionally validate it against the corresponding public key.
+     *
+     * @param string      $address
+     * @param string|null $publicKey An optional corresponding public key.
+     * @return bool
+     * @throws ApiException
+     */
+    public function checkAddress(string $address, ?string $publicKey = null): bool
+    {
+        return $this->getJson([
+            'q'          => 'checkAddress',
+            'account'    => $address,
+            'public_key' => $publicKey,
         ]);
     }
 

@@ -55,6 +55,12 @@ $arionum->getPendingBalance('address');
 $arionum->getTransactions('address');
 ```
 
+**Get the transactions for a public key**
+
+```php
+$arionum->getTransactionsByPublicKey('address');
+```
+
 **Get the transaction by its id**
 
 ```php
@@ -146,6 +152,18 @@ $arionum->getSanityDetails();
 
 ```php
 $arionum->getNodeInfo();
+```
+
+**Check the validity of a signature**
+
+```php
+$arionum->checkSignature('signature', 'data', 'public_key');
+```
+
+**Check the validity of an address**
+
+```php
+$arionum->checkAddress('address');
 ```
 
 ## Change log

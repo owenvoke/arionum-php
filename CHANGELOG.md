@@ -4,6 +4,17 @@ All notable changes to `arionum-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
+## [Unreleased]
+
+## [v2.2.0] - 2018-11-05
+
+### Added
+- Add the `checkSignature` method ([#11](https://github.com/pxgamer/arionum-php/issues/11))
+- Add new helper generation methods for the `Transaction` class ([#10](https://github.com/pxgamer/arionum-php/issues/10))
+- Add the `checkAddress` method ([#17](https://github.com/pxgamer/arionum-php/issues/17))
+- Add the `getTransactionsByPublicKey` method ([#9](https://github.com/pxgamer/arionum-php/issues/9))
+- Add the `getBalanceByAlias` and `getBalanceByPublicKey` methods ([#8](https://github.com/pxgamer/arionum-php/issues/8))
+
 ## [v2.1.0] - 2018-10-13
 
 ### Added
@@ -64,7 +75,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...develop
+[Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.2.0]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...v2.0.0
 [v1.4.0]: https://github.com/pxgamer/arionum-php/compare/v1.3.0...v1.4.0

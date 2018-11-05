@@ -24,6 +24,7 @@ class OtherTest extends TestCase
     {
         $transaction = new Transaction();
         $transaction->setValue(1.0);
+        $transaction->setFee(1.0);
         $transaction->setDestinationAddress(self::TEST_ADDRESS);
         $transaction->setPublicKey(self::TEST_SEND_KEY1);
         $transaction->setSignature('');
