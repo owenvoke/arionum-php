@@ -86,6 +86,36 @@ final class Arionum
     }
 
     /**
+     * Retrieve the balance of a specified alias.
+     *
+     * @param string $alias
+     * @return string
+     * @throws ApiException
+     */
+    public function getBalanceByAlias(string $alias): string
+    {
+        return $this->getJson([
+            'q'     => 'getBalance',
+            'alias' => $alias,
+        ]);
+    }
+
+    /**
+     * Retrieve the balance of a specified public key.
+     *
+     * @param string $publicKey
+     * @return string
+     * @throws ApiException
+     */
+    public function getBalanceByPublicKey(string $publicKey): string
+    {
+        return $this->getJson([
+            'q'          => 'getBalance',
+            'public_key' => $publicKey,
+        ]);
+    }
+
+    /**
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
      * @param string $address
