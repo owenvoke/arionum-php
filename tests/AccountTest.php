@@ -35,6 +35,28 @@ class AccountTest extends TestCase
      * @test
      * @throws ApiException
      */
+    public function itGetsTheBalanceForATestAlias()
+    {
+        $data = $this->arionum->getBalanceByAlias('PXGAMER');
+        $this->assertInternalType('string', $data);
+        $this->assertTrue(is_numeric($data));
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
+    public function itGetsTheBalanceForATestPublicKey()
+    {
+        $data = $this->arionum->getBalanceByPublicKey(self::TEST_PUBLIC_KEY);
+        $this->assertInternalType('string', $data);
+        $this->assertTrue(is_numeric($data));
+    }
+
+    /**
+     * @test
+     * @throws ApiException
+     */
     public function itGetsThePendingBalanceForATestAddress()
     {
         $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
