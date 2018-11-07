@@ -13,33 +13,34 @@ class BlockTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheCurrentBlock()
+    public function itGetsTheCurrentBlock(): void
     {
         $data = $this->arionum->getCurrentBlock();
-        $this->assertInstanceOf(\stdClass::class, $data);
         $this->assertObjectHasAttribute('id', $data);
         $this->assertObjectHasAttribute('signature', $data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsABlockByItsHeight()
+    public function itGetsABlockByItsHeight(): void
     {
         $data = $this->arionum->getBlock(1);
-        $this->assertInstanceOf(\stdClass::class, $data);
         $this->assertObjectHasAttribute('id', $data);
         $this->assertObjectHasAttribute('signature', $data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheTransactionsForASpecificBlock()
+    public function itGetsTheTransactionsForASpecificBlock(): void
     {
         $data = $this->arionum->getBlockTransactions(self::TEST_BLOCK_ID);
         $this->assertInternalType('array', $data);

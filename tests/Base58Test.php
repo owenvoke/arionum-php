@@ -12,12 +12,12 @@ class Base58Test extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsABase58ValueForInputData()
+    public function itGetsABase58ValueForInputData(): void
     {
         $data = $this->arionum->getBase58(self::INPUT_DATA);
-        $this->assertInternalType('string', $data);
         $this->assertEquals(self::OUTPUT_DATA, $data);
     }
 }

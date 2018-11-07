@@ -17,10 +17,11 @@ class OtherTest extends TestCase
      * This should never have enough funds.
      *
      * @test
+     * @return void
      * @expectedException \pxgamer\Arionum\ApiException
      * @expectedExceptionMessage Not enough funds
      */
-    public function itThrowsAnExceptionWhenSendingATransactionFromAnEmptyAccount()
+    public function itThrowsAnExceptionWhenSendingATransactionFromAnEmptyAccount(): void
     {
         $transaction = new Transaction();
         $transaction->setValue(1.0);
@@ -38,23 +39,23 @@ class OtherTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsARandomlyGeneratedNumber()
+    public function itGetsARandomlyGeneratedNumber(): void
     {
         $data = $this->arionum->getRandomNumber(1, 1, 100, self::TEST_NODE);
-        $this->assertInternalType('int', $data);
         $this->assertEquals(self::TEST_RANDOM_NUMBER, $data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsAListOfMasternodes()
+    public function itGetsAListOfMasternodes(): void
     {
         $data = $this->arionum->getMasternodes();
-        $this->assertInternalType('array', $data);
         $this->assertNotEmpty($data);
     }
 }

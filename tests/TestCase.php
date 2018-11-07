@@ -15,15 +15,11 @@ class TestCase extends BaseTestCase
     protected const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
     // phpcs:enable
 
-    /**
-     * @var Arionum
-     */
+    /** @var Arionum */
     protected $arionum;
 
-    /**
-     *
-     */
-    public function setUp()
+    /** @return void */
+    public function setUp(): void
     {
         $this->arionum = new Arionum(self::TEST_NODE);
     }
