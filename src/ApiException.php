@@ -7,8 +7,4 @@ namespace pxgamer\Arionum;
  */
 class ApiException extends \Exception
 {
-    /**
-     * @var string
-     */
-    protected $message = 'An unknown API error occurred.';
 }
