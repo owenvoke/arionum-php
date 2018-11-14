@@ -467,6 +467,6 @@ final class Arionum
             return $data->data;
         }
 
-        throw new ApiException($data->data);
+        throw new ApiException($data->data ?? 'An unknown API error occurred.');
     }
 }
