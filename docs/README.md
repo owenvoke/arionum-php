@@ -2,4 +2,4 @@
 
 ## Contents
 
-- [General Usage](general-usage.md)
+- [General Usage](usage.md)
