@@ -2,26 +2,26 @@ dist: trusty
 language: php
 
 php:
-  - 7.1.18
-  - 7.2
-  - 7.3
-  - nightly
+- 7.1.18
+- 7.2
+- 7.3
+- nightly
 
 matrix:
   allow_failures:
-    - php: nightly
+  - php: nightly
 
 ## Cache composer
 cache:
   directories:
-    - $HOME/.composer/cache
+  - $HOME/.composer/cache
 
 before_script:
-  - travis_retry composer update --no-interaction --prefer-dist
+- travis_retry composer update --no-interaction --prefer-dist
 
 script:
-  - vendor/bin/phpcs --standard=psr2 src/
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+- vendor/bin/phpcs --standard=psr2 src/
+- vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
