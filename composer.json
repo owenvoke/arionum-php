@@ -4,7 +4,7 @@
     "description": "An API wrapper for the Arionum cryptocurrency node.",
     "license": "MIT",
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
