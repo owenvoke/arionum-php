@@ -19,7 +19,7 @@ $ composer require pxgamer/arionum-php
 
 ## Usage
 
-Please see the [usage docs](docs/usage.md) directory for information on using this library.
+Please see the [usage docs](docs/README.md) directory for information on using this library.
 
 ## Change log
 
