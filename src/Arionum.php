@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum;
 
 use GuzzleHttp\Client;
@@ -10,22 +12,14 @@ use function GuzzleHttp\json_decode;
  */
 final class Arionum
 {
-    /**
-     * The request endpoint for API calls.
-     */
+    /** The request endpoint for API calls. */
     public const API_ENDPOINT = '/api.php';
-    /**
-     * The API status code for a successful response.
-     */
+    /** The API status code for a successful response. */
     public const API_STATUS_OK = 'ok';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $nodeAddress;
-    /**
-     * @var Client
-     */
+    /** @var Client */
     private $client;
 
     /**
@@ -43,6 +37,7 @@ final class Arionum
     /**
      * Retrieve the address for a specified public key.
      *
+     * @api
      * @param string $publicKey
      * @return string
      * @throws ApiException
@@ -58,6 +53,7 @@ final class Arionum
     /**
      * Convert a string to Base58.
      *
+     * @api
      * @param string $data
      * @return string
      * @throws ApiException
@@ -73,6 +69,7 @@ final class Arionum
     /**
      * Retrieve the balance of a specified address.
      *
+     * @api
      * @param string $address
      * @return string
      * @throws ApiException
@@ -88,6 +85,7 @@ final class Arionum
     /**
      * Retrieve the balance of a specified alias.
      *
+     * @api
      * @param string $alias
      * @return string
      * @throws ApiException
@@ -103,6 +101,7 @@ final class Arionum
     /**
      * Retrieve the balance of a specified public key.
      *
+     * @api
      * @param string $publicKey
      * @return string
      * @throws ApiException
@@ -118,6 +117,7 @@ final class Arionum
     /**
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
+     * @api
      * @param string $address
      * @return string
      * @throws ApiException
@@ -133,6 +133,7 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified address.
      *
+     * @api
      * @param string $address
      * @param int    $limit
      * @return \stdClass[]
@@ -150,6 +151,7 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified public key.
      *
+     * @api
      * @param string $publicKey
      * @param int    $limit
      * @return \stdClass[]
@@ -167,6 +169,7 @@ final class Arionum
     /**
      * Retrieve a specified transaction by its id.
      *
+     * @api
      * @param string $transactionId
      * @return \stdClass
      * @throws ApiException
@@ -182,6 +185,7 @@ final class Arionum
     /**
      * Retrieve the public key of a specified address.
      *
+     * @api
      * @param string $address
      * @return string
      * @throws ApiException
@@ -197,6 +201,7 @@ final class Arionum
     /**
      * Generate a new public/private key pair and return these with the address.
      *
+     * @api
      * @return \stdClass
      * @throws ApiException
      */
@@ -210,6 +215,7 @@ final class Arionum
     /**
      * Retrieve the current block as an object.
      *
+     * @api
      * @return \stdClass
      * @throws ApiException
      */
@@ -223,6 +229,7 @@ final class Arionum
     /**
      * Retrieve a block by its height.
      *
+     * @api
      * @param int $height
      * @return \stdClass
      * @throws ApiException
@@ -238,6 +245,7 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified block.
      *
+     * @api
      * @param string $blockId
      * @return \stdClass[]
      * @throws ApiException
@@ -253,6 +261,7 @@ final class Arionum
     /**
      * Retrieve the version of the node.
      *
+     * @api
      * @return string
      * @throws ApiException
      */
@@ -266,6 +275,7 @@ final class Arionum
     /**
      * Send a transaction.
      *
+     * @api
      * @param Transaction $transaction
      * @return string
      * @throws ApiException
@@ -282,6 +292,7 @@ final class Arionum
     /**
      * Retrieve the number of transactions in the mempool.
      *
+     * @api
      * @return int
      * @throws ApiException
      */
@@ -295,6 +306,7 @@ final class Arionum
     /**
      * Retrieve a random number based on a specified block.
      *
+     * @api
      * @param int         $height
      * @param int         $minimum
      * @param int         $maximum
@@ -316,6 +328,7 @@ final class Arionum
     /**
      * Check that a signature is valid against a public key.
      *
+     * @api
      * @param string $signature
      * @param string $data
      * @param string $publicKey
@@ -335,6 +348,7 @@ final class Arionum
     /**
      * Retrieve a list of registered masternodes on the network.
      *
+     * @api
      * @return array
      * @throws ApiException
      */
@@ -348,6 +362,7 @@ final class Arionum
     /**
      * Retrieve the alias for an account by it's address.
      *
+     * @api
      * @param string $address
      * @return string
      * @throws ApiException
@@ -363,6 +378,7 @@ final class Arionum
     /**
      * Retrieve details about the nodes sanity process.
      *
+     * @api
      * @return \stdClass
      * @throws ApiException
      */
@@ -376,6 +392,7 @@ final class Arionum
     /**
      * Retrieve details about the node.
      *
+     * @api
      * @return \stdClass
      * @throws ApiException
      */
@@ -390,6 +407,7 @@ final class Arionum
      * Check that an address is valid.
      * Optionally validate it against the corresponding public key.
      *
+     * @api
      * @param string      $address
      * @param string|null $publicKey An optional corresponding public key.
      * @return bool
@@ -405,6 +423,7 @@ final class Arionum
     }
 
     /**
+     * @api
      * @return string
      */
     public function getNodeAddress(): string
@@ -421,6 +440,7 @@ final class Arionum
     }
 
     /**
+     * @internal
      * @param array $query
      * @return mixed
      * @throws ApiException
@@ -436,6 +456,7 @@ final class Arionum
     }
 
     /**
+     * @internal
      * @param string $json
      * @return mixed
      * @throws ApiException
@@ -448,6 +469,6 @@ final class Arionum
             return $data->data;
         }
 
-        throw new ApiException($data->data);
+        throw new ApiException($data->data ?? 'An unknown API error occurred.');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum;
 
 /**
@@ -9,8 +11,9 @@ class NodeTest extends TestCase
 {
     /**
      * @test
+     * @return void
      */
-    public function itGetsTheNodeAddress()
+    public function itGetsTheNodeAddress(): void
     {
         $data = $this->arionum->getNodeAddress();
         $this->assertEquals(self::TEST_NODE, $data);
@@ -18,36 +21,37 @@ class NodeTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheVersionForTheCurrentNode()
+    public function itGetsTheVersionForTheCurrentNode(): void
     {
         $data = $this->arionum->getNodeVersion();
-        $this->assertInternalType('string', $data);
+        $this->assertNotEmpty($data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheSanityDetailsForTheCurrentNode()
+    public function itGetsTheSanityDetailsForTheCurrentNode(): void
     {
         $data = $this->arionum->getSanityDetails();
-        $this->assertInstanceOf(\stdClass::class, $data);
 
         $this->assertInternalType('bool', $data->sanity_running);
-        $this->assertTrue(is_numeric($data->last_sanity));
+        $this->assertInternalType('numeric', $data->last_sanity);
         $this->assertInternalType('bool', $data->sanity_sync);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheNodeInfoForTheCurrentNode()
+    public function itGetsTheNodeInfoForTheCurrentNode(): void
     {
         $data = $this->arionum->getNodeInfo();
-        $this->assertInstanceOf(\stdClass::class, $data);
 
         $this->assertInternalType('string', $data->hostname);
         $this->assertInternalType('string', $data->version);

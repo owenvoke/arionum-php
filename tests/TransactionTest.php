@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum;
 
 /**
@@ -15,32 +17,33 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsATransactionByItsId()
+    public function itGetsATransactionByItsId(): void
     {
         $data = $this->arionum->getTransaction(self::TEST_TRANSACTION_ID);
-        $this->assertInstanceOf(\stdClass::class, $data);
         $this->assertObjectHasAttribute('version', $data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsTheNumberOfTransactionsInTheMempool()
+    public function itGetsTheNumberOfTransactionsInTheMempool(): void
     {
         $data = $this->arionum->getMempoolSize();
-        $this->assertInternalType('int', $data);
+        $this->assertNotEmpty($data);
     }
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnAliasSendTransaction()
+    public function itCanGenerateAnAliasSendTransaction(): void
     {
         $data = Transaction::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ALIAS, $data->dst);
         $this->assertEquals(1.0, $data->val);
         $this->assertEquals(Transaction::VERSION_ALIAS_SEND, $data->version);
@@ -48,11 +51,11 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnAliasSetTransaction()
+    public function itCanGenerateAnAliasSetTransaction(): void
     {
         $data = Transaction::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(self::TEST_ALIAS, $data->message);
         $this->assertEquals(Transaction::VERSION_ALIAS_SET, $data->version);
@@ -61,11 +64,11 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnMasternodeCreateTransaction()
+    public function itCanGenerateAnMasternodeCreateTransaction(): void
     {
         $data = Transaction::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(self::TEST_IP, $data->message);
         $this->assertEquals(Transaction::VERSION_MASTERNODE_CREATE, $data->version);
@@ -75,11 +78,11 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnMasternodePauseTransaction()
+    public function itCanGenerateAnMasternodePauseTransaction(): void
     {
         $data = Transaction::makeMasternodePauseInstance(self::TEST_ADDRESS);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(Transaction::VERSION_MASTERNODE_PAUSE, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);
@@ -88,11 +91,11 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnMasternodeResumeTransaction()
+    public function itCanGenerateAnMasternodeResumeTransaction(): void
     {
         $data = Transaction::makeMasternodeResumeInstance(self::TEST_ADDRESS);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(Transaction::VERSION_MASTERNODE_RESUME, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);
@@ -101,11 +104,11 @@ class TransactionTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function itCanGenerateAnMasternodeReleaseTransaction()
+    public function itCanGenerateAnMasternodeReleaseTransaction(): void
     {
         $data = Transaction::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
-        $this->assertInstanceOf(Transaction::class, $data);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(Transaction::VERSION_MASTERNODE_RELEASE, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);

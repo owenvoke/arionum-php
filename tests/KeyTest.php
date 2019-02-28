@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum;
 
 /**
@@ -14,40 +16,42 @@ class KeyTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @expectedException \pxgamer\Arionum\ApiException
      */
-    public function itThrowsAnExceptionOnInvalidPublicKey()
+    public function itThrowsAnExceptionOnInvalidPublicKey(): void
     {
         $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsAnAddressFromAPublicKey()
+    public function itGetsAnAddressFromAPublicKey(): void
     {
         $data = $this->arionum->getAddress(self::TEST_PUBLIC_KEY);
-        $this->assertInternalType('string', $data);
         $this->assertEquals(self::TEST_ADDRESS, $data);
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itGetsThePublicKeyForAnAddress()
+    public function itGetsThePublicKeyForAnAddress(): void
     {
         $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
-        $this->assertInternalType('string', $data);
-        $this->assertTrue(($data === self::TEST_PUBLIC_KEY || $data === ''));
+        $this->assertTrue($data === self::TEST_PUBLIC_KEY || $data === '');
     }
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itChecksThatASignatureIsValid()
+    public function itChecksThatASignatureIsValid(): void
     {
         $data = $this->arionum->checkSignature(
             self::TEST_SIGNATURE,
@@ -60,9 +64,10 @@ class KeyTest extends TestCase
 
     /**
      * @test
+     * @return void
      * @throws ApiException
      */
-    public function itChecksThatASignatureIsInvalid()
+    public function itChecksThatASignatureIsInvalid(): void
     {
         $data = $this->arionum->checkSignature(
             self::TEST_SIGNATURE,

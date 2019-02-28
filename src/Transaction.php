@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum;
 
 /**
@@ -86,6 +88,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for sending to an alias.
      *
+     * @api
      * @param string $alias
      * @param float  $value
      * @param string $message
@@ -106,6 +109,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for setting an alias.
      *
+     * @api
      * @param string $address
      * @param string $alias
      * @return self
@@ -126,6 +130,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for creating a masternode.
      *
+     * @api
      * @param string $ipAddress
      * @param string $address
      * @return self
@@ -146,6 +151,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for pausing a masternode.
      *
+     * @api
      * @param string $address
      * @return self
      */
@@ -160,6 +166,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for resuming a masternode.
      *
+     * @api
      * @param string $address
      * @return self
      */
@@ -174,6 +181,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for releasing a masternode.
      *
+     * @api
      * @param string $address
      * @return self
      */
@@ -286,6 +294,8 @@ final class Transaction
 
     /**
      * Set the default fee and value for masternode commands.
+     *
+     * @internal
      * @param string $address
      * @param self   $transaction
      * @return self
