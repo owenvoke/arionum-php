@@ -6,6 +6,17 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v2.3.0] - 2019-02-28
+
+### Changed
+- Move documentation from the README to a `docs` directory ([#14](https://github.com/pxgamer/arionum-php/issues/14))
+- Update source files to use strict typing ([15705d4](https://github.com/pxgamer/arionum-php/commit/15705d4c534f97af20812d279f5ddd57ab1dc7f4))
+- Update test files to use strict typing ([b49b3d0](https://github.com/pxgamer/arionum-php/commit/b49b3d0fe15b618ce6c3f1595c4066f80f78a4ae))
+
+### Removed
+- Remove PHP 7.1 support ([c90e3dd](https://github.com/pxgamer/arionum-php/commit/c90e3ddec32bf830e099a1416f2c5af329247497))
+- Remove PHPUnit 6 support ([e35f0a8](https://github.com/pxgamer/arionum-php/commit/e35f0a84d4f415aa46e1722d43bdaf48a09fc6da))
+
 ## [v2.2.0] - 2018-11-05
 
 ### Added
@@ -76,6 +87,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.3.0]: https://github.com/pxgamer/arionum-php/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/pxgamer/arionum-php/compare/v1.4.0...v2.0.0
