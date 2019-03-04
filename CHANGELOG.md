@@ -6,6 +6,11 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v2.4.0] - 2019-03-04
+
+### Added
+- Add support for PHPUnit 8 ([#20](https://github.com/pxgamer/arionum-php/issues/20))
+
 ## [v2.3.0] - 2019-02-28
 
 ### Changed
@@ -87,6 +92,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.4.0]: https://github.com/pxgamer/arionum-php/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/pxgamer/arionum-php/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/pxgamer/arionum-php/compare/v2.0.0...v2.1.0
