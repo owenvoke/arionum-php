@@ -17,10 +17,12 @@ class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @expectedException \pxgamer\Arionum\ApiException
+     * @throws ApiException
      */
     public function itThrowsAnExceptionOnInvalidPublicKey(): void
     {
+        $this->expectException(ApiException::class);
+
         $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
 
