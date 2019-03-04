@@ -30,7 +30,7 @@ class AccountTest extends TestCase
     public function itGetsTheBalanceForATestAddress(): void
     {
         $data = $this->arionum->getBalance(self::TEST_ADDRESS);
-        $this->assertInternalType('numeric', $data);
+        $this->assertIsNumeric($data);
     }
 
     /**
@@ -41,7 +41,7 @@ class AccountTest extends TestCase
     public function itGetsTheBalanceForATestAlias(): void
     {
         $data = $this->arionum->getBalanceByAlias('PXGAMER');
-        $this->assertInternalType('numeric', $data);
+        $this->assertIsNumeric($data);
     }
 
     /**
@@ -52,7 +52,7 @@ class AccountTest extends TestCase
     public function itGetsTheBalanceForATestPublicKey(): void
     {
         $data = $this->arionum->getBalanceByPublicKey(self::TEST_PUBLIC_KEY);
-        $this->assertInternalType('numeric', $data);
+        $this->assertIsNumeric($data);
     }
 
     /**
@@ -63,7 +63,7 @@ class AccountTest extends TestCase
     public function itGetsThePendingBalanceForATestAddress(): void
     {
         $data = $this->arionum->getPendingBalance(self::TEST_ADDRESS);
-        $this->assertInternalType('numeric', $data);
+        $this->assertIsNumeric($data);
     }
 
     /**
@@ -74,7 +74,7 @@ class AccountTest extends TestCase
     public function itGetsTheTransactionsForATestAddress(): void
     {
         $data = $this->arionum->getTransactions(self::TEST_ADDRESS);
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $this->assertNotEmpty($data);
     }
 
@@ -86,7 +86,7 @@ class AccountTest extends TestCase
     public function itGetsTheTransactionsForATestPublicKey(): void
     {
         $data = $this->arionum->getTransactionsByPublicKey(self::TEST_PUBLIC_KEY);
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $this->assertNotEmpty($data);
     }
 
