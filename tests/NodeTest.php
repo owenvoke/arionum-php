@@ -39,9 +39,9 @@ class NodeTest extends TestCase
     {
         $data = $this->arionum->getSanityDetails();
 
-        $this->assertInternalType('bool', $data->sanity_running);
-        $this->assertInternalType('numeric', $data->last_sanity);
-        $this->assertInternalType('bool', $data->sanity_sync);
+        $this->assertIsBool($data->sanity_running);
+        $this->assertIsNumeric($data->last_sanity);
+        $this->assertIsBool($data->sanity_sync);
     }
 
     /**
@@ -53,12 +53,12 @@ class NodeTest extends TestCase
     {
         $data = $this->arionum->getNodeInfo();
 
-        $this->assertInternalType('string', $data->hostname);
-        $this->assertInternalType('string', $data->version);
-        $this->assertInternalType('string', $data->dbversion);
-        $this->assertInternalType('integer', $data->accounts);
-        $this->assertInternalType('integer', $data->transactions);
-        $this->assertInternalType('integer', $data->mempool);
-        $this->assertInternalType('integer', $data->masternodes);
+        $this->assertIsString($data->hostname);
+        $this->assertIsString($data->version);
+        $this->assertIsString($data->dbversion);
+        $this->assertIsInt($data->accounts);
+        $this->assertIsInt($data->transactions);
+        $this->assertIsInt($data->mempool);
+        $this->assertIsInt($data->masternodes);
     }
 }

@@ -20,11 +20,13 @@ class OtherTest extends TestCase
      *
      * @test
      * @return void
-     * @expectedException \pxgamer\Arionum\ApiException
-     * @expectedExceptionMessage Not enough funds
+     * @throws ApiException
      */
     public function itThrowsAnExceptionWhenSendingATransactionFromAnEmptyAccount(): void
     {
+        $this->expectException(ApiException::class);
+        $this->expectExceptionMessage('Not enough funds');
+
         $transaction = new Transaction();
         $transaction->setValue(1.0);
         $transaction->setFee(1.0);

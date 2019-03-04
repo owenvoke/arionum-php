@@ -45,7 +45,7 @@ class BlockTest extends TestCase
     public function itGetsTheTransactionsForASpecificBlock(): void
     {
         $data = $this->arionum->getBlockTransactions(self::TEST_BLOCK_ID);
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $this->assertNotEmpty($data);
     }
 }
