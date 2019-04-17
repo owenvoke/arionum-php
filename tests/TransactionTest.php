@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Transaction\Version;
+
 final class TransactionTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
@@ -43,7 +45,7 @@ final class TransactionTest extends TestCase
         $data = Transaction::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
         $this->assertEquals(self::TEST_ALIAS, $data->dst);
         $this->assertEquals(1.0, $data->val);
-        $this->assertEquals(Transaction::VERSION_ALIAS_SEND, $data->version);
+        $this->assertEquals(Version::ALIAS_SEND, $data->version);
     }
 
     /**
@@ -55,7 +57,7 @@ final class TransactionTest extends TestCase
         $data = Transaction::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(self::TEST_ALIAS, $data->message);
-        $this->assertEquals(Transaction::VERSION_ALIAS_SET, $data->version);
+        $this->assertEquals(Version::ALIAS_SET, $data->version);
         $this->assertEquals(Transaction::VALUE_ALIAS_SET, $data->val);
     }
 
@@ -68,7 +70,7 @@ final class TransactionTest extends TestCase
         $data = Transaction::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
         $this->assertEquals(self::TEST_IP, $data->message);
-        $this->assertEquals(Transaction::VERSION_MASTERNODE_CREATE, $data->version);
+        $this->assertEquals(Version::MASTERNODE_CREATE, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_CREATE, $data->val);
         $this->assertEquals(Transaction::FEE_MASTERNODE_CREATE, $data->fee);
     }
@@ -81,7 +83,7 @@ final class TransactionTest extends TestCase
     {
         $data = Transaction::makeMasternodePauseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
-        $this->assertEquals(Transaction::VERSION_MASTERNODE_PAUSE, $data->version);
+        $this->assertEquals(Version::MASTERNODE_PAUSE, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->fee);
     }
@@ -94,7 +96,7 @@ final class TransactionTest extends TestCase
     {
         $data = Transaction::makeMasternodeResumeInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
-        $this->assertEquals(Transaction::VERSION_MASTERNODE_RESUME, $data->version);
+        $this->assertEquals(Version::MASTERNODE_RESUME, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->fee);
     }
@@ -107,7 +109,7 @@ final class TransactionTest extends TestCase
     {
         $data = Transaction::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->dst);
-        $this->assertEquals(Transaction::VERSION_MASTERNODE_RELEASE, $data->version);
+        $this->assertEquals(Version::MASTERNODE_RELEASE, $data->version);
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->val);
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->fee);
     }
