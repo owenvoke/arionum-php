@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace pxgamer\Arionum;
 
 use GuzzleHttp\Client;
+use stdClass;
 use function GuzzleHttp\json_decode;
 
 /**
@@ -37,15 +38,15 @@ final class Arionum
     /**
      * Retrieve the address for a specified public key.
      *
-     * @api
      * @param string $publicKey
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getAddress(string $publicKey): string
     {
         return $this->getJson([
-            'q'          => 'getAddress',
+            'q' => 'getAddress',
             'public_key' => $publicKey,
         ]);
     }
@@ -53,15 +54,15 @@ final class Arionum
     /**
      * Convert a string to Base58.
      *
-     * @api
      * @param string $data
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getBase58(string $data): string
     {
         return $this->getJson([
-            'q'    => 'base58',
+            'q' => 'base58',
             'data' => $data,
         ]);
     }
@@ -69,15 +70,15 @@ final class Arionum
     /**
      * Retrieve the balance of a specified address.
      *
-     * @api
      * @param string $address
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getBalance(string $address): string
     {
         return $this->getJson([
-            'q'       => 'getBalance',
+            'q' => 'getBalance',
             'account' => $address,
         ]);
     }
@@ -85,15 +86,15 @@ final class Arionum
     /**
      * Retrieve the balance of a specified alias.
      *
-     * @api
      * @param string $alias
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getBalanceByAlias(string $alias): string
     {
         return $this->getJson([
-            'q'     => 'getBalance',
+            'q' => 'getBalance',
             'alias' => $alias,
         ]);
     }
@@ -101,15 +102,15 @@ final class Arionum
     /**
      * Retrieve the balance of a specified public key.
      *
-     * @api
      * @param string $publicKey
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getBalanceByPublicKey(string $publicKey): string
     {
         return $this->getJson([
-            'q'          => 'getBalance',
+            'q' => 'getBalance',
             'public_key' => $publicKey,
         ]);
     }
@@ -117,15 +118,15 @@ final class Arionum
     /**
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
-     * @api
      * @param string $address
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getPendingBalance(string $address): string
     {
         return $this->getJson([
-            'q'       => 'getPendingBalance',
+            'q' => 'getPendingBalance',
             'account' => $address,
         ]);
     }
@@ -133,51 +134,51 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified address.
      *
-     * @api
      * @param string $address
      * @param int    $limit
-     * @return \stdClass[]
+     * @return stdClass[]
      * @throws ApiException
+     * @api
      */
     public function getTransactions(string $address, int $limit = 100): array
     {
         return $this->getJson([
-            'q'       => 'getTransactions',
+            'q' => 'getTransactions',
             'account' => $address,
-            'limit'   => $limit,
+            'limit' => $limit,
         ]);
     }
 
     /**
      * Retrieve the transactions of a specified public key.
      *
-     * @api
      * @param string $publicKey
      * @param int    $limit
-     * @return \stdClass[]
+     * @return stdClass[]
      * @throws ApiException
+     * @api
      */
     public function getTransactionsByPublicKey(string $publicKey, int $limit = 100): array
     {
         return $this->getJson([
-            'q'          => 'getTransactions',
+            'q' => 'getTransactions',
             'public_key' => $publicKey,
-            'limit'      => $limit,
+            'limit' => $limit,
         ]);
     }
 
     /**
      * Retrieve a specified transaction by its id.
      *
-     * @api
      * @param string $transactionId
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function getTransaction(string $transactionId): \stdClass
+    public function getTransaction(string $transactionId): stdClass
     {
         return $this->getJson([
-            'q'           => 'getTransaction',
+            'q' => 'getTransaction',
             'transaction' => $transactionId,
         ]);
     }
@@ -185,15 +186,15 @@ final class Arionum
     /**
      * Retrieve the public key of a specified address.
      *
-     * @api
      * @param string $address
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getPublicKey(string $address): string
     {
         return $this->getJson([
-            'q'       => 'getPublicKey',
+            'q' => 'getPublicKey',
             'account' => $address,
         ]);
     }
@@ -201,11 +202,11 @@ final class Arionum
     /**
      * Generate a new public/private key pair and return these with the address.
      *
-     * @api
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function generateAccount(): \stdClass
+    public function generateAccount(): stdClass
     {
         return $this->getJson([
             'q' => 'generateAccount',
@@ -215,11 +216,11 @@ final class Arionum
     /**
      * Retrieve the current block as an object.
      *
-     * @api
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function getCurrentBlock(): \stdClass
+    public function getCurrentBlock(): stdClass
     {
         return $this->getJson([
             'q' => 'currentBlock',
@@ -229,15 +230,15 @@ final class Arionum
     /**
      * Retrieve a block by its height.
      *
-     * @api
      * @param int $height
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function getBlock(int $height): \stdClass
+    public function getBlock(int $height): stdClass
     {
         return $this->getJson([
-            'q'      => 'getBlock',
+            'q' => 'getBlock',
             'height' => $height,
         ]);
     }
@@ -245,15 +246,15 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified block.
      *
-     * @api
      * @param string $blockId
-     * @return \stdClass[]
+     * @return stdClass[]
      * @throws ApiException
+     * @api
      */
     public function getBlockTransactions(string $blockId): array
     {
         return $this->getJson([
-            'q'     => 'getBlockTransactions',
+            'q' => 'getBlockTransactions',
             'block' => $blockId,
         ]);
     }
@@ -261,9 +262,9 @@ final class Arionum
     /**
      * Retrieve the version of the node.
      *
-     * @api
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getNodeVersion(): string
     {
@@ -275,10 +276,10 @@ final class Arionum
     /**
      * Send a transaction.
      *
-     * @api
      * @param Transaction $transaction
      * @return string
      * @throws ApiException
+     * @api
      */
     public function sendTransaction(Transaction $transaction): string
     {
@@ -292,9 +293,9 @@ final class Arionum
     /**
      * Retrieve the number of transactions in the mempool.
      *
-     * @api
      * @return int
      * @throws ApiException
+     * @api
      */
     public function getMempoolSize(): int
     {
@@ -306,41 +307,41 @@ final class Arionum
     /**
      * Retrieve a random number based on a specified block.
      *
-     * @api
      * @param int         $height
      * @param int         $minimum
      * @param int         $maximum
      * @param string|null $seed
      * @return int
      * @throws ApiException
+     * @api
      */
     public function getRandomNumber(int $height, int $minimum, int $maximum, string $seed = null): int
     {
         return $this->getJson([
-            'q'      => 'randomNumber',
+            'q' => 'randomNumber',
             'height' => $height,
-            'min'    => $minimum,
-            'max'    => $maximum,
-            'seed'   => $seed,
+            'min' => $minimum,
+            'max' => $maximum,
+            'seed' => $seed,
         ]);
     }
 
     /**
      * Check that a signature is valid against a public key.
      *
-     * @api
      * @param string $signature
      * @param string $data
      * @param string $publicKey
      * @return bool
      * @throws ApiException
+     * @api
      */
     public function checkSignature(string $signature, string $data, string $publicKey): bool
     {
         return $this->getJson([
-            'q'          => 'checkSignature',
-            'signature'  => $signature,
-            'data'       => $data,
+            'q' => 'checkSignature',
+            'signature' => $signature,
+            'data' => $data,
             'public_key' => $publicKey,
         ]);
     }
@@ -348,9 +349,9 @@ final class Arionum
     /**
      * Retrieve a list of registered masternodes on the network.
      *
-     * @api
      * @return array
      * @throws ApiException
+     * @api
      */
     public function getMasternodes(): array
     {
@@ -362,15 +363,15 @@ final class Arionum
     /**
      * Retrieve the alias for an account by it's address.
      *
-     * @api
      * @param string $address
      * @return string
      * @throws ApiException
+     * @api
      */
     public function getAlias(string $address): string
     {
         return $this->getJson([
-            'q'       => 'getAlias',
+            'q' => 'getAlias',
             'account' => $address,
         ]);
     }
@@ -378,11 +379,11 @@ final class Arionum
     /**
      * Retrieve details about the nodes sanity process.
      *
-     * @api
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function getSanityDetails(): \stdClass
+    public function getSanityDetails(): stdClass
     {
         return $this->getJson([
             'q' => 'sanity',
@@ -392,11 +393,11 @@ final class Arionum
     /**
      * Retrieve details about the node.
      *
-     * @api
-     * @return \stdClass
+     * @return stdClass
      * @throws ApiException
+     * @api
      */
-    public function getNodeInfo(): \stdClass
+    public function getNodeInfo(): stdClass
     {
         return $this->getJson([
             'q' => 'node-info',
@@ -407,24 +408,24 @@ final class Arionum
      * Check that an address is valid.
      * Optionally validate it against the corresponding public key.
      *
-     * @api
      * @param string      $address
      * @param string|null $publicKey An optional corresponding public key.
      * @return bool
      * @throws ApiException
+     * @api
      */
     public function checkAddress(string $address, ?string $publicKey = null): bool
     {
         return $this->getJson([
-            'q'          => 'checkAddress',
-            'account'    => $address,
+            'q' => 'checkAddress',
+            'account' => $address,
             'public_key' => $publicKey,
         ]);
     }
 
     /**
-     * @api
      * @return string
+     * @api
      */
     public function getNodeAddress(): string
     {
@@ -432,10 +433,10 @@ final class Arionum
     }
 
     /**
-     * @internal
      * @param array $query
      * @return mixed
      * @throws ApiException
+     * @internal
      */
     private function getJson(array $query)
     {
@@ -448,10 +449,10 @@ final class Arionum
     }
 
     /**
-     * @internal
      * @param string $json
      * @return mixed
      * @throws ApiException
+     * @internal
      */
     private function decodeResponse(string $json)
     {
