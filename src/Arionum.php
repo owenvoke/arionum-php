@@ -432,14 +432,6 @@ final class Arionum
     }
 
     /**
-     * @return Client
-     */
-    private function getClient(): Client
-    {
-        return $this->client;
-    }
-
-    /**
      * @internal
      * @param array $query
      * @return mixed
@@ -448,7 +440,7 @@ final class Arionum
     private function getJson(array $query)
     {
         return $this->decodeResponse(
-            $this->getClient()
+            $this->client
                 ->get($this->getNodeAddress().self::API_ENDPOINT, ['query' => $query])
                 ->getBody()
                 ->getContents()
