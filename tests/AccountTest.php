@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-/**
- * Class AccountTest
- */
 class AccountTest extends TestCase
 {
     /**

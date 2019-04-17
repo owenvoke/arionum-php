@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-/**
- * Class BlockTest
- */
 class BlockTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength

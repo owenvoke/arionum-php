@@ -6,9 +6,6 @@ namespace pxgamer\Arionum;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
-/**
- * Class TestCase
- */
 class TestCase extends BaseTestCase
 {
     // phpcs:disable Generic.Files.LineLength

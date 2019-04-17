@@ -8,9 +8,6 @@ use GuzzleHttp\Client;
 use stdClass;
 use function GuzzleHttp\json_decode;
 
-/**
- * Class Arionum
- */
 final class Arionum
 {
     /** The request endpoint for API calls. */

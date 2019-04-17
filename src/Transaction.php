@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-/**
- * Class Transaction
- */
 final class Transaction
 {
     /** @var int The transaction version for sending to an address. */
