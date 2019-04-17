@@ -455,7 +455,7 @@ final class Arionum
      */
     private function decodeResponse(string $json)
     {
-        $data = json_decode($json);
+        $data = json_decode($json, false);
 
         if ($data->status === self::API_STATUS_OK) {
             return $data->data;
