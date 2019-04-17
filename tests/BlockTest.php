@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-class BlockTest extends TestCase
+final class BlockTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
     private const TEST_BLOCK_ID = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';

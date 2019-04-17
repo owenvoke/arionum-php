@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-class NodeTest extends TestCase
+final class NodeTest extends TestCase
 {
     /**
      * @test

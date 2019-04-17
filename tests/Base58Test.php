@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-class Base58Test extends TestCase
+final class Base58Test extends TestCase
 {
     private const INPUT_DATA = 'dataIsHere';
     private const OUTPUT_DATA = '6e6WaupsT6FzH2';
