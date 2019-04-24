@@ -4,22 +4,60 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Transaction\Version;
+
 final class Transaction
 {
-    /** @var int The transaction version for sending to an address. */
-    public const VERSION_STANDARD = 1;
-    /** @var int The transaction version for sending to an alias. */
-    public const VERSION_ALIAS_SEND = 2;
-    /** @var int The transaction version for setting an alias. */
-    public const VERSION_ALIAS_SET = 3;
-    /** @var int The transaction version for creating a masternode. */
-    public const VERSION_MASTERNODE_CREATE = 100;
-    /** @var int The transaction version for pausing a masternode. */
-    public const VERSION_MASTERNODE_PAUSE = 101;
-    /** @var int The transaction version for resuming a masternode. */
-    public const VERSION_MASTERNODE_RESUME = 102;
-    /** @var int The transaction version for releasing a masternode. */
-    public const VERSION_MASTERNODE_RELEASE = 103;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::STANDARD
+     * The transaction version for sending to an address.
+     */
+    public const VERSION_STANDARD = Version::STANDARD;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::ALIAS_SEND
+     * The transaction version for sending to an alias.
+     */
+    public const VERSION_ALIAS_SEND = Version::ALIAS_SEND;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::ALIAS_SET
+     * The transaction version for setting an alias.
+     */
+    public const VERSION_ALIAS_SET = Version::ALIAS_SET;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::MASTERNODE_CREATE
+     * The transaction version for creating a masternode.
+     */
+    public const VERSION_MASTERNODE_CREATE = Version::MASTERNODE_CREATE;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::MASTERNODE_PAUSE
+     * The transaction version for pausing a masternode.
+     */
+    public const VERSION_MASTERNODE_PAUSE = Version::MASTERNODE_PAUSE;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::MASTERNODE_RESUME
+     * The transaction version for resuming a masternode.
+     */
+    public const VERSION_MASTERNODE_RESUME = Version::MASTERNODE_RESUME;
+    /**
+     * @var int
+     * @deprecated
+     * @see Version::MASTERNODE_RELEASE
+     * The transaction version for releasing a masternode.
+     */
+    public const VERSION_MASTERNODE_RELEASE = Version::MASTERNODE_RELEASE;
+
     /** @var int The default value for masternode commands. */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
     /** @var int The default fee for masternode commands. */
@@ -80,22 +118,22 @@ final class Transaction
      * The version of the transaction.
      * @var int
      */
-    public $version = self::VERSION_STANDARD;
+    public $version = Version::STANDARD;
 
     /**
      * Retrieve a pre-populated Transaction instance for sending to an alias.
      *
-     * @api
      * @param string $alias
      * @param float  $value
      * @param string $message
      * @return self
+     * @api
      */
     public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_ALIAS_SEND);
+        $transaction->setVersion(Version::ALIAS_SEND);
         $transaction->setDestinationAddress($alias);
         $transaction->setValue($value);
         $transaction->setMessage($message);
@@ -106,16 +144,16 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for setting an alias.
      *
-     * @api
      * @param string $address
      * @param string $alias
      * @return self
+     * @api
      */
     public static function makeAliasSetInstance(string $address, string $alias): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_ALIAS_SET);
+        $transaction->setVersion(Version::ALIAS_SET);
         $transaction->setDestinationAddress($address);
         $transaction->setValue(self::VALUE_ALIAS_SET);
         $transaction->setFee(self::FEE_ALIAS_SET);
@@ -127,16 +165,16 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for creating a masternode.
      *
-     * @api
      * @param string $ipAddress
      * @param string $address
      * @return self
+     * @api
      */
     public static function makeMasternodeCreateInstance(string $ipAddress, string $address): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_MASTERNODE_CREATE);
+        $transaction->setVersion(Version::MASTERNODE_CREATE);
         $transaction->setDestinationAddress($address);
         $transaction->setValue(self::VALUE_MASTERNODE_CREATE);
         $transaction->setFee(self::FEE_MASTERNODE_CREATE);
@@ -148,45 +186,45 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for pausing a masternode.
      *
-     * @api
      * @param string $address
      * @return self
+     * @api
      */
     public static function makeMasternodePauseInstance(string $address): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_MASTERNODE_PAUSE);
+        $transaction->setVersion(Version::MASTERNODE_PAUSE);
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
      * Retrieve a pre-populated Transaction instance for resuming a masternode.
      *
-     * @api
      * @param string $address
      * @return self
+     * @api
      */
     public static function makeMasternodeResumeInstance(string $address): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_MASTERNODE_RESUME);
+        $transaction->setVersion(Version::MASTERNODE_RESUME);
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
      * Retrieve a pre-populated Transaction instance for releasing a masternode.
      *
-     * @api
      * @param string $address
      * @return self
+     * @api
      */
     public static function makeMasternodeReleaseInstance(string $address): self
     {
         $transaction = new self();
 
-        $transaction->setVersion(self::VERSION_MASTERNODE_RELEASE);
+        $transaction->setVersion(Version::MASTERNODE_RELEASE);
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
@@ -292,10 +330,10 @@ final class Transaction
     /**
      * Set the default fee and value for masternode commands.
      *
-     * @internal
      * @param string $address
      * @param self   $transaction
      * @return self
+     * @internal
      */
     private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): self
     {
