@@ -421,6 +421,22 @@ final class Arionum
     }
 
     /**
+     * Retrieve the asset balance for a specific address.
+     *
+     * @param string $address
+     * @return array
+     * @throws ApiException
+     * @api
+     */
+    public function getAssetBalance(string $address): array
+    {
+        return $this->getJson([
+            'q' => 'assetBalance',
+            'account' => $address,
+        ]);
+    }
+
+    /**
      * @return string
      * @api
      */
