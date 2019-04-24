@@ -147,3 +147,10 @@ $arionum->checkSignature('signature', 'data', 'public_key');
 $arionum->checkAddress('address');
 ```
 
+**Check the asset balances for an address**
+
+> Testnet only at the moment.
+
+```php
+$arionum->getAssetBalance('address');
+```
