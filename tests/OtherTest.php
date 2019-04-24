@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-/**
- * Class OtherTest
- */
-class OtherTest extends TestCase
+final class OtherTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
     private const TEST_SEND_KEY1 = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSD1Hm7fGpQAgh1goGj8G47RmU68i3mP4erGGrJ1LNBzEy4di4jZKA2Z6ee96VxaDMUnzSthyzMSyhqF1DbLwNKPim2';

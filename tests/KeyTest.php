@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-/**
- * Class KeyTest
- */
-class KeyTest extends TestCase
+final class KeyTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
     private const TEST_SIGNATURE = 'AN1rKroKawax5azYrLbasV7VycYAvQXFKrJ69TFYEfmanXwVRrUQTCx5gQ1eVNMgEVzrEz3VzLsfrVVpUYqgB5eT2qsFtaSsw';

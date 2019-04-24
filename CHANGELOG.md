@@ -6,6 +6,15 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v2.5.0] - 2019-04-24
+
+### Added
+- Add a new `Transaction\Version` class for version constants ([#21](https://github.com/pxgamer/arionum-php/pull/21))
+- Add the `getAssetBalance` method ([#23](https://github.com/pxgamer/arionum-php/pull/23))
+
+### Deprecated
+- Deprecate the `VERSION_*` constants on the `Tranasction` class ([#21](https://github.com/pxgamer/arionum-php/pull/21))
+
 ## [v2.4.0] - 2019-03-04
 
 ### Added
@@ -92,6 +101,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.5.0]: https://github.com/pxgamer/arionum-php/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/pxgamer/arionum-php/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/pxgamer/arionum-php/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/pxgamer/arionum-php/compare/v2.1.0...v2.2.0
