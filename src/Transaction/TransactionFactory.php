@@ -166,6 +166,33 @@ final class TransactionFactory
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for creating a market order for an asset.
+     *
+     * @param  string  $assetId
+     * @param  float  $price
+     * @param  float  $assetAmount
+     * @param  int  $orderType
+     * @param  bool  $isCancelable
+     *
+     * @return Transaction
+     */
+    public static function makeAssetMarketInstance(
+        string $assetId,
+        float $price,
+        float $assetAmount,
+        int $orderType,
+        bool $isCancelable
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_MARKET);
+        $transaction->changeMessage(json_encode([$assetId, $price, $assetAmount, $isCancelable, $orderType]));
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /**
      * Set the default fee and value for masternode commands.
      *
      * @param  string  $address
