@@ -193,6 +193,24 @@ final class TransactionFactory
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for cancelling a market order for an asset.
+     *
+     * @param  string  $orderId
+     *
+     * @return Transaction
+     */
+    public static function makeAssetCancelOrderInstance(string $orderId): Transaction
+    {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_CANCEL_ORDER);
+        $transaction->changeMessage($orderId);
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /**
      * Set the default fee and value for masternode commands.
      *
      * @param  string  $address
