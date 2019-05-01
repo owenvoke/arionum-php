@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum\Transaction;
 
+use pxgamer\Arionum\Entity\Asset;
 use pxgamer\Arionum\Models\Transaction;
 
 final class TransactionFactory
@@ -119,6 +120,25 @@ final class TransactionFactory
         $transaction->changeVersion(Version::MASTERNODE_RELEASE);
 
         return self::setMasternodeCommandDefaults($address, $transaction);
+    }
+
+    /**
+     * Retrieve a pre-populated Transaction instance for creating an asset.
+     *
+     * @param  Asset  $asset
+     *
+     * @return Transaction
+     */
+    public static function makeAssetCreateInstance(
+        Asset $asset
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_CREATE);
+        $transaction->changeMessage((string) $asset);
+        $transaction->changeValue(100);
+
+        return $transaction;
     }
 
     /**
