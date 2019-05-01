@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum\Models;
 
+use Exception;
+use RuntimeException;
 use pxgamer\Arionum\Transaction\Version;
+use pxgamer\Arionum\Helpers\EllipticCurve;
+use pxgamer\Arionum\Exceptions\SignatureException;
 
 final class Transaction
 {
@@ -158,6 +162,28 @@ final class Transaction
     public function getVersion(): int
     {
         return $this->version;
+    }
+
+    public function sign(string $privateKey): self
+    {
+        $signatureData = sprintf(
+            '%s-%s-%s-%s-%s-%s-%s',
+            $this->getValue(),
+            $this->getFee(),
+            $this->getDestinationAddress(),
+            $this->getMessage(),
+            $this->getVersion(),
+            $this->getPublicKey(),
+            $this->getDate()
+        );
+
+        try {
+            $this->signature = EllipticCurve::sign($signatureData, $privateKey);
+        } catch (Exception $e) {
+            throw SignatureException::unableToGenerateSignature();
+        }
+
+        return $this;
     }
 
     /** @return array<string, float|int|string|null> */
