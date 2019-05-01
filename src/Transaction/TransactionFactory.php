@@ -142,6 +142,30 @@ final class TransactionFactory
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for sending an asset.
+     *
+     * @param  string  $assetId
+     * @param  string  $destination
+     * @param  float  $value
+     *
+     * @return Transaction
+     */
+    public static function makeAssetSendInstance(
+        string $assetId,
+        string $destination,
+        float $value
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeDestinationAddress($destination);
+        $transaction->changeVersion(Version::ASSET_SEND);
+        $transaction->changeMessage(json_encode([$assetId, $value]));
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /**
      * Set the default fee and value for masternode commands.
      *
      * @param  string  $address
