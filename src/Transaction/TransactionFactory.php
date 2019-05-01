@@ -211,6 +211,24 @@ final class TransactionFactory
     }
 
     /**
+     * Retrieve a pre-populated Transaction instance for sending dividends for an asset.
+     *
+     * @param  float  $value
+     *
+     * @return Transaction
+     */
+    public static function makeAssetDividendsInstance(float $value): Transaction
+    {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_DIVIDENDS);
+        $transaction->changeMessage('');
+        $transaction->changeValue($value);
+
+        return $transaction;
+    }
+
+    /**
      * Set the default fee and value for masternode commands.
      *
      * @param  string  $address
