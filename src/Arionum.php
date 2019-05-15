@@ -26,7 +26,7 @@ final class Arionum
      * @param string      $nodeAddress
      * @param Client|null $client
      */
-    public function __construct(string $nodeAddress, Client $client = null)
+    public function __construct(string $nodeAddress, ?Client $client = null)
     {
         $this->nodeAddress = $nodeAddress;
         $this->client = $client ?? new Client();
@@ -312,7 +312,7 @@ final class Arionum
      * @throws ApiException
      * @api
      */
-    public function getRandomNumber(int $height, int $minimum, int $maximum, string $seed = null): int
+    public function getRandomNumber(int $height, int $minimum, int $maximum, ?string $seed = null): int
     {
         return $this->getJson([
             'q' => 'randomNumber',
