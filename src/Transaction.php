@@ -9,66 +9,59 @@ use pxgamer\Arionum\Transaction\Version;
 final class Transaction
 {
     /**
-     * @var int
      * @deprecated
      * @see Version::STANDARD
      * The transaction version for sending to an address.
      */
     public const VERSION_STANDARD = Version::STANDARD;
     /**
-     * @var int
      * @deprecated
      * @see Version::ALIAS_SEND
      * The transaction version for sending to an alias.
      */
     public const VERSION_ALIAS_SEND = Version::ALIAS_SEND;
     /**
-     * @var int
      * @deprecated
      * @see Version::ALIAS_SET
      * The transaction version for setting an alias.
      */
     public const VERSION_ALIAS_SET = Version::ALIAS_SET;
     /**
-     * @var int
      * @deprecated
      * @see Version::MASTERNODE_CREATE
      * The transaction version for creating a masternode.
      */
     public const VERSION_MASTERNODE_CREATE = Version::MASTERNODE_CREATE;
     /**
-     * @var int
      * @deprecated
      * @see Version::MASTERNODE_PAUSE
      * The transaction version for pausing a masternode.
      */
     public const VERSION_MASTERNODE_PAUSE = Version::MASTERNODE_PAUSE;
     /**
-     * @var int
      * @deprecated
      * @see Version::MASTERNODE_RESUME
      * The transaction version for resuming a masternode.
      */
     public const VERSION_MASTERNODE_RESUME = Version::MASTERNODE_RESUME;
     /**
-     * @var int
      * @deprecated
      * @see Version::MASTERNODE_RELEASE
      * The transaction version for releasing a masternode.
      */
     public const VERSION_MASTERNODE_RELEASE = Version::MASTERNODE_RELEASE;
 
-    /** @var int The default value for masternode commands. */
+    /** The default value for masternode commands. */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
-    /** @var int The default fee for masternode commands. */
+    /** The default fee for masternode commands. */
     public const FEE_MASTERNODE_COMMAND = 0.00000001;
-    /** @var int The value for masternode creation. */
+    /** The value for masternode creation. */
     public const VALUE_MASTERNODE_CREATE = 100000;
-    /** @var int The value for masternode creation. */
+    /** The value for masternode creation. */
     public const FEE_MASTERNODE_CREATE = 10;
-    /** @var int The value for alias creation. */
+    /** The value for alias creation. */
     public const VALUE_ALIAS_SET = 0.00000001;
-    /** @var int The fee for alias creation. */
+    /** The fee for alias creation. */
     public const FEE_ALIAS_SET = 10;
 
     /**
