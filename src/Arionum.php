@@ -133,7 +133,7 @@ final class Arionum
      *
      * @param string $address
      * @param int    $limit
-     * @return stdClass[]
+     * @return array<stdClass>
      * @throws ApiException
      * @api
      */
@@ -151,7 +151,7 @@ final class Arionum
      *
      * @param string $publicKey
      * @param int    $limit
-     * @return stdClass[]
+     * @return array<stdClass>
      * @throws ApiException
      * @api
      */
@@ -244,7 +244,7 @@ final class Arionum
      * Retrieve the transactions of a specified block.
      *
      * @param string $blockId
-     * @return stdClass[]
+     * @return array<stdClass>
      * @throws ApiException
      * @api
      */
@@ -346,7 +346,7 @@ final class Arionum
     /**
      * Retrieve a list of registered masternodes on the network.
      *
-     * @return array
+     * @return array<stdClass>
      * @throws ApiException
      * @api
      */
@@ -424,7 +424,7 @@ final class Arionum
      * Retrieve the asset balance for a specific address.
      *
      * @param string $address
-     * @return array
+     * @return array<stdClass>
      * @throws ApiException
      * @api
      */
@@ -446,7 +446,7 @@ final class Arionum
     }
 
     /**
-     * @param array $query
+     * @param array<string> $query
      * @return mixed
      * @throws ApiException
      * @internal
