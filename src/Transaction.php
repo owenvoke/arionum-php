@@ -9,113 +9,130 @@ use pxgamer\Arionum\Transaction\Version;
 final class Transaction
 {
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::STANDARD
+     *
      * The transaction version for sending to an address.
      */
     public const VERSION_STANDARD = Version::STANDARD;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::ALIAS_SEND
+     *
      * The transaction version for sending to an alias.
      */
     public const VERSION_ALIAS_SEND = Version::ALIAS_SEND;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::ALIAS_SET
+     *
      * The transaction version for setting an alias.
      */
     public const VERSION_ALIAS_SET = Version::ALIAS_SET;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::MASTERNODE_CREATE
+     *
      * The transaction version for creating a masternode.
      */
     public const VERSION_MASTERNODE_CREATE = Version::MASTERNODE_CREATE;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::MASTERNODE_PAUSE
+     *
      * The transaction version for pausing a masternode.
      */
     public const VERSION_MASTERNODE_PAUSE = Version::MASTERNODE_PAUSE;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::MASTERNODE_RESUME
+     *
      * The transaction version for resuming a masternode.
      */
     public const VERSION_MASTERNODE_RESUME = Version::MASTERNODE_RESUME;
     /**
-     * @var int
      * @deprecated
+     *
      * @see Version::MASTERNODE_RELEASE
+     *
      * The transaction version for releasing a masternode.
      */
     public const VERSION_MASTERNODE_RELEASE = Version::MASTERNODE_RELEASE;
 
-    /** @var int The default value for masternode commands. */
+    /** The default value for masternode commands. */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
-    /** @var int The default fee for masternode commands. */
+    /** The default fee for masternode commands. */
     public const FEE_MASTERNODE_COMMAND = 0.00000001;
-    /** @var int The value for masternode creation. */
+    /** The value for masternode creation. */
     public const VALUE_MASTERNODE_CREATE = 100000;
-    /** @var int The value for masternode creation. */
+    /** The value for masternode creation. */
     public const FEE_MASTERNODE_CREATE = 10;
-    /** @var int The value for alias creation. */
+    /** The value for alias creation. */
     public const VALUE_ALIAS_SET = 0.00000001;
-    /** @var int The fee for alias creation. */
+    /** The fee for alias creation. */
     public const FEE_ALIAS_SET = 10;
 
     /**
      * The value to send in the transaction.
+     *
      * @var float
      */
     public $val;
     /**
      * The fee for the transaction.
+     *
      * @var float
      */
     public $fee;
     /**
      * The destination address.
+     *
      * @var string
      */
     public $dst;
     /**
      * The sender's public key.
+     *
      * @var string
      */
     public $public_key;
     /**
      * The transaction signature.
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
+     *
      * @var string
      */
     public $signature;
     /**
      * The sender's private key. Only required if no signature is provided.
+     *
      * @var string
      */
     public $private_key;
     /**
      * The transaction date in unix timestamp format.
      * This is required when the transaction is pre-signed.
-     * @var int
+     *
      * @see https://epochconverter.com
+     *
+     * @var int
      */
     public $date;
     /**
      * A message to be included with the transaction. Maximum 128 chars.
+     *
      * @var string
      */
     public $message;
     /**
      * The version of the transaction.
+     *
      * @var int
      */
     public $version = Version::STANDARD;
@@ -126,8 +143,8 @@ final class Transaction
      * @param string $alias
      * @param float  $value
      * @param string $message
+     *
      * @return self
-     * @api
      */
     public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): self
     {
@@ -146,8 +163,8 @@ final class Transaction
      *
      * @param string $address
      * @param string $alias
+     *
      * @return self
-     * @api
      */
     public static function makeAliasSetInstance(string $address, string $alias): self
     {
@@ -167,8 +184,8 @@ final class Transaction
      *
      * @param string $ipAddress
      * @param string $address
+     *
      * @return self
-     * @api
      */
     public static function makeMasternodeCreateInstance(string $ipAddress, string $address): self
     {
@@ -187,8 +204,8 @@ final class Transaction
      * Retrieve a pre-populated Transaction instance for pausing a masternode.
      *
      * @param string $address
+     *
      * @return self
-     * @api
      */
     public static function makeMasternodePauseInstance(string $address): self
     {
@@ -202,8 +219,8 @@ final class Transaction
      * Retrieve a pre-populated Transaction instance for resuming a masternode.
      *
      * @param string $address
+     *
      * @return self
-     * @api
      */
     public static function makeMasternodeResumeInstance(string $address): self
     {
@@ -217,8 +234,8 @@ final class Transaction
      * Retrieve a pre-populated Transaction instance for releasing a masternode.
      *
      * @param string $address
+     *
      * @return self
-     * @api
      */
     public static function makeMasternodeReleaseInstance(string $address): self
     {
@@ -230,6 +247,7 @@ final class Transaction
 
     /**
      * @param float $value
+     *
      * @return $this
      */
     public function setValue(float $value): self
@@ -241,6 +259,7 @@ final class Transaction
 
     /**
      * @param float $fee
+     *
      * @return $this
      */
     public function setFee(float $fee): self
@@ -252,6 +271,7 @@ final class Transaction
 
     /**
      * @param string $destinationAddress
+     *
      * @return $this
      */
     public function setDestinationAddress(string $destinationAddress): self
@@ -263,6 +283,7 @@ final class Transaction
 
     /**
      * @param string $publicKey
+     *
      * @return $this
      */
     public function setPublicKey(string $publicKey): self
@@ -274,6 +295,7 @@ final class Transaction
 
     /**
      * @param string $signature
+     *
      * @return $this
      */
     public function setSignature(string $signature): self
@@ -285,6 +307,7 @@ final class Transaction
 
     /**
      * @param string $privateKey
+     *
      * @return $this
      */
     public function setPrivateKey(string $privateKey): self
@@ -296,6 +319,7 @@ final class Transaction
 
     /**
      * @param int $date
+     *
      * @return $this
      */
     public function setDate(int $date): self
@@ -307,6 +331,7 @@ final class Transaction
 
     /**
      * @param string $message
+     *
      * @return $this
      */
     public function setMessage(string $message): self
@@ -318,6 +343,7 @@ final class Transaction
 
     /**
      * @param int $version
+     *
      * @return $this
      */
     public function setVersion(int $version): self
@@ -332,8 +358,8 @@ final class Transaction
      *
      * @param string $address
      * @param self   $transaction
+     *
      * @return self
-     * @internal
      */
     private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): self
     {
