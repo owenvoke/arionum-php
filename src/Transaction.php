@@ -212,6 +212,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(Version::MASTERNODE_PAUSE);
+
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
@@ -227,6 +228,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(Version::MASTERNODE_RESUME);
+
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
@@ -242,6 +244,7 @@ final class Transaction
         $transaction = new self();
 
         $transaction->setVersion(Version::MASTERNODE_RELEASE);
+
         return self::setMasternodeCommandDefaults($address, $transaction);
     }
 
@@ -361,7 +364,7 @@ final class Transaction
      *
      * @return self
      */
-    private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): self
+    private static function setMasternodeCommandDefaults(string $address, self $transaction): self
     {
         $transaction->setDestinationAddress($address);
         $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
