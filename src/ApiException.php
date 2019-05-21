@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-class ApiException extends \Exception
+use Exception;
+
+final class ApiException extends Exception
 {
 }
