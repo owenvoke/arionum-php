@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-use GuzzleHttp\Client;
 use stdClass;
+use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
 
 final class Arionum
@@ -293,7 +293,7 @@ final class Arionum
      */
     public function sendTransaction(Transaction $transaction): string
     {
-        $data = array_merge((array)$transaction, [
+        $data = array_merge((array) $transaction, [
             'q' => 'send',
         ]);
 
