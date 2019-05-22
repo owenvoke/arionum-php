@@ -6,6 +6,6 @@ namespace pxgamer\Arionum;
 
 use RuntimeException;
 
-final class ApiException extends RuntimeException
+class ApiException extends RuntimeException
 {
 }
