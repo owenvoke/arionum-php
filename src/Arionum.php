@@ -293,7 +293,7 @@ final class Arionum
      */
     public function sendTransaction(Transaction $transaction): string
     {
-        $data = array_merge((array) $transaction, [
+        $data = array_merge($transaction->toArray(), [
             'q' => 'send',
         ]);
 
