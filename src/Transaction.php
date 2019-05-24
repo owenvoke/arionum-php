@@ -429,12 +429,12 @@ final class Transaction
         return $this->public_key;
     }
 
-    public function getSignature(): string
+    public function getSignature(): ?string
     {
         return $this->signature;
     }
 
-    public function getPrivateKey(): string
+    public function getPrivateKey(): ?string
     {
         return $this->private_key;
     }
@@ -452,5 +452,20 @@ final class Transaction
     public function getVersion(): int
     {
         return $this->version;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'date' => $this->getDate(),
+            'dst' => $this->getDestinationAddress(),
+            'fee' => $this->getFee(),
+            'message' => $this->getMessage(),
+            'private_key' => $this->getPrivateKey(),
+            'public_key' => $this->getPublicKey(),
+            'signature' => $this->getSignature(),
+            'val' => $this->getValue(),
+            'version' => $this->getVersion(),
+        ];
     }
 }
