@@ -2,8 +2,8 @@
 
 namespace pxgamer\Arionum;
 
-use BlastCloud\Guzzler\UsesGuzzler;
 use GuzzleHttp\Psr7\Response;
+use BlastCloud\Guzzler\UsesGuzzler;
 
 final class AssetTest extends TestCase
 {

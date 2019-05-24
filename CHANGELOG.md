@@ -6,6 +6,21 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v2.6.0] - 2019-05-24
+
+### Added
+- Add new accessor methods for the `Transaction` class ([#30](https://github.com/pxgamer/arionum-php/pull/30))
+
+### Changed
+- Update to apply code style fixes from PHP Insights and Psalm ([#26](https://github.com/pxgamer/arionum-php/pull/26))
+
+### Deprecated
+- Deprecate public methods on the `Transaction` class ([#30](https://github.com/pxgamer/arionum-php/pull/30))
+
+### Removed
+- Remove PHP CodeSniffer development dependency ([#28](https://github.com/pxgamer/arionum-php/pull/28))
+- Remove PHPUnit 7 development dependency ([#29](https://github.com/pxgamer/arionum-php/pull/29))
+
 ## [v2.5.0] - 2019-04-24
 
 ### Added
@@ -101,6 +116,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.6.0]: https://github.com/pxgamer/arionum-php/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/pxgamer/arionum-php/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/pxgamer/arionum-php/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/pxgamer/arionum-php/compare/v2.2.0...v2.3.0

@@ -2,13 +2,8 @@ dist: trusty
 language: php
 
 php:
-- 7.2
-- 7.3
-- nightly
-
-matrix:
-  allow_failures:
-  - php: nightly
+- '7.2'
+- '7.3'
 
 ## Cache composer
 cache:
@@ -19,8 +14,7 @@ before_script:
 - travis_retry composer update --no-interaction --prefer-dist
 
 script:
-- vendor/bin/phpcs --standard=psr2 src/
 - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- if [ $(phpenv version-name) = "7.3" ]; then bash <(curl -s https://codecov.io/bash); fi
