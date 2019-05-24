@@ -82,24 +82,40 @@ final class Transaction
      * The value to send in the transaction.
      *
      * @var float
+     *
+     * @deprecated
+     *
+     * @see getValue()
      */
     public $val;
     /**
      * The fee for the transaction.
      *
      * @var float
+     *
+     * @deprecated
+     *
+     * @see getFee()
      */
     public $fee;
     /**
      * The destination address.
      *
      * @var string
+     *
+     * @deprecated
+     *
+     * @see getDestinationAddress()
      */
     public $dst;
     /**
      * The sender's public key.
      *
      * @var string
+     *
+     * @deprecated
+     *
+     * @see getPublicKey()
      */
     public $public_key;
     /**
@@ -107,12 +123,20 @@ final class Transaction
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
      *
      * @var string
+     *
+     * @deprecated
+     *
+     * @see getSignature()
      */
     public $signature;
     /**
      * The sender's private key. Only required if no signature is provided.
      *
      * @var string
+     *
+     * @deprecated
+     *
+     * @see getPrivateKey()
      */
     public $private_key;
     /**
@@ -122,27 +146,39 @@ final class Transaction
      * @see https://epochconverter.com
      *
      * @var int
+     *
+     * @deprecated
+     *
+     * @see getDate()
      */
     public $date;
     /**
      * A message to be included with the transaction. Maximum 128 chars.
      *
      * @var string
+     *
+     * @deprecated
+     *
+     * @see getMessage()
      */
     public $message;
     /**
      * The version of the transaction.
      *
      * @var int
+     *
+     * @deprecated
+     *
+     * @see getVersion()
      */
     public $version = Version::STANDARD;
 
     /**
      * Retrieve a pre-populated Transaction instance for sending to an alias.
      *
-     * @param string $alias
-     * @param float  $value
-     * @param string $message
+     * @param  string  $alias
+     * @param  float  $value
+     * @param  string  $message
      *
      * @return self
      */
@@ -161,8 +197,8 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for setting an alias.
      *
-     * @param string $address
-     * @param string $alias
+     * @param  string  $address
+     * @param  string  $alias
      *
      * @return self
      */
@@ -182,8 +218,8 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for creating a masternode.
      *
-     * @param string $ipAddress
-     * @param string $address
+     * @param  string  $ipAddress
+     * @param  string  $address
      *
      * @return self
      */
@@ -203,7 +239,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for pausing a masternode.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return self
      */
@@ -219,7 +255,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for resuming a masternode.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return self
      */
@@ -235,7 +271,7 @@ final class Transaction
     /**
      * Retrieve a pre-populated Transaction instance for releasing a masternode.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return self
      */
@@ -249,7 +285,7 @@ final class Transaction
     }
 
     /**
-     * @param float $value
+     * @param  float  $value
      *
      * @return $this
      */
@@ -261,7 +297,7 @@ final class Transaction
     }
 
     /**
-     * @param float $fee
+     * @param  float  $fee
      *
      * @return $this
      */
@@ -273,7 +309,7 @@ final class Transaction
     }
 
     /**
-     * @param string $destinationAddress
+     * @param  string  $destinationAddress
      *
      * @return $this
      */
@@ -285,7 +321,7 @@ final class Transaction
     }
 
     /**
-     * @param string $publicKey
+     * @param  string  $publicKey
      *
      * @return $this
      */
@@ -297,7 +333,7 @@ final class Transaction
     }
 
     /**
-     * @param string $signature
+     * @param  string  $signature
      *
      * @return $this
      */
@@ -309,7 +345,7 @@ final class Transaction
     }
 
     /**
-     * @param string $privateKey
+     * @param  string  $privateKey
      *
      * @return $this
      */
@@ -321,7 +357,7 @@ final class Transaction
     }
 
     /**
-     * @param int $date
+     * @param  int  $date
      *
      * @return $this
      */
@@ -333,7 +369,7 @@ final class Transaction
     }
 
     /**
-     * @param string $message
+     * @param  string  $message
      *
      * @return $this
      */
@@ -345,7 +381,7 @@ final class Transaction
     }
 
     /**
-     * @param int $version
+     * @param  int  $version
      *
      * @return $this
      */
@@ -359,8 +395,8 @@ final class Transaction
     /**
      * Set the default fee and value for masternode commands.
      *
-     * @param string $address
-     * @param self   $transaction
+     * @param  string  $address
+     * @param  self  $transaction
      *
      * @return self
      */
