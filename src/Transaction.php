@@ -82,63 +82,39 @@ final class Transaction
      * The value to send in the transaction.
      *
      * @var float
-     *
-     * @deprecated
-     *
-     * @see getValue()
      */
-    public $val;
+    private $val;
     /**
      * The fee for the transaction.
      *
      * @var float
-     *
-     * @deprecated
-     *
-     * @see getFee()
      */
-    public $fee;
+    private $fee;
     /**
      * The destination address.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getDestinationAddress()
      */
-    public $dst;
+    private $dst;
     /**
      * The sender's public key.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getPublicKey()
      */
-    public $public_key;
+    private $public_key;
     /**
      * The transaction signature.
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getSignature()
      */
-    public $signature;
+    private $signature;
     /**
      * The sender's private key. Only required if no signature is provided.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getPrivateKey()
      */
-    public $private_key;
+    private $private_key;
     /**
      * The transaction date in unix timestamp format.
      * This is required when the transaction is pre-signed.
@@ -146,32 +122,20 @@ final class Transaction
      * @see https://epochconverter.com
      *
      * @var int
-     *
-     * @deprecated
-     *
-     * @see getDate()
      */
-    public $date;
+    private $date;
     /**
      * A message to be included with the transaction. Maximum 128 chars.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getMessage()
      */
-    public $message;
+    private $message;
     /**
      * The version of the transaction.
      *
      * @var int
-     *
-     * @deprecated
-     *
-     * @see getVersion()
      */
-    public $version = Version::STANDARD;
+    private $version = Version::STANDARD;
 
     /**
      * Retrieve a pre-populated Transaction instance for sending to an alias.
