@@ -453,6 +453,4 @@ final class Transaction
     {
         return $this->version;
     }
-
-
 }
