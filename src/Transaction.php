@@ -372,4 +372,51 @@ final class Transaction
 
         return $transaction;
     }
+
+    public function getValue(): float
+    {
+        return $this->val;
+    }
+
+    public function getFee(): float
+    {
+        return $this->fee;
+    }
+
+    public function getDestinationAddress(): string
+    {
+        return $this->dst;
+    }
+
+    public function getPublicKey(): string
+    {
+        return $this->public_key;
+    }
+
+    public function getSignature(): string
+    {
+        return $this->signature;
+    }
+
+    public function getPrivateKey(): string
+    {
+        return $this->private_key;
+    }
+
+    public function getDate(): int
+    {
+        return $this->date;
+    }
+
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+
+    public function getVersion(): int
+    {
+        return $this->version;
+    }
+
+
 }
