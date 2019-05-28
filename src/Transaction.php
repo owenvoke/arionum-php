@@ -25,63 +25,39 @@ final class Transaction
      * The value to send in the transaction.
      *
      * @var float
-     *
-     * @deprecated
-     *
-     * @see getValue()
      */
-    public $val;
+    private $value;
     /**
      * The fee for the transaction.
      *
      * @var float
-     *
-     * @deprecated
-     *
-     * @see getFee()
      */
-    public $fee;
+    private $fee;
     /**
      * The destination address.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getDestinationAddress()
      */
-    public $dst;
+    private $destinationAddress;
     /**
      * The sender's public key.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getPublicKey()
      */
-    public $public_key;
+    private $publicKey;
     /**
      * The transaction signature.
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getSignature()
      */
-    public $signature;
+    private $signature;
     /**
      * The sender's private key. Only required if no signature is provided.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getPrivateKey()
      */
-    public $private_key;
+    private $privateKey;
     /**
      * The transaction date in unix timestamp format.
      * This is required when the transaction is pre-signed.
@@ -89,32 +65,20 @@ final class Transaction
      * @see https://epochconverter.com
      *
      * @var int
-     *
-     * @deprecated
-     *
-     * @see getDate()
      */
-    public $date;
+    private $date;
     /**
      * A message to be included with the transaction. Maximum 128 chars.
      *
      * @var string
-     *
-     * @deprecated
-     *
-     * @see getMessage()
      */
-    public $message;
+    private $message;
     /**
      * The version of the transaction.
      *
      * @var int
-     *
-     * @deprecated
-     *
-     * @see getVersion()
      */
-    public $version = Version::STANDARD;
+    private $version = Version::STANDARD;
 
     /**
      * Retrieve a pre-populated Transaction instance for sending to an alias.
@@ -234,7 +198,7 @@ final class Transaction
      */
     public function setValue(float $value): self
     {
-        $this->val = $value;
+        $this->value = $value;
 
         return $this;
     }
@@ -258,7 +222,7 @@ final class Transaction
      */
     public function setDestinationAddress(string $destinationAddress): self
     {
-        $this->dst = $destinationAddress;
+        $this->destinationAddress = $destinationAddress;
 
         return $this;
     }
@@ -270,7 +234,7 @@ final class Transaction
      */
     public function setPublicKey(string $publicKey): self
     {
-        $this->public_key = $publicKey;
+        $this->publicKey = $publicKey;
 
         return $this;
     }
@@ -294,7 +258,7 @@ final class Transaction
      */
     public function setPrivateKey(string $privateKey): self
     {
-        $this->private_key = $privateKey;
+        $this->privateKey = $privateKey;
 
         return $this;
     }
@@ -354,7 +318,7 @@ final class Transaction
 
     public function getValue(): float
     {
-        return $this->val;
+        return $this->value;
     }
 
     public function getFee(): float
@@ -364,12 +328,12 @@ final class Transaction
 
     public function getDestinationAddress(): string
     {
-        return $this->dst;
+        return $this->destinationAddress;
     }
 
     public function getPublicKey(): string
     {
-        return $this->public_key;
+        return $this->publicKey;
     }
 
     public function getSignature(): ?string
@@ -379,7 +343,7 @@ final class Transaction
 
     public function getPrivateKey(): ?string
     {
-        return $this->private_key;
+        return $this->privateKey;
     }
 
     public function getDate(): int
