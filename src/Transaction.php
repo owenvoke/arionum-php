@@ -8,63 +8,6 @@ use pxgamer\Arionum\Transaction\Version;
 
 final class Transaction
 {
-    /**
-     * @deprecated
-     *
-     * @see Version::STANDARD
-     *
-     * The transaction version for sending to an address.
-     */
-    public const VERSION_STANDARD = Version::STANDARD;
-    /**
-     * @deprecated
-     *
-     * @see Version::ALIAS_SEND
-     *
-     * The transaction version for sending to an alias.
-     */
-    public const VERSION_ALIAS_SEND = Version::ALIAS_SEND;
-    /**
-     * @deprecated
-     *
-     * @see Version::ALIAS_SET
-     *
-     * The transaction version for setting an alias.
-     */
-    public const VERSION_ALIAS_SET = Version::ALIAS_SET;
-    /**
-     * @deprecated
-     *
-     * @see Version::MASTERNODE_CREATE
-     *
-     * The transaction version for creating a masternode.
-     */
-    public const VERSION_MASTERNODE_CREATE = Version::MASTERNODE_CREATE;
-    /**
-     * @deprecated
-     *
-     * @see Version::MASTERNODE_PAUSE
-     *
-     * The transaction version for pausing a masternode.
-     */
-    public const VERSION_MASTERNODE_PAUSE = Version::MASTERNODE_PAUSE;
-    /**
-     * @deprecated
-     *
-     * @see Version::MASTERNODE_RESUME
-     *
-     * The transaction version for resuming a masternode.
-     */
-    public const VERSION_MASTERNODE_RESUME = Version::MASTERNODE_RESUME;
-    /**
-     * @deprecated
-     *
-     * @see Version::MASTERNODE_RELEASE
-     *
-     * The transaction version for releasing a masternode.
-     */
-    public const VERSION_MASTERNODE_RELEASE = Version::MASTERNODE_RELEASE;
-
     /** The default value for masternode commands. */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
     /** The default fee for masternode commands. */
