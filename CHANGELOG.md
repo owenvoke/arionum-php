@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+### Removed
+- Refactor Transaction private property names ([#32](https://github.com/pxgamer/arionum-php/pull/32))
+- Remove deprecated Transaction class constants ([#31](https://github.com/pxgamer/arionum-php/pull/31))
+
 ## [v2.6.0] - 2019-05-24
 
 ### Added
