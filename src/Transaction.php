@@ -278,6 +278,10 @@ final class Transaction
      * @param  float  $value
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeValue()
      */
     public function setValue(float $value): self
     {
@@ -288,6 +292,10 @@ final class Transaction
      * @param  float  $fee
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeFee()
      */
     public function setFee(float $fee): self
     {
@@ -298,6 +306,10 @@ final class Transaction
      * @param  string  $destinationAddress
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeDestinationAddress()
      */
     public function setDestinationAddress(string $destinationAddress): self
     {
@@ -308,6 +320,10 @@ final class Transaction
      * @param  string  $publicKey
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changePublicKey()
      */
     public function setPublicKey(string $publicKey): self
     {
@@ -318,6 +334,10 @@ final class Transaction
      * @param  string  $signature
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeSignature()
      */
     public function setSignature(string $signature): self
     {
@@ -328,6 +348,10 @@ final class Transaction
      * @param  string  $privateKey
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changePrivateKey()
      */
     public function setPrivateKey(string $privateKey): self
     {
@@ -338,6 +362,10 @@ final class Transaction
      * @param  int  $date
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeDate()
      */
     public function setDate(int $date): self
     {
@@ -348,6 +376,10 @@ final class Transaction
      * @param  string  $message
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeMessage()
      */
     public function setMessage(string $message): self
     {
@@ -358,6 +390,10 @@ final class Transaction
      * @param  int  $version
      *
      * @return $this
+     *
+     * @deprecated
+     *
+     * @see changeVersion()
      */
     public function setVersion(int $version): self
     {
