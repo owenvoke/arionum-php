@@ -281,6 +281,96 @@ final class Transaction
      */
     public function setValue(float $value): self
     {
+        return $this->changeValue($value);
+    }
+
+    /**
+     * @param  float  $fee
+     *
+     * @return $this
+     */
+    public function setFee(float $fee): self
+    {
+        return $this->changeFee($fee);
+    }
+
+    /**
+     * @param  string  $destinationAddress
+     *
+     * @return $this
+     */
+    public function setDestinationAddress(string $destinationAddress): self
+    {
+        return $this->changeDestinationAddress($destinationAddress);
+    }
+
+    /**
+     * @param  string  $publicKey
+     *
+     * @return $this
+     */
+    public function setPublicKey(string $publicKey): self
+    {
+        return $this->changePublicKey($publicKey);
+    }
+
+    /**
+     * @param  string  $signature
+     *
+     * @return $this
+     */
+    public function setSignature(string $signature): self
+    {
+        return $this->changeSignature($signature);
+    }
+
+    /**
+     * @param  string  $privateKey
+     *
+     * @return $this
+     */
+    public function setPrivateKey(string $privateKey): self
+    {
+        return $this->changePrivateKey($privateKey);
+    }
+
+    /**
+     * @param  int  $date
+     *
+     * @return $this
+     */
+    public function setDate(int $date): self
+    {
+        return $this->changeDate($date);
+    }
+
+    /**
+     * @param  string  $message
+     *
+     * @return $this
+     */
+    public function setMessage(string $message): self
+    {
+        $this->changeMessage($message);
+    }
+
+    /**
+     * @param  int  $version
+     *
+     * @return $this
+     */
+    public function setVersion(int $version): self
+    {
+        $this->changeVersion($version);
+    }
+
+    /**
+     * @param  float  $value
+     *
+     * @return $this
+     */
+    public function changeValue(float $value): self
+    {
         $this->val = $value;
 
         return $this;
@@ -291,7 +381,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setFee(float $fee): self
+    public function changeFee(float $fee): self
     {
         $this->fee = $fee;
 
@@ -303,7 +393,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setDestinationAddress(string $destinationAddress): self
+    public function changeDestinationAddress(string $destinationAddress): self
     {
         $this->dst = $destinationAddress;
 
@@ -315,7 +405,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setPublicKey(string $publicKey): self
+    public function changePublicKey(string $publicKey): self
     {
         $this->public_key = $publicKey;
 
@@ -327,7 +417,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setSignature(string $signature): self
+    public function changeSignature(string $signature): self
     {
         $this->signature = $signature;
 
@@ -339,7 +429,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setPrivateKey(string $privateKey): self
+    public function changePrivateKey(string $privateKey): self
     {
         $this->private_key = $privateKey;
 
@@ -351,7 +441,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setDate(int $date): self
+    public function changeDate(int $date): self
     {
         $this->date = $date;
 
@@ -363,7 +453,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setMessage(string $message): self
+    public function changeMessage(string $message): self
     {
         $this->message = $message;
 
@@ -375,7 +465,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setVersion(int $version): self
+    public function changeVersion(int $version): self
     {
         $this->version = $version;
 
