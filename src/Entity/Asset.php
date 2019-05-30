@@ -67,16 +67,16 @@ final class Asset
     {
         return [
             $this->getMaxSupply(),
-            (int)$this->isTradable(),
+            (int) $this->isTradable(),
             number_format($this->getPrice(), 8, '.', ''),
-            (int)$this->isDividendOnly(),
-            (int)$this->isAutoDivident(),
-            (int)$this->isAllowingBids(),
+            (int) $this->isDividendOnly(),
+            (int) $this->isAutoDivident(),
+            (int) $this->isAllowingBids(),
         ];
     }
 
     public function __toString(): string
     {
-        return (string)json_encode($this->toArray());
+        return (string) json_encode($this->toArray());
     }
 }
