@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Transaction\Version;
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class OtherTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
@@ -17,11 +20,11 @@ final class OtherTest extends TestCase
      *
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itThrowsAnExceptionWhenSendingATransactionFromAnEmptyAccount(): void
     {
-        $this->expectException(ApiException::class);
+        $this->expectException(GenericApiException::class);
         $this->expectExceptionMessage('Not enough funds');
 
         $transaction = new Transaction();
@@ -33,7 +36,7 @@ final class OtherTest extends TestCase
         $transaction->setPrivateKey(self::TEST_SEND_KEY2);
         $transaction->setMessage('This should fail.');
         $transaction->setDate(time());
-        $transaction->setVersion(1);
+        $transaction->setVersion(Version::STANDARD);
 
         $this->arionum->sendTransaction($transaction);
     }
@@ -41,7 +44,7 @@ final class OtherTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsARandomlyGeneratedNumber(): void
     {
@@ -52,7 +55,7 @@ final class OtherTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsAListOfMasternodes(): void
     {
