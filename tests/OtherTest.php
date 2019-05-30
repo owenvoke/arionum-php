@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Transaction\Version;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class OtherTest extends TestCase
@@ -35,7 +36,7 @@ final class OtherTest extends TestCase
         $transaction->setPrivateKey(self::TEST_SEND_KEY2);
         $transaction->setMessage('This should fail.');
         $transaction->setDate(time());
-        $transaction->setVersion(1);
+        $transaction->setVersion(Version::STANDARD);
 
         $this->arionum->sendTransaction($transaction);
     }
