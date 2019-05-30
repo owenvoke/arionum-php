@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
-use RuntimeException;
+use pxgamer\Arionum\Exceptions\GenericApiException;
 
-class ApiException extends RuntimeException
+/**
+ * @deprecated
+ *
+ * @see GenericApiException
+ */
+class ApiException extends GenericApiException
 {
 }

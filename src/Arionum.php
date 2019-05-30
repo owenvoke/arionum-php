@@ -7,6 +7,7 @@ namespace pxgamer\Arionum;
 use stdClass;
 use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
+use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class Arionum
 {
@@ -23,8 +24,8 @@ final class Arionum
     /**
      * Arionum constructor.
      *
-     * @param string      $nodeAddress
-     * @param Client|null $client
+     * @param  string  $nodeAddress
+     * @param  Client|null  $client
      */
     public function __construct(string $nodeAddress, ?Client $client = null)
     {
@@ -35,11 +36,11 @@ final class Arionum
     /**
      * Retrieve the address for a specified public key.
      *
-     * @param string $publicKey
+     * @param  string  $publicKey
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getAddress(string $publicKey): string
     {
@@ -52,11 +53,11 @@ final class Arionum
     /**
      * Convert a string to Base58.
      *
-     * @param string $data
+     * @param  string  $data
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBase58(string $data): string
     {
@@ -69,11 +70,11 @@ final class Arionum
     /**
      * Retrieve the balance of a specified address.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBalance(string $address): string
     {
@@ -86,11 +87,11 @@ final class Arionum
     /**
      * Retrieve the balance of a specified alias.
      *
-     * @param string $alias
+     * @param  string  $alias
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBalanceByAlias(string $alias): string
     {
@@ -103,11 +104,11 @@ final class Arionum
     /**
      * Retrieve the balance of a specified public key.
      *
-     * @param string $publicKey
+     * @param  string  $publicKey
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBalanceByPublicKey(string $publicKey): string
     {
@@ -120,11 +121,11 @@ final class Arionum
     /**
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getPendingBalance(string $address): string
     {
@@ -137,12 +138,12 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified address.
      *
-     * @param string $address
-     * @param int    $limit
+     * @param  string  $address
+     * @param  int  $limit
      *
      * @return array<stdClass>
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getTransactions(string $address, int $limit = 100): array
     {
@@ -156,12 +157,12 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified public key.
      *
-     * @param string $publicKey
-     * @param int    $limit
+     * @param  string  $publicKey
+     * @param  int  $limit
      *
      * @return array<stdClass>
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getTransactionsByPublicKey(string $publicKey, int $limit = 100): array
     {
@@ -175,11 +176,11 @@ final class Arionum
     /**
      * Retrieve a specified transaction by its id.
      *
-     * @param string $transactionId
+     * @param  string  $transactionId
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getTransaction(string $transactionId): stdClass
     {
@@ -192,11 +193,11 @@ final class Arionum
     /**
      * Retrieve the public key of a specified address.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getPublicKey(string $address): string
     {
@@ -211,7 +212,7 @@ final class Arionum
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function generateAccount(): stdClass
     {
@@ -225,7 +226,7 @@ final class Arionum
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getCurrentBlock(): stdClass
     {
@@ -237,11 +238,11 @@ final class Arionum
     /**
      * Retrieve a block by its height.
      *
-     * @param int $height
+     * @param  int  $height
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBlock(int $height): stdClass
     {
@@ -254,11 +255,11 @@ final class Arionum
     /**
      * Retrieve the transactions of a specified block.
      *
-     * @param string $blockId
+     * @param  string  $blockId
      *
      * @return array<stdClass>
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getBlockTransactions(string $blockId): array
     {
@@ -273,7 +274,7 @@ final class Arionum
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getNodeVersion(): string
     {
@@ -285,11 +286,11 @@ final class Arionum
     /**
      * Send a transaction.
      *
-     * @param Transaction $transaction
+     * @param  Transaction  $transaction
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function sendTransaction(Transaction $transaction): string
     {
@@ -305,7 +306,7 @@ final class Arionum
      *
      * @return int
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getMempoolSize(): int
     {
@@ -317,14 +318,14 @@ final class Arionum
     /**
      * Retrieve a random number based on a specified block.
      *
-     * @param int         $height
-     * @param int         $minimum
-     * @param int         $maximum
-     * @param string|null $seed
+     * @param  int  $height
+     * @param  int  $minimum
+     * @param  int  $maximum
+     * @param  string|null  $seed
      *
      * @return int
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getRandomNumber(int $height, int $minimum, int $maximum, ?string $seed = null): int
     {
@@ -340,13 +341,13 @@ final class Arionum
     /**
      * Check that a signature is valid against a public key.
      *
-     * @param string $signature
-     * @param string $data
-     * @param string $publicKey
+     * @param  string  $signature
+     * @param  string  $data
+     * @param  string  $publicKey
      *
      * @return bool
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function checkSignature(string $signature, string $data, string $publicKey): bool
     {
@@ -363,7 +364,7 @@ final class Arionum
      *
      * @return array<stdClass>
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getMasternodes(): array
     {
@@ -375,11 +376,11 @@ final class Arionum
     /**
      * Retrieve the alias for an account by it's address.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return string
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getAlias(string $address): string
     {
@@ -394,7 +395,7 @@ final class Arionum
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getSanityDetails(): stdClass
     {
@@ -408,7 +409,7 @@ final class Arionum
      *
      * @return stdClass
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getNodeInfo(): stdClass
     {
@@ -421,12 +422,12 @@ final class Arionum
      * Check that an address is valid.
      * Optionally validate it against the corresponding public key.
      *
-     * @param string      $address
-     * @param string|null $publicKey An optional corresponding public key.
+     * @param  string  $address
+     * @param  string|null  $publicKey  An optional corresponding public key.
      *
      * @return bool
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function checkAddress(string $address, ?string $publicKey = null): bool
     {
@@ -440,11 +441,11 @@ final class Arionum
     /**
      * Retrieve the asset balance for a specific address.
      *
-     * @param string $address
+     * @param  string  $address
      *
      * @return array<stdClass>
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function getAssetBalance(string $address): array
     {
@@ -460,11 +461,11 @@ final class Arionum
     }
 
     /**
-     * @param array<string, bool|int|string|null> $query
+     * @param  array<string, bool|int|string|null>  $query
      *
      * @return mixed
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     private function getJson(array $query)
     {
@@ -477,11 +478,11 @@ final class Arionum
     }
 
     /**
-     * @param string $json
+     * @param  string  $json
      *
      * @return mixed
      *
-     * @throws ApiException
+     * @throws GenericApiException
      */
     private function decodeResponse(string $json)
     {
