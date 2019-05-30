@@ -6,8 +6,8 @@ namespace pxgamer\Arionum;
 
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
-use pxgamer\Arionum\Transaction\TransactionFactory;
 use pxgamer\Arionum\Exceptions\GenericApiException;
+use pxgamer\Arionum\Transaction\TransactionFactory;
 
 final class TransactionTest extends TestCase
 {
