@@ -6,8 +6,8 @@ namespace pxgamer\Arionum;
 
 use stdClass;
 use GuzzleHttp\Client;
-use pxgamer\Arionum\Exceptions\GenericApiException;
 use function GuzzleHttp\json_decode;
+use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class Arionum
 {
