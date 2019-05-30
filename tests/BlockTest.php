@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class BlockTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
@@ -13,7 +15,7 @@ final class BlockTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheCurrentBlock(): void
     {
@@ -25,7 +27,7 @@ final class BlockTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsABlockByItsHeight(): void
     {
@@ -37,7 +39,7 @@ final class BlockTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheTransactionsForASpecificBlock(): void
     {

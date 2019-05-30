@@ -9,7 +9,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGeneratesANewAccount(): void
     {
@@ -22,7 +22,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheBalanceForATestAddress(): void
     {
@@ -33,7 +33,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheBalanceForATestAlias(): void
     {
@@ -44,7 +44,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheBalanceForATestPublicKey(): void
     {
@@ -55,7 +55,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsThePendingBalanceForATestAddress(): void
     {
@@ -66,7 +66,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheTransactionsForATestAddress(): void
     {
@@ -78,7 +78,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheTransactionsForATestPublicKey(): void
     {
@@ -90,7 +90,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheAliasForASpecificAddress(): void
     {
@@ -101,7 +101,7 @@ final class AccountTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itChecksThatTheAddressIsValid(): void
     {

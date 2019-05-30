@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class Base58Test extends TestCase
 {
     private const INPUT_DATA = 'dataIsHere';
@@ -12,7 +14,7 @@ final class Base58Test extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsABase58ValueForInputData(): void
     {

@@ -7,6 +7,7 @@ namespace pxgamer\Arionum;
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
 use pxgamer\Arionum\Transaction\TransactionFactory;
+use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class TransactionTest extends TestCase
 {
@@ -19,7 +20,7 @@ final class TransactionTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsATransactionByItsId(): void
     {
@@ -30,7 +31,7 @@ final class TransactionTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheNumberOfTransactionsInTheMempool(): void
     {
