@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Models;
 
 use pxgamer\Arionum\Transaction\Version;
 
@@ -81,122 +81,11 @@ final class Transaction
     private $version = Version::STANDARD;
 
     /**
-     * Retrieve a pre-populated Transaction instance for sending to an alias.
-     *
-     * @param  string  $alias
-     * @param  float  $value
-     * @param  string  $message
-     *
-     * @return self
-     */
-    public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::ALIAS_SEND);
-        $transaction->setDestinationAddress($alias);
-        $transaction->setValue($value);
-        $transaction->setMessage($message);
-
-        return $transaction;
-    }
-
-    /**
-     * Retrieve a pre-populated Transaction instance for setting an alias.
-     *
-     * @param  string  $address
-     * @param  string  $alias
-     *
-     * @return self
-     */
-    public static function makeAliasSetInstance(string $address, string $alias): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::ALIAS_SET);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_ALIAS_SET);
-        $transaction->setFee(self::FEE_ALIAS_SET);
-        $transaction->setMessage($alias);
-
-        return $transaction;
-    }
-
-    /**
-     * Retrieve a pre-populated Transaction instance for creating a masternode.
-     *
-     * @param  string  $ipAddress
-     * @param  string  $address
-     *
-     * @return self
-     */
-    public static function makeMasternodeCreateInstance(string $ipAddress, string $address): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_CREATE);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_CREATE);
-        $transaction->setFee(self::FEE_MASTERNODE_CREATE);
-        $transaction->setMessage($ipAddress);
-
-        return $transaction;
-    }
-
-    /**
-     * Retrieve a pre-populated Transaction instance for pausing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return self
-     */
-    public static function makeMasternodePauseInstance(string $address): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_PAUSE);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
-    }
-
-    /**
-     * Retrieve a pre-populated Transaction instance for resuming a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return self
-     */
-    public static function makeMasternodeResumeInstance(string $address): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_RESUME);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
-    }
-
-    /**
-     * Retrieve a pre-populated Transaction instance for releasing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return self
-     */
-    public static function makeMasternodeReleaseInstance(string $address): self
-    {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_RELEASE);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
-    }
-
-    /**
      * @param  float  $value
      *
      * @return $this
      */
-    public function setValue(float $value): self
+    public function changeValue(float $value): self
     {
         $this->value = $value;
 
@@ -208,7 +97,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setFee(float $fee): self
+    public function changeFee(float $fee): self
     {
         $this->fee = $fee;
 
@@ -220,7 +109,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setDestinationAddress(string $destinationAddress): self
+    public function changeDestinationAddress(string $destinationAddress): self
     {
         $this->destinationAddress = $destinationAddress;
 
@@ -232,7 +121,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setPublicKey(string $publicKey): self
+    public function changePublicKey(string $publicKey): self
     {
         $this->publicKey = $publicKey;
 
@@ -244,7 +133,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setSignature(string $signature): self
+    public function changeSignature(string $signature): self
     {
         $this->signature = $signature;
 
@@ -256,7 +145,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setPrivateKey(string $privateKey): self
+    public function changePrivateKey(string $privateKey): self
     {
         $this->privateKey = $privateKey;
 
@@ -268,7 +157,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setDate(int $date): self
+    public function changeDate(int $date): self
     {
         $this->date = $date;
 
@@ -280,7 +169,7 @@ final class Transaction
      *
      * @return $this
      */
-    public function setMessage(string $message): self
+    public function changeMessage(string $message): self
     {
         $this->message = $message;
 
@@ -292,28 +181,11 @@ final class Transaction
      *
      * @return $this
      */
-    public function setVersion(int $version): self
+    public function changeVersion(int $version): self
     {
         $this->version = $version;
 
         return $this;
-    }
-
-    /**
-     * Set the default fee and value for masternode commands.
-     *
-     * @param  string  $address
-     * @param  self  $transaction
-     *
-     * @return self
-     */
-    private static function setMasternodeCommandDefaults(string $address, self $transaction): self
-    {
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
-        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
-
-        return $transaction;
     }
 
     public function getValue(): float

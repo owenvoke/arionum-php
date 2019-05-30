@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class KeyTest extends TestCase
 {
     // phpcs:disable Generic.Files.LineLength
@@ -14,11 +16,11 @@ final class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itThrowsAnExceptionOnInvalidPublicKey(): void
     {
-        $this->expectException(ApiException::class);
+        $this->expectException(GenericApiException::class);
 
         $this->arionum->getAddress('INVALID-PUBLIC-KEY');
     }
@@ -26,7 +28,7 @@ final class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsAnAddressFromAPublicKey(): void
     {
@@ -37,7 +39,7 @@ final class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsThePublicKeyForAnAddress(): void
     {
@@ -48,7 +50,7 @@ final class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itChecksThatASignatureIsValid(): void
     {

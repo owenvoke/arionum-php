@@ -10,6 +10,20 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Refactor Transaction private property names ([#32](https://github.com/pxgamer/arionum-php/pull/32))
 - Remove deprecated Transaction class constants ([#31](https://github.com/pxgamer/arionum-php/pull/31))
 
+## [v2.7.0] - 2019-05-30
+
+### Added
+- Add new 'change' methods to replace the setters ([#36](https://github.com/pxgamer/arionum-php/pull/36))
+
+### Changed
+- Move factory methods to a Transaction factory ([#34](https://github.com/pxgamer/arionum-php/pull/34))
+- Move exceptions to an Exceptions namespace ([#35](https://github.com/pxgamer/arionum-php/pull/35))
+
+### Deprecated
+- Deprecate factory methods on the `Transaction` class ([#34](https://github.com/pxgamer/arionum-php/pull/34))
+- Deprecate the old `ApiException` class ([#35](https://github.com/pxgamer/arionum-php/pull/35))
+- Deprecate the old `set` methods on the `Transaction` class ([#36](https://github.com/pxgamer/arionum-php/pull/36))
+
 ## [v2.6.0] - 2019-05-24
 
 ### Added
@@ -120,6 +134,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v2.7.0]: https://github.com/pxgamer/arionum-php/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/pxgamer/arionum-php/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/pxgamer/arionum-php/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/pxgamer/arionum-php/compare/v2.3.0...v2.4.0

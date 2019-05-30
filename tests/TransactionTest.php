@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
+use pxgamer\Arionum\Transaction\TransactionFactory;
 
 final class TransactionTest extends TestCase
 {
@@ -42,7 +44,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnAliasSendTransaction(): void
     {
-        $data = Transaction::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
+        $data = TransactionFactory::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
         $this->assertEquals(self::TEST_ALIAS, $data->getDestinationAddress());
         $this->assertEquals(1.0, $data->getValue());
         $this->assertEquals(Version::ALIAS_SEND, $data->getVersion());
@@ -54,7 +56,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnAliasSetTransaction(): void
     {
-        $data = Transaction::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
+        $data = TransactionFactory::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(self::TEST_ALIAS, $data->getMessage());
         $this->assertEquals(Version::ALIAS_SET, $data->getVersion());
@@ -67,7 +69,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnMasternodeCreateTransaction(): void
     {
-        $data = Transaction::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
+        $data = TransactionFactory::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(self::TEST_IP, $data->getMessage());
         $this->assertEquals(Version::MASTERNODE_CREATE, $data->getVersion());
@@ -81,7 +83,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnMasternodePauseTransaction(): void
     {
-        $data = Transaction::makeMasternodePauseInstance(self::TEST_ADDRESS);
+        $data = TransactionFactory::makeMasternodePauseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(Version::MASTERNODE_PAUSE, $data->getVersion());
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->getValue());
@@ -94,7 +96,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnMasternodeResumeTransaction(): void
     {
-        $data = Transaction::makeMasternodeResumeInstance(self::TEST_ADDRESS);
+        $data = TransactionFactory::makeMasternodeResumeInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(Version::MASTERNODE_RESUME, $data->getVersion());
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->getValue());
@@ -107,7 +109,7 @@ final class TransactionTest extends TestCase
      */
     public function itCanGenerateAnMasternodeReleaseTransaction(): void
     {
-        $data = Transaction::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
+        $data = TransactionFactory::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(Version::MASTERNODE_RELEASE, $data->getVersion());
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->getValue());
