@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace pxgamer\Arionum;
 
 use pxgamer\Arionum\Transaction\Version;
+use pxgamer\Arionum\Transaction\TransactionFactory;
 
 final class Transaction
 {
@@ -181,17 +182,14 @@ final class Transaction
      * @param  string  $message
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makemakeAliasSendInstance()
      */
     public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::ALIAS_SEND);
-        $transaction->setDestinationAddress($alias);
-        $transaction->setValue($value);
-        $transaction->setMessage($message);
-
-        return $transaction;
+        return TransactionFactory::makeAliasSendInstance($alias, $value, $message);
     }
 
     /**
@@ -201,18 +199,14 @@ final class Transaction
      * @param  string  $alias
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makeAliasSetInstance()
      */
     public static function makeAliasSetInstance(string $address, string $alias): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::ALIAS_SET);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_ALIAS_SET);
-        $transaction->setFee(self::FEE_ALIAS_SET);
-        $transaction->setMessage($alias);
-
-        return $transaction;
+        return TransactionFactory::makeAliasSetInstance($address, $alias);
     }
 
     /**
@@ -222,18 +216,14 @@ final class Transaction
      * @param  string  $address
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makeMasternodeCreateInstance()
      */
     public static function makeMasternodeCreateInstance(string $ipAddress, string $address): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_CREATE);
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_CREATE);
-        $transaction->setFee(self::FEE_MASTERNODE_CREATE);
-        $transaction->setMessage($ipAddress);
-
-        return $transaction;
+        return TransactionFactory::makeMasternodeCreateInstance($ipAddress, $address);
     }
 
     /**
@@ -242,14 +232,14 @@ final class Transaction
      * @param  string  $address
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makeMasternodePauseInstance()
      */
     public static function makeMasternodePauseInstance(string $address): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_PAUSE);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return TransactionFactory::makeMasternodePauseInstance($address);
     }
 
     /**
@@ -258,14 +248,14 @@ final class Transaction
      * @param  string  $address
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makeMasternodeResumeInstance()
      */
     public static function makeMasternodeResumeInstance(string $address): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_RESUME);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return TransactionFactory::makeMasternodeResumeInstance($address);
     }
 
     /**
@@ -274,14 +264,14 @@ final class Transaction
      * @param  string  $address
      *
      * @return self
+     *
+     * @deprecated
+     *
+     * @see TransactionFactory::makeMasternodeReleaseInstance()
      */
     public static function makeMasternodeReleaseInstance(string $address): self
     {
-        $transaction = new self();
-
-        $transaction->setVersion(Version::MASTERNODE_RELEASE);
-
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return TransactionFactory::makeMasternodeReleaseInstance($address);
     }
 
     /**
@@ -390,23 +380,6 @@ final class Transaction
         $this->version = $version;
 
         return $this;
-    }
-
-    /**
-     * Set the default fee and value for masternode commands.
-     *
-     * @param  string  $address
-     * @param  self  $transaction
-     *
-     * @return self
-     */
-    private static function setMasternodeCommandDefaults(string $address, self $transaction): self
-    {
-        $transaction->setDestinationAddress($address);
-        $transaction->setValue(self::VALUE_MASTERNODE_COMMAND);
-        $transaction->setFee(self::FEE_MASTERNODE_COMMAND);
-
-        return $transaction;
     }
 
     public function getValue(): float
