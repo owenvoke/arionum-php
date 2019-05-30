@@ -13,12 +13,14 @@ final class TransactionFactory
      *
      * @param  string  $alias
      * @param  float  $value
-     * @param  string  $message
+     * @param  string|null  $message
      *
      * @return Transaction
      */
-    public static function makeAliasSendInstance(string $alias, float $value, string $message = ''): Transaction
+    public static function makeAliasSendInstance(string $alias, float $value, ?string $message = null): Transaction
     {
+        $message = $message ?? '';
+
         $transaction = new Transaction();
 
         $transaction->setVersion(Version::ALIAS_SEND);
