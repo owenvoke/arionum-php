@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\Arionum\Entity;
+namespace pxgamer\Arionum\Models;
 
 final class Asset
 {
