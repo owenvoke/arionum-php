@@ -6,6 +6,12 @@ module.exports = {
   themeConfig: {
     repo: 'pxgamer/arionum-php',
     docsDir: 'docs',
-    editLinks: true
+    editLinks: true,
+    sidebar: [
+      '/get-started',
+      '/general',
+      '/sending-transactions',
+      '/assets'
+    ]
   }
 }
