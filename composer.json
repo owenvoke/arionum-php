@@ -9,6 +9,7 @@
     },
     "require-dev": {
         "blastcloud/guzzler": "^1.0",
+        "illuminate/support": "^5.8",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
