@@ -23,8 +23,6 @@ final class Arionum
     private $client;
 
     /**
-     * Arionum constructor.
-     *
      * @param  string  $nodeAddress
      * @param  Client|null  $client
      */
@@ -462,7 +460,7 @@ final class Arionum
     }
 
     /**
-     * @param  array<string, bool|int|string|null>  $query
+     * @param  array<string, bool|float|int|string|null>  $query
      *
      * @return mixed
      *

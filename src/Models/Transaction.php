@@ -233,7 +233,7 @@ final class Transaction
         return $this->version;
     }
 
-    /** @return array<string, int|string> */
+    /** @return array<string, float|int|string|null> */
     public function toArray(): array
     {
         return [
