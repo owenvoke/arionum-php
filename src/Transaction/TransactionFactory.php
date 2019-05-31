@@ -86,7 +86,7 @@ final class TransactionFactory
 
         $transaction->changeVersion(Version::MASTERNODE_PAUSE);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -102,7 +102,7 @@ final class TransactionFactory
 
         $transaction->changeVersion(Version::MASTERNODE_RESUME);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -118,7 +118,7 @@ final class TransactionFactory
 
         $transaction->changeVersion(Version::MASTERNODE_RELEASE);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
     /**
@@ -129,7 +129,7 @@ final class TransactionFactory
      *
      * @return Transaction
      */
-    private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): Transaction
+    private static function configureMasternodeCommandDefaults(string $address, Transaction $transaction): Transaction
     {
         $transaction->changeDestinationAddress($address);
         $transaction->changeValue(Transaction::VALUE_MASTERNODE_COMMAND);
