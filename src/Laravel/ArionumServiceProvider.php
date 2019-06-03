@@ -16,8 +16,10 @@ final class ArionumServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->app->singleton('arionum', function () {
+        $this->app->singleton(Arionum::class, function () {
             return new Arionum($this->app->get('config')->get('arionum.node-uri'));
         });
+
+        $this->app->alias(Arionum::class, 'arionum');
     }
 }
