@@ -3,6 +3,7 @@
 namespace pxgamer\Arionum\Laravel;
 
 use pxgamer\Arionum\Arionum;
+use pxgamer\Arionum\Exceptions\InvalidNodeUriException;
 use Illuminate\Support\ServiceProvider;
 
 final class ArionumServiceProvider extends ServiceProvider
@@ -17,6 +18,10 @@ final class ArionumServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(Arionum::class, function () {
+            if (!$this->app->get('config')->get('arionum.node-uri')) {
+                throw new InvalidNodeUriException('The configured node uri is invalid. A valid `ARIONUM_NODE_URI` variable should be configured in your environment');
+            }
+
             return new Arionum($this->app->get('config')->get('arionum.node-uri'));
         });
 
