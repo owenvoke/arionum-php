@@ -8,15 +8,7 @@ use pxgamer\Arionum\Models\Transaction;
 
 final class TransactionFactory
 {
-    /**
-     * Retrieve a pre-populated Transaction instance for sending to an alias.
-     *
-     * @param  string  $alias
-     * @param  float  $value
-     * @param  string|null  $message
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for sending to an alias */
     public static function makeAliasSendInstance(string $alias, float $value, ?string $message = null): Transaction
     {
         $message = $message ?? '';
@@ -31,14 +23,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for setting an alias.
-     *
-     * @param  string  $address
-     * @param  string  $alias
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for setting an alias */
     public static function makeAliasSetInstance(string $address, string $alias): Transaction
     {
         $transaction = new Transaction();
@@ -52,14 +37,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for creating a masternode.
-     *
-     * @param  string  $ipAddress
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for creating a masternode */
     public static function makeMasternodeCreateInstance(string $ipAddress, string $address): Transaction
     {
         $transaction = new Transaction();
@@ -73,13 +51,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for pausing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for pausing a masternode */
     public static function makeMasternodePauseInstance(string $address): Transaction
     {
         $transaction = new Transaction();
@@ -89,13 +61,7 @@ final class TransactionFactory
         return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for resuming a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for resuming a masternode */
     public static function makeMasternodeResumeInstance(string $address): Transaction
     {
         $transaction = new Transaction();
@@ -105,13 +71,7 @@ final class TransactionFactory
         return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for releasing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for releasing a masternode */
     public static function makeMasternodeReleaseInstance(string $address): Transaction
     {
         $transaction = new Transaction();
@@ -121,14 +81,7 @@ final class TransactionFactory
         return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Set the default fee and value for masternode commands.
-     *
-     * @param  string  $address
-     * @param  Transaction  $transaction
-     *
-     * @return Transaction
-     */
+    /* Set the default fee and value for masternode commands */
     private static function configureMasternodeCommandDefaults(string $address, Transaction $transaction): Transaction
     {
         $transaction->changeDestinationAddress($address);

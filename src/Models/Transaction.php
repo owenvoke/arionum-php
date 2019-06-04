@@ -8,17 +8,17 @@ use pxgamer\Arionum\Transaction\Version;
 
 final class Transaction
 {
-    /** The default value for masternode commands. */
+    /* The default value for masternode commands */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
-    /** The default fee for masternode commands. */
+    /* The default fee for masternode commands */
     public const FEE_MASTERNODE_COMMAND = 0.00000001;
-    /** The value for masternode creation. */
+    /* The value for masternode creation */
     public const VALUE_MASTERNODE_CREATE = 100000;
-    /** The value for masternode creation. */
+    /* The value for masternode creation */
     public const FEE_MASTERNODE_CREATE = 10;
-    /** The value for alias creation. */
+    /* The value for alias creation */
     public const VALUE_ALIAS_SET = 0.00000001;
-    /** The fee for alias creation. */
+    /* The fee for alias creation */
     public const FEE_ALIAS_SET = 10;
 
     /** @var float The value to send in the transaction */
