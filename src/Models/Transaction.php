@@ -37,14 +37,14 @@ final class Transaction
     private $version = Version::STANDARD;
     /**
      * The transaction signature
-     * It's recommended that the transaction is signed to avoid sending your private key to the node
+     * It's recommended that the transaction is signed to avoid sending your private key to the node.
      *
      * @var string
      */
     private $signature;
     /**
      * The transaction date in unix timestamp format
-     * This is required when the transaction is pre-signed
+     * This is required when the transaction is pre-signed.
      *
      * @see https://epochconverter.com
      *
