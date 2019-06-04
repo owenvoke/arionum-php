@@ -21,70 +21,37 @@ final class Transaction
     /** The fee for alias creation. */
     public const FEE_ALIAS_SET = 10;
 
-    /**
-     * The value to send in the transaction.
-     *
-     * @var float
-     */
+    /** @var float The value to send in the transaction */
     private $value;
-    /**
-     * The fee for the transaction.
-     *
-     * @var float
-     */
+    /** @var float The fee for the transaction */
     private $fee;
-    /**
-     * The destination address.
-     *
-     * @var string
-     */
+    /** @var string The destination address */
     private $destinationAddress;
-    /**
-     * The sender's public key.
-     *
-     * @var string
-     */
+    /** @var string The sender's public key */
     private $publicKey;
+    /** @var string The sender's private key. Only required if no signature is provided */
+    private $privateKey;
+    /** @var string A message to be included with the transaction. Maximum 128 chars */
+    private $message;
+    /** @var int The version of the transaction */
+    private $version = Version::STANDARD;
     /**
-     * The transaction signature.
-     * It's recommended that the transaction is signed to avoid sending your private key to the node.
+     * The transaction signature
+     * It's recommended that the transaction is signed to avoid sending your private key to the node
      *
      * @var string
      */
     private $signature;
     /**
-     * The sender's private key. Only required if no signature is provided.
-     *
-     * @var string
-     */
-    private $privateKey;
-    /**
-     * The transaction date in unix timestamp format.
-     * This is required when the transaction is pre-signed.
+     * The transaction date in unix timestamp format
+     * This is required when the transaction is pre-signed
      *
      * @see https://epochconverter.com
      *
      * @var int
      */
     private $date;
-    /**
-     * A message to be included with the transaction. Maximum 128 chars.
-     *
-     * @var string
-     */
-    private $message;
-    /**
-     * The version of the transaction.
-     *
-     * @var int
-     */
-    private $version = Version::STANDARD;
 
-    /**
-     * @param  float  $value
-     *
-     * @return $this
-     */
     public function changeValue(float $value): self
     {
         $this->value = $value;
@@ -92,11 +59,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  float  $fee
-     *
-     * @return $this
-     */
     public function changeFee(float $fee): self
     {
         $this->fee = $fee;
@@ -104,11 +66,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  string  $destinationAddress
-     *
-     * @return $this
-     */
     public function changeDestinationAddress(string $destinationAddress): self
     {
         $this->destinationAddress = $destinationAddress;
@@ -116,11 +73,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  string  $publicKey
-     *
-     * @return $this
-     */
     public function changePublicKey(string $publicKey): self
     {
         $this->publicKey = $publicKey;
@@ -128,11 +80,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  string  $signature
-     *
-     * @return $this
-     */
     public function changeSignature(string $signature): self
     {
         $this->signature = $signature;
@@ -140,11 +87,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  string  $privateKey
-     *
-     * @return $this
-     */
     public function changePrivateKey(string $privateKey): self
     {
         $this->privateKey = $privateKey;
@@ -152,11 +94,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  int  $date
-     *
-     * @return $this
-     */
     public function changeDate(int $date): self
     {
         $this->date = $date;
@@ -164,11 +101,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  string  $message
-     *
-     * @return $this
-     */
     public function changeMessage(string $message): self
     {
         $this->message = $message;
@@ -176,11 +108,6 @@ final class Transaction
         return $this;
     }
 
-    /**
-     * @param  int  $version
-     *
-     * @return $this
-     */
     public function changeVersion(int $version): self
     {
         $this->version = $version;
