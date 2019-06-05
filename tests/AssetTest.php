@@ -2,21 +2,14 @@
 
 namespace pxgamer\Arionum;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use BlastCloud\Guzzler\UsesGuzzler;
+use GuzzleHttp\Handler\MockHandler;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class AssetTest extends TestCase
 {
-    use UsesGuzzler;
-
-    public function setUp(): void
-    {
-        $client = $this->guzzler->getClient();
-
-        $this->arionum = new Arionum(self::TEST_NODE, $client);
-    }
-
     /**
      * @test
      * @return void
@@ -24,9 +17,14 @@ final class AssetTest extends TestCase
      */
     public function itCanRetrieveAnAssetBalance(): void
     {
-        $this->guzzler->expects($this->once())
-            ->get(Arionum::API_ENDPOINT)
-            ->willRespond(new Response(200, [], '{"data": [], "status": "ok"}'));
+        $mock = new MockHandler([
+            new Response(200, [], '{"data": [], "status": "ok"}'),
+        ]);
+
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
+
+        $this->arionum = new Arionum(self::TEST_NODE, $client);
 
         $data = $this->arionum->getAssetBalance(self::TEST_ADDRESS);
         $this->assertIsArray($data);
