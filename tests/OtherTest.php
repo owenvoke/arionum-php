@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
@@ -28,15 +29,15 @@ final class OtherTest extends TestCase
         $this->expectExceptionMessage('Not enough funds');
 
         $transaction = new Transaction();
-        $transaction->setValue(1.0);
-        $transaction->setFee(1.0);
-        $transaction->setDestinationAddress(self::TEST_ADDRESS);
-        $transaction->setPublicKey(self::TEST_SEND_KEY1);
-        $transaction->setSignature('');
-        $transaction->setPrivateKey(self::TEST_SEND_KEY2);
-        $transaction->setMessage('This should fail.');
-        $transaction->setDate(time());
-        $transaction->setVersion(Version::STANDARD);
+        $transaction->changeValue(1.0);
+        $transaction->changeFee(1.0);
+        $transaction->changeDestinationAddress(self::TEST_ADDRESS);
+        $transaction->changePublicKey(self::TEST_SEND_KEY1);
+        $transaction->changeSignature('');
+        $transaction->changePrivateKey(self::TEST_SEND_KEY2);
+        $transaction->changeMessage('This should fail.');
+        $transaction->changeDate(time());
+        $transaction->changeVersion(Version::STANDARD);
 
         $this->arionum->sendTransaction($transaction);
     }

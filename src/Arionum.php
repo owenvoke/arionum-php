@@ -7,6 +7,7 @@ namespace pxgamer\Arionum;
 use stdClass;
 use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
+use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class Arionum
@@ -22,8 +23,6 @@ final class Arionum
     private $client;
 
     /**
-     * Arionum constructor.
-     *
      * @param  string  $nodeAddress
      * @param  Client|null  $client
      */
@@ -461,7 +460,7 @@ final class Arionum
     }
 
     /**
-     * @param  array<string, bool|int|string|null>  $query
+     * @param  array<string, bool|float|int|string|null>  $query
      *
      * @return mixed
      *
@@ -492,6 +491,6 @@ final class Arionum
             return $data->data;
         }
 
-        throw new ApiException($data->data ?? 'An unknown API error occurred.');
+        throw new GenericApiException($data->data ?? 'An unknown API error occurred.');
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\Arionum\Exceptions;
 
-class GenericApiException extends ArionumException
+final class GenericApiException extends ArionumException
 {
 }

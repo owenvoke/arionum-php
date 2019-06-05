@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class NodeTest extends TestCase
 {
     /**
@@ -19,7 +21,7 @@ final class NodeTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheVersionForTheCurrentNode(): void
     {
@@ -30,7 +32,7 @@ final class NodeTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheSanityDetailsForTheCurrentNode(): void
     {
@@ -44,7 +46,7 @@ final class NodeTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itGetsTheNodeInfoForTheCurrentNode(): void
     {

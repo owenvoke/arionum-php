@@ -66,7 +66,7 @@ final class KeyTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itChecksThatASignatureIsInvalid(): void
     {

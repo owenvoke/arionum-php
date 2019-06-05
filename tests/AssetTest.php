@@ -4,6 +4,7 @@ namespace pxgamer\Arionum;
 
 use GuzzleHttp\Psr7\Response;
 use BlastCloud\Guzzler\UsesGuzzler;
+use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class AssetTest extends TestCase
 {
@@ -19,7 +20,7 @@ final class AssetTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws ApiException
+     * @throws GenericApiException
      */
     public function itCanRetrieveAnAssetBalance(): void
     {
