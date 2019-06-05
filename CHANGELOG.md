@@ -146,6 +146,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v3.0.0-beta.1]: https://github.com/pxgamer/arionum-php/compare/v2.7.0...v3.0.0-beta.1
 [v2.7.0]: https://github.com/pxgamer/arionum-php/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/pxgamer/arionum-php/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/pxgamer/arionum-php/compare/v2.4.0...v2.5.0
