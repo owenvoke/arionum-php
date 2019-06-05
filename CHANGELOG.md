@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ### Added
 - Add Laravel support ([#38](https://github.com/pxgamer/arionum-php/pull/38))
+- Add new Transaction helpers for the asset system ([#25](https://github.com/pxgamer/arionum-php/pull/25))
 
 ### Changed
 - Move factory methods to a `TransactionFactory` class ([#34](https://github.com/pxgamer/arionum-php/pull/34))
