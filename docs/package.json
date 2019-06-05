@@ -1,0 +1,10 @@
+{
+    "private": true,
+    "scripts": {
+        "serve": "vuepress dev .",
+        "build": "vuepress build ."
+    },
+    "devDependencies": {
+        "vuepress": "^1.0.0-alpha.48"
+    }
+}

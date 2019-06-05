@@ -9,15 +9,7 @@ use pxgamer\Arionum\Models\Transaction;
 
 final class TransactionFactory
 {
-    /**
-     * Retrieve a pre-populated Transaction instance for sending to an alias.
-     *
-     * @param  string  $alias
-     * @param  float  $value
-     * @param  string|null  $message
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for sending to an alias */
     public static function makeAliasSendInstance(string $alias, float $value, ?string $message = null): Transaction
     {
         $message = $message ?? '';
@@ -32,14 +24,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for setting an alias.
-     *
-     * @param  string  $address
-     * @param  string  $alias
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for setting an alias */
     public static function makeAliasSetInstance(string $address, string $alias): Transaction
     {
         $transaction = new Transaction();
@@ -53,14 +38,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for creating a masternode.
-     *
-     * @param  string  $ipAddress
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for creating a masternode */
     public static function makeMasternodeCreateInstance(string $ipAddress, string $address): Transaction
     {
         $transaction = new Transaction();
@@ -74,61 +52,37 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for pausing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for pausing a masternode */
     public static function makeMasternodePauseInstance(string $address): Transaction
     {
         $transaction = new Transaction();
 
         $transaction->changeVersion(Version::MASTERNODE_PAUSE);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for resuming a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for resuming a masternode */
     public static function makeMasternodeResumeInstance(string $address): Transaction
     {
         $transaction = new Transaction();
 
         $transaction->changeVersion(Version::MASTERNODE_RESUME);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for releasing a masternode.
-     *
-     * @param  string  $address
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for releasing a masternode */
     public static function makeMasternodeReleaseInstance(string $address): Transaction
     {
         $transaction = new Transaction();
 
         $transaction->changeVersion(Version::MASTERNODE_RELEASE);
 
-        return self::setMasternodeCommandDefaults($address, $transaction);
+        return self::configureMasternodeCommandDefaults($address, $transaction);
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for creating an asset.
-     *
-     * @param  Asset  $asset
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for creating an asset */
     public static function makeAssetCreateInstance(
         Asset $asset
     ): Transaction {
@@ -141,15 +95,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for sending an asset.
-     *
-     * @param  string  $assetId
-     * @param  string  $destination
-     * @param  float  $value
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for sending an asset */
     public static function makeAssetSendInstance(
         string $assetId,
         string $destination,
@@ -165,17 +111,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for creating a market order for an asset.
-     *
-     * @param  string  $assetId
-     * @param  float  $price
-     * @param  float  $assetAmount
-     * @param  int  $orderType
-     * @param  bool  $isCancelable
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for creating a market order for an asset */
     public static function makeAssetMarketInstance(
         string $assetId,
         float $price,
@@ -192,13 +128,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for cancelling a market order for an asset.
-     *
-     * @param  string  $orderId
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for cancelling a market order for an asset */
     public static function makeAssetCancelOrderInstance(string $orderId): Transaction
     {
         $transaction = new Transaction();
@@ -210,13 +140,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for sending dividends for an asset.
-     *
-     * @param  float  $value
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for sending dividends for an asset */
     public static function makeAssetDividendsInstance(float $value): Transaction
     {
         $transaction = new Transaction();
@@ -228,13 +152,7 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Retrieve a pre-populated Transaction instance for sending dividends for an asset.
-     *
-     * @param  float  $assetAmount
-     *
-     * @return Transaction
-     */
+    /* Retrieve a pre-populated Transaction instance for sending dividends for an asset */
     public static function makeAssetInflateInstance(float $assetAmount): Transaction
     {
         $transaction = new Transaction();
@@ -246,15 +164,8 @@ final class TransactionFactory
         return $transaction;
     }
 
-    /**
-     * Set the default fee and value for masternode commands.
-     *
-     * @param  string  $address
-     * @param  Transaction  $transaction
-     *
-     * @return Transaction
-     */
-    private static function setMasternodeCommandDefaults(string $address, Transaction $transaction): Transaction
+    /* Set the default fee and value for masternode commands */
+    private static function configureMasternodeCommandDefaults(string $address, Transaction $transaction): Transaction
     {
         $transaction->changeDestinationAddress($address);
         $transaction->changeValue(Transaction::VALUE_MASTERNODE_COMMAND);

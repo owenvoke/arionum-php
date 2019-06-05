@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Exceptions\GenericApiException;
+
 final class AccountTest extends TestCase
 {
     /**
