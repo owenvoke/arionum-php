@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum\Transaction;
 
+use pxgamer\Arionum\Models\Asset;
 use pxgamer\Arionum\Models\Transaction;
 
 final class TransactionFactory
@@ -79,6 +80,88 @@ final class TransactionFactory
         $transaction->changeVersion(Version::MASTERNODE_RELEASE);
 
         return self::configureMasternodeCommandDefaults($address, $transaction);
+    }
+
+    /* Retrieve a pre-populated Transaction instance for creating an asset */
+    public static function makeAssetCreateInstance(
+        Asset $asset
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_CREATE);
+        $transaction->changeMessage((string) $asset);
+        $transaction->changeValue(100);
+
+        return $transaction;
+    }
+
+    /* Retrieve a pre-populated Transaction instance for sending an asset */
+    public static function makeAssetSendInstance(
+        string $assetId,
+        string $destination,
+        float $value
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeDestinationAddress($destination);
+        $transaction->changeVersion(Version::ASSET_SEND);
+        $transaction->changeMessage(json_encode([$assetId, $value]));
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /* Retrieve a pre-populated Transaction instance for creating a market order for an asset */
+    public static function makeAssetMarketInstance(
+        string $assetId,
+        float $price,
+        float $assetAmount,
+        int $orderType,
+        bool $isCancelable
+    ): Transaction {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_MARKET);
+        $transaction->changeMessage(json_encode([$assetId, $price, $assetAmount, $isCancelable, $orderType]));
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /* Retrieve a pre-populated Transaction instance for cancelling a market order for an asset */
+    public static function makeAssetCancelOrderInstance(string $orderId): Transaction
+    {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_CANCEL_ORDER);
+        $transaction->changeMessage($orderId);
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
+    }
+
+    /* Retrieve a pre-populated Transaction instance for sending dividends for an asset */
+    public static function makeAssetDividendsInstance(float $value): Transaction
+    {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_DIVIDENDS);
+        $transaction->changeMessage('');
+        $transaction->changeValue($value);
+
+        return $transaction;
+    }
+
+    /* Retrieve a pre-populated Transaction instance for sending dividends for an asset */
+    public static function makeAssetInflateInstance(float $assetAmount): Transaction
+    {
+        $transaction = new Transaction();
+
+        $transaction->changeVersion(Version::ASSET_INFLATE);
+        $transaction->changeMessage((string) $assetAmount);
+        $transaction->changeValue(0.00000001);
+
+        return $transaction;
     }
 
     /* Set the default fee and value for masternode commands */
