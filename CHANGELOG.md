@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v3.0.0-beta.1] - 2019-06-05
+
 ### Added
 - Add Laravel support ([#38](https://github.com/pxgamer/arionum-php/pull/38))
 - Add new Transaction helpers for the asset system ([#25](https://github.com/pxgamer/arionum-php/pull/25))

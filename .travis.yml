@@ -5,13 +5,18 @@ php:
 - '7.2'
 - '7.3'
 
+env:
+  matrix:
+  - COMPOSER_FLAGS=""
+  - COMPOSER_FLAGS="--prefer-lowest"
+
 ## Cache composer
 cache:
   directories:
   - $HOME/.composer/cache
 
 before_script:
-- travis_retry composer update --no-interaction --prefer-dist
+- travis_retry composer update --no-interaction --prefer-dist ${COMPOSER_FLAGS}
 
 script:
 - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
