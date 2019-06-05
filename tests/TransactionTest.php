@@ -39,10 +39,7 @@ final class TransactionTest extends TestCase
         $this->assertNotEmpty($data);
     }
 
-    /**
-     * @test
-     * @return void
-     */
+    /** @test */
     public function itCanGenerateAnAliasSendTransaction(): void
     {
         $data = TransactionFactory::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
@@ -51,10 +48,7 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Version::ALIAS_SEND, $data->getVersion());
     }
 
-    /**
-     * @test
-     * @return void
-     */
+    /** @test */
     public function itCanGenerateAnAliasSetTransaction(): void
     {
         $data = TransactionFactory::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
@@ -64,11 +58,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::VALUE_ALIAS_SET, $data->getValue());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeCreateTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeCreateTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -78,11 +69,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_CREATE, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodePauseTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodePauseTransaction(): void
     {
         $data = TransactionFactory::makeMasternodePauseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -91,11 +79,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeResumeTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeResumeTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeResumeInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -104,11 +89,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeReleaseTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeReleaseTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
