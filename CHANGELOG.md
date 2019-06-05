@@ -6,6 +6,15 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+### Added
+- Add Laravel support ([#38](https://github.com/pxgamer/arionum-php/pull/38))
+
+### Changed
+- Move factory methods to a `TransactionFactory` class ([#34](https://github.com/pxgamer/arionum-php/pull/34))
+- Move exceptions to an `Exceptions` namespace ([#35](https://github.com/pxgamer/arionum-php/pull/35))
+- Replace setter methods with `change` methods ([#36](https://github.com/pxgamer/arionum-php/pull/36))
+- Update to use VuePress for the documentation ([#37](https://github.com/pxgamer/arionum-php/pull/37))
+
 ### Removed
 - Refactor Transaction private property names ([#32](https://github.com/pxgamer/arionum-php/pull/32))
 - Remove deprecated Transaction class constants ([#31](https://github.com/pxgamer/arionum-php/pull/31))
