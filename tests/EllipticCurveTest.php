@@ -4,6 +4,7 @@ namespace pxgamer\Arionum;
 
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Helpers\EllipticCurve;
+use pxgamer\Arionum\Exceptions\SignatureException;
 
 final class EllipticCurveTest extends TestCase
 {
@@ -45,5 +46,22 @@ final class EllipticCurveTest extends TestCase
         $data->sign(self::TEST_PRIVATE_KEY);
 
         $this->assertTrue(EllipticCurve::verify($signatureData, $data->getSignature(), self::TEST_PUBLIC_KEY));
+    }
+
+    /** @test */
+    public function itThrowsAnExceptionOnAnInvalidPrivateKey(): void
+    {
+        $data = new Transaction();
+
+        $data->changePublicKey(self::TEST_PUBLIC_KEY);
+        $data->changeValue(1);
+        $data->changeFee(1);
+        $data->changeDestinationAddress('pxgamer');
+        $data->changeMessage('');
+        $data->changeDate(time());
+
+        $this->expectException(SignatureException::class);
+
+        $data->sign('');
     }
 }
