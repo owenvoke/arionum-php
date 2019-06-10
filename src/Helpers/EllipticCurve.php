@@ -8,8 +8,8 @@ use StephenHill\Base58;
 final class EllipticCurve
 {
     /**
-     * @param string $data
-     * @param string $key
+     * @param  string  $data
+     * @param  string  $key
      *
      * @return string
      *
@@ -25,9 +25,9 @@ final class EllipticCurve
     }
 
     /**
-     * @param string $data
-     * @param string $signature
-     * @param string $key
+     * @param  string  $data
+     * @param  string  $signature
+     * @param  string  $key
      *
      * @return bool
      *
@@ -39,6 +39,6 @@ final class EllipticCurve
         $signature = (new Base58())->encode($signature);
         $publicKeyId = openssl_pkey_get_public($publicKey);
 
-        return (bool)openssl_verify($data, $signature, $publicKeyId, OPENSSL_ALGO_SHA256);
+        return (bool) openssl_verify($data, $signature, $publicKeyId, OPENSSL_ALGO_SHA256);
     }
 }
