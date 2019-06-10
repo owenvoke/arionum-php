@@ -454,6 +454,25 @@ final class Arionum
         ]);
     }
 
+    /**
+     * Retrieve the asset orders for a specific address.
+     *
+     * @param  string  $address
+     * @param  string|null  $assetId
+     *
+     * @return array<stdClass>
+     *
+     * @throws GenericApiException
+     */
+    public function getAssetOrders(string $address, ?string $assetId = null): array
+    {
+        return $this->getJson([
+            'q' => 'asset-orders',
+            'account' => $address,
+            'asset' => $assetId,
+        ]);
+    }
+
     public function getNodeAddress(): string
     {
         return $this->nodeAddress;

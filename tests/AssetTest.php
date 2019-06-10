@@ -30,4 +30,24 @@ final class AssetTest extends TestCase
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
+    /**
+     * @test
+     * @return void
+     * @throws GenericApiException
+     */
+    public function itCanRetrieveAssetOrders(): void
+    {
+        $mock = new MockHandler([
+            new Response(200, [], '{"data": [], "status": "ok"}'),
+        ]);
+
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
+
+        $this->arionum = new Arionum(self::TEST_NODE, $client);
+
+        $data = $this->arionum->getAssetOrders(self::TEST_ADDRESS);
+        $this->assertIsArray($data);
+        $this->assertEmpty($data);
+    }
 }
