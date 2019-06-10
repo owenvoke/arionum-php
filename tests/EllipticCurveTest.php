@@ -2,6 +2,7 @@
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Helpers\EllipticCurve;
 
 final class EllipticCurveTest extends TestCase
@@ -16,5 +17,33 @@ final class EllipticCurveTest extends TestCase
         $verified = EllipticCurve::verify('test-data', $signature, self::TEST_PUBLIC_KEY);
 
         $this->assertTrue($verified);
+    }
+
+    /** @test */
+    public function itCanGenerateASignatureForATransaction(): void
+    {
+        $data = new Transaction();
+
+        $data->changePublicKey(self::TEST_PUBLIC_KEY);
+        $data->changeValue(1);
+        $data->changeFee(1);
+        $data->changeDestinationAddress('pxgamer');
+        $data->changeMessage('');
+        $data->changeDate(time());
+
+        $signatureData = sprintf(
+            '%s-%s-%s-%s-%s-%s-%s',
+            $data->getValue(),
+            $data->getFee(),
+            $data->getDestinationAddress(),
+            $data->getMessage(),
+            $data->getVersion(),
+            $data->getPublicKey(),
+            $data->getDate()
+        );
+
+        $data->sign(self::TEST_PRIVATE_KEY);
+
+        $this->assertTrue(EllipticCurve::verify($signatureData, $data->getSignature(), self::TEST_PUBLIC_KEY));
     }
 }
