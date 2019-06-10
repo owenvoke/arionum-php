@@ -10,7 +10,9 @@ final class EllipticCurve
     /**
      * @param string $data
      * @param string $key
+     *
      * @return string
+     *
      * @throws Exception
      */
     public static function sign(string $data, string $key): string
@@ -26,7 +28,9 @@ final class EllipticCurve
      * @param string $data
      * @param string $signature
      * @param string $key
+     *
      * @return bool
+     *
      * @throws Exception
      */
     public static function verify(string $data, string $signature, string $key): bool
