@@ -32,6 +32,7 @@ final class AssetTest extends TestCase
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
+
     /**
      * @test
      * @return void
@@ -52,6 +53,7 @@ final class AssetTest extends TestCase
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
+
     /**
      * @test
      * @return void
@@ -72,6 +74,7 @@ final class AssetTest extends TestCase
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
+
     /**
      * @test
      * @return void
