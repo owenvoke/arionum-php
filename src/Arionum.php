@@ -473,6 +473,37 @@ final class Arionum
         ]);
     }
 
+    /**
+     * Retrieve a list of assets.
+     *
+     * @return array<stdClass>
+     *
+     * @throws GenericApiException
+     */
+    public function getAssets(): array
+    {
+        return $this->getJson([
+            'q' => 'assets',
+        ]);
+    }
+
+    /**
+     * Retrieve a specific asset.
+     *
+     * @param  string|null  $assetId
+     *
+     * @return array<stdClass>
+     *
+     * @throws GenericApiException
+     */
+    public function getAsset(string $assetId): array
+    {
+        return $this->getJson([
+            'q' => 'assets',
+            'asset' => $assetId,
+        ]);
+    }
+
     public function getNodeAddress(): string
     {
         return $this->nodeAddress;

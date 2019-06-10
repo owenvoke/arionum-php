@@ -34,6 +34,8 @@ use pxgamer\Arionum\Models\Transaction;
  * @method static bool checkAddress(string $address, ?string $publicKey = null)
  * @method static array getAssetBalance(string $address)
  * @method static array getAssetOrders(string $address, ?string $assetId)
+ * @method static array getAssets()
+ * @method static array getAsset(string $assetId)
  * @method static string getNodeAddress()
  *
  * @see Arionum
