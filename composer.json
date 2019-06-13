@@ -9,9 +9,8 @@
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
-        "illuminate/support": "^5.8",
         "mockery/mockery": "^1.0",
-        "orchestra/testbench": "~3.0",
+        "orchestra/testbench": "^3.8",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
