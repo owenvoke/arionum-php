@@ -20,7 +20,7 @@ final class LaravelTest extends TestCase
     protected function getPackageAliases($app): array
     {
         return [
-            'Arionum' => ArionumFacade::class,
+            'Arionum' => Arionum::class,
         ];
     }
 
