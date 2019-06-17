@@ -490,7 +490,7 @@ final class Arionum
     /**
      * Retrieve a specific asset.
      *
-     * @param  string|null  $assetId
+     * @param  string  $assetId
      *
      * @return array<stdClass>
      *
