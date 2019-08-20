@@ -44,16 +44,28 @@ final class Key
      */
     public static function pemToBase58(string $data): string
     {
-        return (new Base58())->encode(
-            base64_decode(
-                str_replace([
-                    '-----BEGIN PUBLIC KEY-----',
-                    '-----END PUBLIC KEY-----',
-                    '-----BEGIN EC PRIVATE KEY-----',
-                    '-----END EC PRIVATE KEY-----',
-                    "\n",
-                ], '', $data)
-            )
+        return (new Base58())->encode(self::decodePemData($data));
+    }
+
+    /**
+     * @param  string  $data
+     *
+     * @return string
+     *
+     * @throws Exception
+     *
+     * @internal
+     */
+    private static function decodePemData(string $data): string
+    {
+        return base64_decode(
+            str_replace([
+                '-----BEGIN PUBLIC KEY-----',
+                '-----END PUBLIC KEY-----',
+                '-----BEGIN EC PRIVATE KEY-----',
+                '-----END EC PRIVATE KEY-----',
+                "\n",
+            ], '', $data)
         );
     }
 }
