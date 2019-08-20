@@ -32,4 +32,28 @@ final class Key
             sprintf("%s\n%s\n%s", self::EC_PRIVATE_START, $keyData, self::EC_PRIVATE_END) :
             sprintf("%s\n%s\n%s", self::EC_PUBLIC_START, $keyData, self::EC_PUBLIC_END);
     }
+
+    /**
+     * @param  string  $data
+     *
+     * @return string
+     *
+     * @throws Exception
+     *
+     * @internal
+     */
+    public static function pemToBase58(string $data): string
+    {
+        return (new Base58())->encode(
+            base64_decode(
+                str_replace([
+                    '-----BEGIN PUBLIC KEY-----',
+                    '-----END PUBLIC KEY-----',
+                    '-----BEGIN EC PRIVATE KEY-----',
+                    '-----END EC PRIVATE KEY-----',
+                    "\n",
+                ], '', $data)
+            )
+        );
+    }
 }
