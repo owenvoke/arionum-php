@@ -6,6 +6,13 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v3.0.0-beta.2] - 2019-08-20
+
+### Added
+- Add new asset system API methods ([#39](https://github.com/pxgamer/arionum-php/pull/39))
+- Add support for local transaction signing ([#24](https://github.com/pxgamer/arionum-php/pull/24))
+- Add support for generating accounts locally ([#40](https://github.com/pxgamer/arionum-php/pull/40))
+
 ## [v3.0.0-beta.1] - 2019-06-05
 
 ### Added
@@ -146,6 +153,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v3.0.0-beta.2]: https://github.com/pxgamer/arionum-php/compare/v3.0.0-beta.1...v3.0.0-beta.2
 [v3.0.0-beta.1]: https://github.com/pxgamer/arionum-php/compare/v2.7.0...v3.0.0-beta.1
 [v2.7.0]: https://github.com/pxgamer/arionum-php/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/pxgamer/arionum-php/compare/v2.5.0...v2.6.0
