@@ -21,7 +21,7 @@ final class ArionumServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Arionum::class, function () {
             if (! $this->app->get('config')->get('arionum.node-uri')) {
-                throw new InvalidNodeUriException('The configured node uri is invalid. A valid `ARIONUM_NODE_URI` variable should be configured in your environment');
+                throw InvalidNodeUriException::laravelEnvNotSet();
             }
 
             return new Arionum($this->app->get('config')->get('arionum.node-uri'));

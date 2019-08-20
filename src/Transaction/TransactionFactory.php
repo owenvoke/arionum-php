@@ -116,7 +116,7 @@ final class TransactionFactory
         string $assetId,
         float $price,
         float $assetAmount,
-        int $orderType,
+        string $orderType,
         bool $isCancelable
     ): Transaction {
         $transaction = new Transaction();

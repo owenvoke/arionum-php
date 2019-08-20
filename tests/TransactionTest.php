@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use pxgamer\Arionum\Models\Asset;
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
 use pxgamer\Arionum\Exceptions\GenericApiException;
@@ -39,10 +40,7 @@ final class TransactionTest extends TestCase
         $this->assertNotEmpty($data);
     }
 
-    /**
-     * @test
-     * @return void
-     */
+    /** @test */
     public function itCanGenerateAnAliasSendTransaction(): void
     {
         $data = TransactionFactory::makeAliasSendInstance(self::TEST_ALIAS, 1.0);
@@ -51,10 +49,7 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Version::ALIAS_SEND, $data->getVersion());
     }
 
-    /**
-     * @test
-     * @return void
-     */
+    /** @test */
     public function itCanGenerateAnAliasSetTransaction(): void
     {
         $data = TransactionFactory::makeAliasSetInstance(self::TEST_ADDRESS, self::TEST_ALIAS);
@@ -64,11 +59,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::VALUE_ALIAS_SET, $data->getValue());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeCreateTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeCreateTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeCreateInstance(self::TEST_IP, self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -78,11 +70,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_CREATE, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodePauseTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodePauseTransaction(): void
     {
         $data = TransactionFactory::makeMasternodePauseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -91,11 +80,8 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeResumeTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeResumeTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeResumeInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
@@ -104,16 +90,76 @@ final class TransactionTest extends TestCase
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->getFee());
     }
 
-    /**
-     * @test
-     * @return void
-     */
-    public function itCanGenerateAnMasternodeReleaseTransaction(): void
+    /** @test */
+    public function itCanGenerateAMasternodeReleaseTransaction(): void
     {
         $data = TransactionFactory::makeMasternodeReleaseInstance(self::TEST_ADDRESS);
         $this->assertEquals(self::TEST_ADDRESS, $data->getDestinationAddress());
         $this->assertEquals(Version::MASTERNODE_RELEASE, $data->getVersion());
         $this->assertEquals(Transaction::VALUE_MASTERNODE_COMMAND, $data->getValue());
         $this->assertEquals(Transaction::FEE_MASTERNODE_COMMAND, $data->getFee());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetCreateTransaction(): void
+    {
+        $asset = new Asset(100, 1, false, false, false, false);
+
+        $data = TransactionFactory::makeAssetCreateInstance($asset);
+
+        $this->assertEquals(Version::ASSET_CREATE, $data->getVersion());
+        $this->assertEquals(100, $data->getValue());
+        $this->assertEquals(json_encode([100, 0, '1.00000000', 0, 0, 0]), $data->getMessage());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetSendTransaction(): void
+    {
+        $data = TransactionFactory::makeAssetSendInstance('ARO', 'ARO', 1.0);
+
+        $this->assertEquals(Version::ASSET_SEND, $data->getVersion());
+        $this->assertEquals(0.00000001, $data->getValue());
+        $this->assertEquals(json_encode(['ARO', 1.0]), $data->getMessage());
+        $this->assertEquals('ARO', $data->getDestinationAddress());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetMarketTransaction(): void
+    {
+        $data = TransactionFactory::makeAssetMarketInstance('ARO', 1.0, 1.0, 'ask', false);
+
+        $this->assertEquals(Version::ASSET_MARKET, $data->getVersion());
+        $this->assertEquals(0.00000001, $data->getValue());
+        $this->assertEquals(json_encode(['ARO', 1.0, 1.0, false, 'ask']), $data->getMessage());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetCancelOrderTransaction(): void
+    {
+        $data = TransactionFactory::makeAssetCancelOrderInstance('order-id');
+
+        $this->assertEquals(Version::ASSET_CANCEL_ORDER, $data->getVersion());
+        $this->assertEquals(0.00000001, $data->getValue());
+        $this->assertEquals('order-id', $data->getMessage());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetDividendsTransaction(): void
+    {
+        $data = TransactionFactory::makeAssetDividendsInstance(100);
+
+        $this->assertEquals(Version::ASSET_DIVIDENDS, $data->getVersion());
+        $this->assertEquals(100, $data->getValue());
+        $this->assertEquals('', $data->getMessage());
+    }
+
+    /** @test */
+    public function itCanGenerateAnAssetInflateTransaction(): void
+    {
+        $data = TransactionFactory::makeAssetInflateInstance(1);
+
+        $this->assertEquals(Version::ASSET_INFLATE, $data->getVersion());
+        $this->assertEquals(0.00000001, $data->getValue());
+        $this->assertEquals('1', $data->getMessage());
     }
 }

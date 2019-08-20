@@ -5,12 +5,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "ext-json": "*",
-        "guzzlehttp/guzzle": "^6.3"
+        "ext-openssl": "*",
+        "guzzlehttp/guzzle": "^6.3",
+        "stephenhill/base58": "^1.1"
     },
     "require-dev": {
-        "blastcloud/guzzler": "^1.0",
-        "illuminate/support": "^5.8",
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^3.8",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
