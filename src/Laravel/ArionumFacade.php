@@ -4,6 +4,7 @@ namespace pxgamer\Arionum\Laravel;
 
 use stdClass;
 use pxgamer\Arionum\Arionum;
+use pxgamer\Arionum\Models\Account;
 use Illuminate\Support\Facades\Facade;
 use pxgamer\Arionum\Models\Transaction;
 
@@ -19,6 +20,7 @@ use pxgamer\Arionum\Models\Transaction;
  * @method static stdClass getTransaction(string $transactionId)
  * @method static string getPublicKey(string $address)
  * @method static stdClass generateAccount()
+ * @method static Account generateLocalAccount()
  * @method static stdClass getCurrentBlock()
  * @method static stdClass getBlock(int $height)
  * @method static array getBlockTransactions(string $blockId)

@@ -8,6 +8,12 @@
 $arionum->generateAccount();
 ```
 
+#### Generate a new account locally
+
+```php
+$arionum->generateLocalAccount();
+```
+
 #### Get an address from a public key
 
 ```php
