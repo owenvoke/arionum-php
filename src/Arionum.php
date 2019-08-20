@@ -6,9 +6,11 @@ namespace pxgamer\Arionum;
 
 use stdClass;
 use GuzzleHttp\Client;
+use pxgamer\Arionum\Models\Account;
 use function GuzzleHttp\json_decode;
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Exceptions\GenericApiException;
+use pxgamer\Arionum\Exceptions\GenericLocalException;
 
 final class Arionum
 {
@@ -502,6 +504,18 @@ final class Arionum
             'q' => 'assets',
             'asset' => $assetId,
         ]);
+    }
+
+    /**
+     * Generate a new public/private key pair and return these with the address.
+     *
+     * @return Account
+     *
+     * @throws GenericLocalException
+     */
+    public function generateLocalAccount(): Account
+    {
+        return Account::make();
     }
 
     public function getNodeAddress(): string
