@@ -211,15 +211,17 @@ final class Arionum
     /**
      * Generate a new public/private key pair and return these with the address.
      *
-     * @return stdClass
+     * @return Account
      *
      * @throws GenericApiException
      */
-    public function generateAccount(): stdClass
+    public function generateAccount(): Account
     {
-        return $this->getJson([
+        $generatedAccount = $this->getJson([
             'q' => 'generateAccount',
         ]);
+
+        return new Account($generatedAccount->public_key, $generatedAccount->private_key);
     }
 
     /**
