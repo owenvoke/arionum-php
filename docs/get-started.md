@@ -17,10 +17,16 @@ $arionum = new pxgamer\Arionum\Arionum($nodeUri);
 
 ### Within Laravel
 
-The package will be discovered automatically, but the configuration can be duplicated using:
+For use within Laravel, there is a [Laravel Arionum][link-laravel-arionum] adapter:
 
 ```bash
-php artisan vendor:publish --provider="pxgamer\Arionum\Laravel\ArionumServiceProvider"
+# Require the Laravel adapter package
+composer require pxgamer/laravel-arionum
+
+# Publish the configuration file
+php artisan vendor:publish --provider="pxgamer\LaravelArionum\ArionumServiceProvider"
 ```
 
-To configure the Arionum node that is used, set the `ARIONUM_NODE_URI` environment variable in `.env`
+To configure the Arionum node that is used, set the `ARIONUM_NODE_URI` environment variable in `.env` file.
+
+[link-laravel-arionum]: https://github.com/pxgamer/laravel-arionum
