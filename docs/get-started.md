@@ -29,4 +29,7 @@ php artisan vendor:publish --provider="pxgamer\LaravelArionum\ArionumServiceProv
 
 To configure the Arionum node that is used, set the `ARIONUM_NODE_URI` environment variable in `.env` file.
 
+All existing methods can be called statically via the [`Arionum` facade][link-facade].
+
 [link-laravel-arionum]: https://github.com/pxgamer/laravel-arionum
+[link-facade]: https://github.com/pxgamer/laravel-arionum/blob/master/src/ArionumFacade.php
