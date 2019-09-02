@@ -16,9 +16,8 @@ final class AccountTest extends TestCase
     public function itGeneratesANewAccount(): void
     {
         $data = $this->arionum->generateAccount();
-        $this->assertObjectHasAttribute('address', $data);
-        $this->assertObjectHasAttribute('public_key', $data);
-        $this->assertObjectHasAttribute('private_key', $data);
+        $this->assertStringStartsWith('PZ', $data->getPublicKey());
+        $this->assertStringStartsWith('Lz', $data->getPrivateKey());
     }
 
     /**
