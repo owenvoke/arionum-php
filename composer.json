@@ -29,15 +29,5 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "pxgamer\\Arionum\\Laravel\\ArionumServiceProvider"
-            ],
-            "aliases": {
-                "Arionum": "pxgamer\\Arionum\\Laravel\\ArionumFacade"
-            }
-        }
     }
 }
