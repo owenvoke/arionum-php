@@ -5,6 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "ext-openssl": "*",
         "guzzlehttp/guzzle": "^6.3",
         "stephenhill/base58": "^1.1"
@@ -20,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "pxgamer\\Arionum\\": "tests"
+            "pxgamer\\Arionum\\Tests\\": "tests"
         }
     },
     "scripts": {
