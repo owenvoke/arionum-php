@@ -58,7 +58,7 @@ final class NodeTest extends TestCase
             new Response(200, [], json_encode([
                 'status' => 'ok',
                 'data' => [
-                    'hostname' => 'https://aro.pxgamer.xyz',
+                    'hostname' => 'https://aro.example.com',
                     'version' => '0.4.5',
                     'dbversion' => '9',
                     'accounts' => 14817,
@@ -85,5 +85,7 @@ final class NodeTest extends TestCase
         $this->assertIsInt($data->transactions);
         $this->assertIsInt($data->mempool);
         $this->assertIsInt($data->masternodes);
+
+        $this->assertEquals('https://aro.example.com', $data->hostname);
     }
 }
