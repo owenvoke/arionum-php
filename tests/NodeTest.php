@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Handler\MockHandler;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class NodeTest extends TestCase
@@ -50,6 +54,28 @@ final class NodeTest extends TestCase
      */
     public function itGetsTheNodeInfoForTheCurrentNode(): void
     {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode([
+                'status' => 'ok',
+                'data' => [
+                    'hostname' => 'https://aro.example.com',
+                    'version' => '0.4.5',
+                    'dbversion' => '9',
+                    'accounts' => 14817,
+                    'transactions' => 2779519,
+                    'mempool' => 8,
+                    'masternodes' => 484,
+                    'peers' => 108,
+                ],
+                'coin' => 'arionum',
+            ])),
+        ]);
+
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
+
+        $this->arionum = new Arionum(self::TEST_NODE, $client);
+
         $data = $this->arionum->getNodeInfo();
 
         $this->assertIsString($data->hostname);
@@ -59,5 +85,7 @@ final class NodeTest extends TestCase
         $this->assertIsInt($data->transactions);
         $this->assertIsInt($data->mempool);
         $this->assertIsInt($data->masternodes);
+
+        $this->assertEquals('https://aro.example.com', $data->hostname);
     }
 }
