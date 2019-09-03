@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Tests\Feature;
 
+use pxgamer\Arionum\Tests\TestCase;
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Transaction\Version;
 use pxgamer\Arionum\Exceptions\GenericApiException;

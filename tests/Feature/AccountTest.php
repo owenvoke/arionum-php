@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Tests\Feature;
 
+use pxgamer\Arionum\Tests\TestCase;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class AccountTest extends TestCase
@@ -16,9 +17,8 @@ final class AccountTest extends TestCase
     public function itGeneratesANewAccount(): void
     {
         $data = $this->arionum->generateAccount();
-        $this->assertObjectHasAttribute('address', $data);
-        $this->assertObjectHasAttribute('public_key', $data);
-        $this->assertObjectHasAttribute('private_key', $data);
+        $this->assertStringStartsWith('PZ', $data->getPublicKey());
+        $this->assertStringStartsWith('Lz', $data->getPrivateKey());
     }
 
     /**

@@ -1,10 +1,20 @@
 # Changelog
 
-All notable changes to `arionum-php` will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
+The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
+
+## [v3.0.0] - 2019-09-03
+
+### Changed
+- Update generateAccount method to return Account ([#43](https://github.com/pxgamer/arionum-php/pull/43))
+- Mock the API call for the node info test ([#44](https://github.com/pxgamer/arionum-php/pull/44))
+- Update tests to use subnamespace ([#45](https://github.com/pxgamer/arionum-php/pull/45))
+
+### Removed
+- Extract Laravel components to an adapter package ([#42](https://github.com/pxgamer/arionum-php/pull/42))
 
 ## [v3.0.0-beta.2] - 2019-08-20
 
@@ -153,6 +163,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial release
 
 [Unreleased]: https://github.com/pxgamer/arionum-php/compare/master...develop
+[v3.0.0]: https://github.com/pxgamer/arionum-php/compare/v3.0.0-beta.2...v3.0.0
 [v3.0.0-beta.2]: https://github.com/pxgamer/arionum-php/compare/v3.0.0-beta.1...v3.0.0-beta.2
 [v3.0.0-beta.1]: https://github.com/pxgamer/arionum-php/compare/v2.7.0...v3.0.0-beta.1
 [v2.7.0]: https://github.com/pxgamer/arionum-php/compare/v2.6.0...v2.7.0

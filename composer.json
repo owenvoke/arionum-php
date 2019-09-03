@@ -5,13 +5,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "ext-openssl": "*",
         "guzzlehttp/guzzle": "^6.3",
         "stephenhill/base58": "^1.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
-        "orchestra/testbench": "^3.8",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "pxgamer\\Arionum\\": "tests"
+            "pxgamer\\Arionum\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -29,15 +29,5 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "pxgamer\\Arionum\\Laravel\\ArionumServiceProvider"
-            ],
-            "aliases": {
-                "Arionum": "pxgamer\\Arionum\\Laravel\\ArionumFacade"
-            }
-        }
     }
 }
