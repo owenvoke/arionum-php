@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Tests;
+namespace pxgamer\Arionum\Tests\Feature;
 
+use pxgamer\Arionum\Tests\TestCase;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class Base58Test extends TestCase
