@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Tests;
 
 use pxgamer\Arionum\Models\Transaction;
 use pxgamer\Arionum\Helpers\EllipticCurve;

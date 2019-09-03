@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Tests;
 
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
