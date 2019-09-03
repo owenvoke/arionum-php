@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace pxgamer\Arionum\Tests\Feature;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use pxgamer\Arionum\Arionum;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
+use pxgamer\Arionum\Tests\TestCase;
 use pxgamer\Arionum\Exceptions\GenericApiException;
 
 final class NodeTest extends TestCase
