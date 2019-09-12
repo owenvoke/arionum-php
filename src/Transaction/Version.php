@@ -39,7 +39,7 @@ final class Version
     /** The transaction version for adding a masternode voting key. */
     public const MASTERNODE_ADD_VOTING_KEY = 105;
     /** The transaction version for a masternode blacklist vote. */
-    public const MASTERNODE_BLACKLIST_VOTE = 106;
+    public const MASTERNODE_VOTE_BLACKLIST = 106;
     /** The transaction version for a masternode blockchain vote. */
-    public const MASTERNODE_BLOCKCHAIN_VOTE = 107;
+    public const MASTERNODE_VOTE_BLOCKCHAIN = 107;
 }
