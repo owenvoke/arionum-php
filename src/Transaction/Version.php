@@ -34,4 +34,12 @@ final class Version
     public const MASTERNODE_RESUME = 102;
     /** The transaction version for releasing a masternode. */
     public const MASTERNODE_RELEASE = 103;
+    /** The transaction version for updating a masternodes IP address. */
+    public const MASTERNODE_UPDATE_IP = 104;
+    /** The transaction version for adding a masternode voting key. */
+    public const MASTERNODE_ADD_VOTING_KEY = 105;
+    /** The transaction version for a masternode blacklist vote. */
+    public const MASTERNODE_BLACKLIST_VOTE = 106;
+    /** The transaction version for a masternode blockchain vote. */
+    public const MASTERNODE_BLOCKCHAIN_VOTE = 107;
 }
