@@ -3,12 +3,12 @@
 namespace pxgamer\Arionum\Tests\Feature;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use pxgamer\Arionum\Arionum;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
-use pxgamer\Arionum\Tests\TestCase;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use pxgamer\Arionum\Arionum;
 use pxgamer\Arionum\Exceptions\GenericApiException;
+use pxgamer\Arionum\Tests\TestCase;
 
 final class AssetTest extends TestCase
 {

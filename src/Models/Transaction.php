@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace pxgamer\Arionum\Models;
 
 use Exception;
-use pxgamer\Arionum\Transaction\Version;
-use pxgamer\Arionum\Helpers\EllipticCurve;
 use pxgamer\Arionum\Exceptions\SignatureException;
+use pxgamer\Arionum\Helpers\EllipticCurve;
+use pxgamer\Arionum\Transaction\Version;
 
 final class Transaction
 {

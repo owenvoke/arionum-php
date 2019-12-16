@@ -3,9 +3,9 @@
 namespace pxgamer\Arionum\Models;
 
 use Exception;
-use StephenHill\Base58;
-use pxgamer\Arionum\Helpers\Key;
 use pxgamer\Arionum\Exceptions\GenericLocalException;
+use pxgamer\Arionum\Helpers\Key;
+use StephenHill\Base58;
 
 final class Account
 {
