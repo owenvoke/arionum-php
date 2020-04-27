@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace pxgamer\Arionum\Tests;
 
-use pxgamer\Arionum\Arionum;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use pxgamer\Arionum\Arionum;
 
 class TestCase extends BaseTestCase
 {
