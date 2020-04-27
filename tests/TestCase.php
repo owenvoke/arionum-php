@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace OwenVoke\Arionum\Tests;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
 use OwenVoke\Arionum\Arionum;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
