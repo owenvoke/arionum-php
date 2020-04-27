@@ -1,14 +1,14 @@
 <?php
 
-namespace pxgamer\Arionum\Tests\Feature;
+namespace OwenVoke\Arionum\Tests\Feature;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use pxgamer\Arionum\Arionum;
-use pxgamer\Arionum\Exceptions\GenericApiException;
-use pxgamer\Arionum\Tests\TestCase;
+use OwenVoke\Arionum\Arionum;
+use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Tests\TestCase;
 
 final class AssetTest extends TestCase
 {

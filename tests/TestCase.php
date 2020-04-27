@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Tests;
+namespace OwenVoke\Arionum\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use pxgamer\Arionum\Arionum;
+use OwenVoke\Arionum\Arionum;
 
 class TestCase extends BaseTestCase
 {

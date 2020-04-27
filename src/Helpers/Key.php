@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\Arionum\Helpers;
+namespace OwenVoke\Arionum\Helpers;
 
 use Exception;
 use StephenHill\Base58;

@@ -12,5 +12,5 @@ footer: MIT Licensed | Copyright © 2018 Owen Voke
 
 ```bash
 # Install with Composer
-composer require pxgamer/arionum-php
+composer require owenvoke/arionum-php
 ```

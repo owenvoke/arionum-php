@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Transaction;
+namespace OwenVoke\Arionum\Transaction;
 
 final class Version
 {

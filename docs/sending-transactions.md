@@ -5,7 +5,7 @@
 There are many transaction helpers for creating pre-filled `Transaction` instances.
 
 ```php
-use pxgamer\Arionum\Transaction\TransactionFactory;
+use OwenVoke\Arionum\Transaction\TransactionFactory;
 
 // Retrieve a pre-populated Transaction instance for sending to an alias
 TransactionFactory::makeAliasSendInstance($alias, $value, $message);

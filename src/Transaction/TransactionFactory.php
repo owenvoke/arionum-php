@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Transaction;
+namespace OwenVoke\Arionum\Transaction;
 
-use pxgamer\Arionum\Models\Asset;
-use pxgamer\Arionum\Models\Transaction;
+use OwenVoke\Arionum\Models\Asset;
+use OwenVoke\Arionum\Models\Transaction;
 
 final class TransactionFactory
 {

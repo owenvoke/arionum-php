@@ -1,10 +1,10 @@
 <?php
 
-namespace pxgamer\Arionum\Models;
+namespace OwenVoke\Arionum\Models;
 
 use Exception;
-use pxgamer\Arionum\Exceptions\GenericLocalException;
-use pxgamer\Arionum\Helpers\Key;
+use OwenVoke\Arionum\Exceptions\GenericLocalException;
+use OwenVoke\Arionum\Helpers\Key;
 use StephenHill\Base58;
 
 final class Account

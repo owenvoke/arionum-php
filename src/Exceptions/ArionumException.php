@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Exceptions;
+namespace OwenVoke\Arionum\Exceptions;
 
 use RuntimeException;
 

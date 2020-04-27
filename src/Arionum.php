@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum;
+namespace OwenVoke\Arionum;
 
 use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
-use pxgamer\Arionum\Exceptions\GenericApiException;
-use pxgamer\Arionum\Exceptions\GenericLocalException;
-use pxgamer\Arionum\Models\Account;
-use pxgamer\Arionum\Models\Transaction;
+use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Exceptions\GenericLocalException;
+use OwenVoke\Arionum\Models\Account;
+use OwenVoke\Arionum\Models\Transaction;
 use stdClass;
 
 final class Arionum

@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\Arionum\Models;
+namespace OwenVoke\Arionum\Models;
 
 final class Asset
 {

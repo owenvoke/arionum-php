@@ -1,5 +1,5 @@
 {
-    "name": "pxgamer/arionum-php",
+    "name": "owenvoke/arionum-php",
     "type": "library",
     "description": "An API wrapper for the Arionum cryptocurrency node.",
     "license": "MIT",
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "pxgamer\\Arionum\\": "src"
+            "OwenVoke\\Arionum\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "pxgamer\\Arionum\\Tests\\": "tests"
+            "OwenVoke\\Arionum\\Tests\\": "tests"
         }
     },
     "scripts": {

@@ -15,7 +15,7 @@ An API wrapper for the Arionum cryptocurrency node.
 Via Composer
 
 ```bash
-$ composer require pxgamer/arionum-php
+$ composer require owenvoke/arionum-php
 ```
 
 ## Usage
@@ -59,19 +59,19 @@ You can buy trees [here][link-treeware-gifting].
 
 Read more about Treeware at [treeware.earth][link-treeware].
 
-[ico-version]: https://img.shields.io/packagist/v/pxgamer/arionum-php.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/owenvoke/arionum-php.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-github-actions]: https://img.shields.io/github/workflow/status/owenvoke/arionum-php/Continuous%20Integration.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/138864423/shield
 [ico-code-quality]: https://img.shields.io/codecov/c/github/owenvoke/arionum-php.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/arionum-php.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/owenvoke/arionum-php.svg?style=flat-square
 [ico-treeware-gifting]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/pxgamer/arionum-php
+[link-packagist]: https://packagist.org/packages/owenvoke/arionum-php
 [link-github-actions]: https://github.com/owenvoke/arionum-php/actions
 [link-styleci]: https://styleci.io/repos/138864423
 [link-code-quality]: https://codecov.io/gh/owenvoke/arionum-php
-[link-downloads]: https://packagist.org/packages/pxgamer/arionum-php
+[link-downloads]: https://packagist.org/packages/owenvoke/arionum-php
 [link-treeware]: https://treeware.earth
 [link-treeware-gifting]: https://offset.earth/owenvoke?gift-trees
 [link-author]: https://github.com/owenvoke

@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\Arionum\Exceptions;
+namespace OwenVoke\Arionum\Exceptions;
 
 final class SignatureException extends ArionumException
 {

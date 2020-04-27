@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace pxgamer\Arionum\Tests\Feature;
+namespace OwenVoke\Arionum\Tests\Feature;
 
-use pxgamer\Arionum\Exceptions\GenericApiException;
-use pxgamer\Arionum\Tests\TestCase;
+use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Tests\TestCase;
 
 final class BlockTest extends TestCase
 {

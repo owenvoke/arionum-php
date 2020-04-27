@@ -1,11 +1,11 @@
 <?php
 
-namespace pxgamer\Arionum\Tests\Feature;
+namespace OwenVoke\Arionum\Tests\Feature;
 
-use pxgamer\Arionum\Exceptions\SignatureException;
-use pxgamer\Arionum\Helpers\EllipticCurve;
-use pxgamer\Arionum\Models\Transaction;
-use pxgamer\Arionum\Tests\TestCase;
+use OwenVoke\Arionum\Exceptions\SignatureException;
+use OwenVoke\Arionum\Helpers\EllipticCurve;
+use OwenVoke\Arionum\Models\Transaction;
+use OwenVoke\Arionum\Tests\TestCase;
 
 final class EllipticCurveTest extends TestCase
 {

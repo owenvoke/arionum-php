@@ -1,9 +1,9 @@
 <?php
 
-namespace pxgamer\Arionum\Tests\Feature;
+namespace OwenVoke\Arionum\Tests\Feature;
 
-use pxgamer\Arionum\Models\Account;
-use pxgamer\Arionum\Tests\TestCase;
+use OwenVoke\Arionum\Models\Account;
+use OwenVoke\Arionum\Tests\TestCase;
 
 final class LocalAccountTest extends TestCase
 {
