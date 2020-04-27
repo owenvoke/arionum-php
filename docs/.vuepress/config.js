@@ -4,7 +4,7 @@ module.exports = {
   serviceWorker: true,
   sidebar: true,
   themeConfig: {
-    repo: 'pxgamer/arionum-php',
+    repo: 'owenvoke/arionum-php',
     docsDir: 'docs',
     editLinks: true,
     sidebar: [
