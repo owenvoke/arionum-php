@@ -2,81 +2,47 @@
 
 declare(strict_types=1);
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
 use OwenVoke\Arionum\Exceptions\GenericApiException;
-use OwenVoke\Arionum\Tests\TestCase;
 
-final class KeyTest extends TestCase
-{
-    // phpcs:disable Generic.Files.LineLength
-    private const TEST_SIGNATURE = 'AN1rKroKawax5azYrLbasV7VycYAvQXFKrJ69TFYEfmanXwVRrUQTCx5gQ1eVNMgEVzrEz3VzLsfrVVpUYqgB5eT2qsFtaSsw';
-    private const TEST_SIGNATURE_COMPONENTS = '1.00000000-0.00250000-PXGAMER--2-'.self::TEST_PUBLIC_KEY.'-1533911370';
-    // phpcs:enable
+beforeEach()->withArionum();
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itThrowsAnExceptionOnInvalidPublicKey(): void
-    {
-        $this->expectException(GenericApiException::class);
+$testAddress = '51sJ4LbdKzhyGy4zJGqodNLse9n9JsVT2rdeH92w7cf3qQuSDJupvjbUT1UBr7r1SCUAXG97saxn7jt2edKb4v4J';
+$testPublicKey = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqicuznv1qmRVQMvbmF64AeczjMtV72acGLR9RsiQ2JccemNrSPkKi8KDk72t4';
+$testSignature = 'AN1rKroKawax5azYrLbasV7VycYAvQXFKrJ69TFYEfmanXwVRrUQTCx5gQ1eVNMgEVzrEz3VzLsfrVVpUYqgB5eT2qsFtaSsw';
+$testSignatureComponents = "1.00000000-0.00250000-PXGAMER--2-{$testPublicKey}-1533911370";
 
-        $this->arionum->getAddress('INVALID-PUBLIC-KEY');
-    }
+it('throws an exception when invalid public key is provided', function (): void {
+    $this->arionum->getAddress('INVALID-PUBLIC-KEY');
+})->throws(GenericApiException::class);
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsAnAddressFromAPublicKey(): void
-    {
-        $data = $this->arionum->getAddress(self::TEST_PUBLIC_KEY);
-        $this->assertEquals(self::TEST_ADDRESS, $data);
-    }
+it('gets an address from a public key', function () use ($testAddress, $testPublicKey): void {
+    $data = $this->arionum->getAddress($testPublicKey);
+    assertEquals($testAddress, $data);
+});
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsThePublicKeyForAnAddress(): void
-    {
-        $data = $this->arionum->getPublicKey(self::TEST_ADDRESS);
-        $this->assertTrue($data === self::TEST_PUBLIC_KEY || $data === '');
-    }
+it('gets a public key from an address', function () use ($testAddress, $testPublicKey): void {
+    $data = $this->arionum->getPublicKey($testAddress);
+    assertTrue($data === $testPublicKey || $data === '');
+});
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itChecksThatASignatureIsValid(): void
-    {
+it('checks that the public key signature is valid',
+    function () use ($testPublicKey, $testSignature, $testSignatureComponents): void {
         $data = $this->arionum->checkSignature(
-            self::TEST_SIGNATURE,
-            self::TEST_SIGNATURE_COMPONENTS,
-            self::TEST_PUBLIC_KEY
+            $testSignature,
+            $testSignatureComponents,
+            $testPublicKey
         );
 
         $this->assertTrue($data);
     }
+);
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itChecksThatASignatureIsInvalid(): void
-    {
-        $data = $this->arionum->checkSignature(
-            self::TEST_SIGNATURE,
-            'invalid-string',
-            self::TEST_PUBLIC_KEY
-        );
+it('checks that the public key signature is invalid', function () use ($testPublicKey, $testSignature): void {
+    $data = $this->arionum->checkSignature(
+        $testSignature,
+        'invalid-string',
+        $testPublicKey
+    );
 
-        $this->assertFalse($data);
-    }
-}
+    assertFalse($data);
+});
