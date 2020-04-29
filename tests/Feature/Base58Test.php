@@ -2,24 +2,17 @@
 
 declare(strict_types=1);
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
-use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Arionum;
 use OwenVoke\Arionum\Tests\TestCase;
 
-final class Base58Test extends TestCase
-{
-    private const INPUT_DATA = 'dataIsHere';
-    private const OUTPUT_DATA = '6e6WaupsT6FzH2';
+beforeEach(function (): void {
+    $this->arionum = new Arionum(TestCase::TEST_NODE);
+});
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsABase58ValueForInputData(): void
-    {
-        $data = $this->arionum->getBase58(self::INPUT_DATA);
-        $this->assertEquals(self::OUTPUT_DATA, $data);
-    }
-}
+it('gets a base58 value for input data', function (): void {
+    $inputData = 'dataIsHere';
+    $outputData = '6e6WaupsT6FzH2';
+
+    $data = $this->arionum->getBase58($inputData);
+    assertEquals($outputData, $data);
+});
