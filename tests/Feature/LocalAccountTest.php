@@ -1,27 +1,19 @@
 <?php
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
 use OwenVoke\Arionum\Models\Account;
-use OwenVoke\Arionum\Tests\TestCase;
 
-final class LocalAccountTest extends TestCase
-{
-    /** @test */
-    public function itCanGenerateALocalAccount(): void
-    {
-        $account = Account::make();
+it('can generate a local account', function (): void {
+    $account = Account::make();
 
-        $this->assertStringStartsWith('PZ', $account->getPublicKey());
-        $this->assertStringStartsWith('Lz', $account->getPrivateKey());
-    }
+    assertStringStartsWith('PZ', $account->getPublicKey());
+    assertStringStartsWith('Lz', $account->getPrivateKey());
+});
 
-    /** @test */
-    public function itCanGenerateALocalAccountViaTheHelper(): void
-    {
-        $account = $this->arionum->generateLocalAccount();
+it('can generate a local account via the helper', function (): void {
+    $this->withArionum();
 
-        $this->assertStringStartsWith('PZ', $account->getPublicKey());
-        $this->assertStringStartsWith('Lz', $account->getPrivateKey());
-    }
-}
+    $account = $this->arionum->generateLocalAccount();
+
+    assertStringStartsWith('PZ', $account->getPublicKey());
+    assertStringStartsWith('Lz', $account->getPrivateKey());
+});
