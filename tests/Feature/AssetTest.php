@@ -1,100 +1,70 @@
 <?php
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use OwenVoke\Arionum\Arionum;
-use OwenVoke\Arionum\Exceptions\GenericApiException;
-use OwenVoke\Arionum\Tests\TestCase;
 
-final class AssetTest extends TestCase
-{
-    private const TEST_ASSET = 'aro';
+$testAddress = '51sJ4LbdKzhyGy4zJGqodNLse9n9JsVT2rdeH92w7cf3qQuSDJupvjbUT1UBr7r1SCUAXG97saxn7jt2edKb4v4J';
+$testAsset = 'aro';
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itCanRetrieveAnAssetBalance(): void
-    {
-        $mock = new MockHandler([
-            new Response(200, [], '{"data": [], "status": "ok"}'),
-        ]);
+it('can retrieve an asset balance', function () use ($testAddress): void {
+    $mock = new MockHandler([
+        new Response(200, [], '{"data": [], "status": "ok"}'),
+    ]);
 
-        $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+    $handler = HandlerStack::create($mock);
+    $client = new Client(['handler' => $handler]);
 
-        $this->arionum = new Arionum(self::TEST_NODE, $client);
+    $this->withArionum(null, $client);
 
-        $data = $this->arionum->getAssetBalance(self::TEST_ADDRESS);
-        $this->assertIsArray($data);
-        $this->assertEmpty($data);
-    }
+    $data = $this->arionum->getAssetBalance($testAddress);
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itCanRetrieveAssetOrders(): void
-    {
-        $mock = new MockHandler([
-            new Response(200, [], '{"data": [], "status": "ok"}'),
-        ]);
+    assertIsArray($data);
+    assertEmpty($data);
+});
 
-        $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+it('can retrieve orders for an asset', function () use ($testAddress): void {
+    $mock = new MockHandler([
+        new Response(200, [], '{"data": [], "status": "ok"}'),
+    ]);
 
-        $this->arionum = new Arionum(self::TEST_NODE, $client);
+    $handler = HandlerStack::create($mock);
+    $client = new Client(['handler' => $handler]);
 
-        $data = $this->arionum->getAssetOrders(self::TEST_ADDRESS);
-        $this->assertIsArray($data);
-        $this->assertEmpty($data);
-    }
+    $this->withArionum(null, $client);
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itCanRetrieveAssets(): void
-    {
-        $mock = new MockHandler([
-            new Response(200, [], '{"data": [], "status": "ok"}'),
-        ]);
+    $data = $this->arionum->getAssetOrders($testAddress);
+    assertIsArray($data);
+    assertEmpty($data);
+});
 
-        $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+it('can retrieve available assets', function (): void {
+    $mock = new MockHandler([
+        new Response(200, [], '{"data": [], "status": "ok"}'),
+    ]);
 
-        $this->arionum = new Arionum(self::TEST_NODE, $client);
+    $handler = HandlerStack::create($mock);
+    $client = new Client(['handler' => $handler]);
 
-        $data = $this->arionum->getAssets();
-        $this->assertIsArray($data);
-        $this->assertEmpty($data);
-    }
+    $this->withArionum(null, $client);
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itCanRetrieveAnAsset(): void
-    {
-        $mock = new MockHandler([
-            new Response(200, [], '{"data": [], "status": "ok"}'),
-        ]);
+    $data = $this->arionum->getAssets();
+    assertIsArray($data);
+    assertEmpty($data);
+});
 
-        $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+it('can retrieve an asset', function () use ($testAsset): void {
+    $mock = new MockHandler([
+        new Response(200, [], '{"data": [], "status": "ok"}'),
+    ]);
 
-        $this->arionum = new Arionum(self::TEST_NODE, $client);
+    $handler = HandlerStack::create($mock);
+    $client = new Client(['handler' => $handler]);
 
-        $data = $this->arionum->getAsset(self::TEST_ASSET);
-        $this->assertIsArray($data);
-        $this->assertEmpty($data);
-    }
-}
+    $this->withArionum(null, $client);
+
+    $data = $this->arionum->getAsset($testAsset);
+    assertIsArray($data);
+    assertEmpty($data);
+});

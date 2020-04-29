@@ -2,6 +2,7 @@
 
 namespace OwenVoke\Arionum\Tests\Concerns;
 
+use GuzzleHttp\Client;
 use OwenVoke\Arionum\Arionum;
 use OwenVoke\Arionum\Tests\TestCase;
 
@@ -9,8 +10,10 @@ trait InteractsWithArionum
 {
     protected Arionum $arionum;
 
-    public function withArionum(string $testNode = TestCase::TEST_NODE): void
+    public function withArionum(?string $testNode = null, ?Client $client = null): void
     {
-        $this->arionum = new Arionum($testNode);
+        $testNode ??= TestCase::TEST_NODE;
+
+        $this->arionum = new Arionum($testNode, $client);
     }
 }
