@@ -2,50 +2,31 @@
 
 declare(strict_types=1);
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
-use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Arionum;
 use OwenVoke\Arionum\Tests\TestCase;
 
-final class BlockTest extends TestCase
-{
-    // phpcs:disable Generic.Files.LineLength
-    private const TEST_BLOCK_ID = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';
-    // phpcs:enable
+beforeEach(function (): void {
+    $this->arionum = new Arionum(TestCase::TEST_NODE);
+});
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsTheCurrentBlock(): void
-    {
-        $data = $this->arionum->getCurrentBlock();
-        $this->assertObjectHasAttribute('id', $data);
-        $this->assertObjectHasAttribute('signature', $data);
-    }
+it('gets the current block', function (): void {
+    $data = $this->arionum->getCurrentBlock();
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsABlockByItsHeight(): void
-    {
-        $data = $this->arionum->getBlock(1);
-        $this->assertObjectHasAttribute('id', $data);
-        $this->assertObjectHasAttribute('signature', $data);
-    }
+    assertObjectHasAttribute('id', $data);
+    assertObjectHasAttribute('signature', $data);
+});
 
-    /**
-     * @test
-     * @return void
-     * @throws GenericApiException
-     */
-    public function itGetsTheTransactionsForASpecificBlock(): void
-    {
-        $data = $this->arionum->getBlockTransactions(self::TEST_BLOCK_ID);
-        $this->assertIsArray($data);
-        $this->assertNotEmpty($data);
-    }
-}
+it('gets a block by its height', function (): void {
+    $data = $this->arionum->getBlock(1);
+
+    assertObjectHasAttribute('id', $data);
+    assertObjectHasAttribute('signature', $data);
+});
+
+it('gets the transactions for a specific block', function (): void {
+    $testBlockId = 'ceiirEsfXyQh3Tnyp6RuSnRANAxNW7BvVGxDUzKFcBH9yHfPa1Jq2oPGH7P41X6Puwn2ajtydn1aHSPhV8X8Sg2';
+    $data = $this->arionum->getBlockTransactions($testBlockId);
+
+    assertIsArray($data);
+    assertNotEmpty($data);
+});
