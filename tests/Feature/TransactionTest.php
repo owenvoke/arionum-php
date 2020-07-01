@@ -38,7 +38,7 @@ final class TransactionTest extends TestCase
     public function itGetsTheNumberOfTransactionsInTheMempool(): void
     {
         $data = $this->arionum->getMempoolSize();
-        $this->assertNotEmpty($data);
+        $this->assertIsInt($data);
     }
 
     /** @test */
