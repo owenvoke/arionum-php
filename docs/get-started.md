@@ -32,4 +32,4 @@ To configure the Arionum node that is used, set the `ARIONUM_NODE_URI` environme
 All existing methods can be called statically via the [`Arionum` facade][link-facade].
 
 [link-laravel-arionum]: https://github.com/owenvoke/laravel-arionum
-[link-facade]: https://github.com/owenvoke/laravel-arionum/blob/master/src/ArionumFacade.php
+[link-facade]: https://github.com/owenvoke/laravel-arionum/blob/main/src/Facades/Arionum.php
