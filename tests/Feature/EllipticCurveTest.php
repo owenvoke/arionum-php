@@ -5,64 +5,54 @@ namespace OwenVoke\Arionum\Tests\Feature;
 use OwenVoke\Arionum\Exceptions\SignatureException;
 use OwenVoke\Arionum\Helpers\EllipticCurve;
 use OwenVoke\Arionum\Models\Transaction;
-use OwenVoke\Arionum\Tests\TestCase;
 
-final class EllipticCurveTest extends TestCase
-{
-    public const TEST_PUBLIC_KEY = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSD1A2mEcXXCtruh98hrXyaeDZjb1bVQkKUYoEhW3TAJdAVvdCya99DqyeyBa8kBLoJQRriAguY4voHfWrQak8gnySA';
-    public const TEST_PRIVATE_KEY = 'Lzhp9LopCNY4o9DV7Gwobbrb9j1nf9npfYLQN82UcB216dR24wJuytEvNg2obfJJJrjM4ystTnXiF2uU6TDrxA6PgRyRDsUaAgZrp6b5XAfeCLSqhzqmZN9tmNMWPHC6yvLbTd3od42avYZYjAV3r2zg8uWhHhQgS';
+beforeEach(function () {
+    $this->testPublicKey = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSD1A2mEcXXCtruh98hrXyaeDZjb1bVQkKUYoEhW3TAJdAVvdCya99DqyeyBa8kBLoJQRriAguY4voHfWrQak8gnySA';
+    $this->testPrivateKey = 'Lzhp9LopCNY4o9DV7Gwobbrb9j1nf9npfYLQN82UcB216dR24wJuytEvNg2obfJJJrjM4ystTnXiF2uU6TDrxA6PgRyRDsUaAgZrp6b5XAfeCLSqhzqmZN9tmNMWPHC6yvLbTd3od42avYZYjAV3r2zg8uWhHhQgS';
+});
 
-    /** @test */
-    public function itCanSignDataUsingAPrivateKey(): void
-    {
-        $signature = EllipticCurve::sign('test-data', self::TEST_PRIVATE_KEY);
-        $verified = EllipticCurve::verify('test-data', $signature, self::TEST_PUBLIC_KEY);
+it('CanSignDataUsingAPrivateKey', function (): void {
+    $signature = EllipticCurve::sign('test-data', $this->testPrivateKey);
+    $verified = EllipticCurve::verify('test-data', $signature, $this->testPublicKey);
 
-        $this->assertTrue($verified);
-    }
+    expect($verified)->toBeTrue();
+});
 
-    /** @test */
-    public function itCanGenerateASignatureForATransaction(): void
-    {
-        $data = new Transaction();
+it('CanGenerateASignatureForATransaction', function (): void {
+    $data = new Transaction();
 
-        $data->changePublicKey(self::TEST_PUBLIC_KEY);
-        $data->changeValue(1);
-        $data->changeFee(1);
-        $data->changeDestinationAddress('pxgamer');
-        $data->changeMessage('');
-        $data->changeDate(time());
+    $data->changePublicKey($this->testPublicKey);
+    $data->changeValue(1);
+    $data->changeFee(1);
+    $data->changeDestinationAddress('pxgamer');
+    $data->changeMessage('');
+    $data->changeDate(time());
 
-        $signatureData = sprintf(
-            '%s-%s-%s-%s-%s-%s-%s',
-            $data->getValue(),
-            $data->getFee(),
-            $data->getDestinationAddress(),
-            $data->getMessage(),
-            $data->getVersion(),
-            $data->getPublicKey(),
-            $data->getDate()
-        );
+    $signatureData = sprintf(
+        '%s-%s-%s-%s-%s-%s-%s',
+        $data->getValue(),
+        $data->getFee(),
+        $data->getDestinationAddress(),
+        $data->getMessage(),
+        $data->getVersion(),
+        $data->getPublicKey(),
+        $data->getDate()
+    );
 
-        $data->sign(self::TEST_PRIVATE_KEY);
+    $data->sign($this->testPrivateKey);
 
-        $this->assertTrue(EllipticCurve::verify($signatureData, $data->getSignature(), self::TEST_PUBLIC_KEY));
-    }
+    expect(EllipticCurve::verify($signatureData, $data->getSignature(), $this->testPublicKey))->toBeTrue();
+});
 
-    /** @test */
-    public function itThrowsAnExceptionOnAnInvalidPrivateKey(): void
-    {
-        $data = new Transaction();
+it('throws an exception on an invalid private key', function (): void {
+    $data = new Transaction();
 
-        $data->changePublicKey(self::TEST_PUBLIC_KEY);
-        $data->changeValue(1);
-        $data->changeFee(1);
-        $data->changeDestinationAddress('pxgamer');
-        $data->changeMessage('');
-        $data->changeDate(time());
+    $data->changePublicKey($this->testPublicKey);
+    $data->changeValue(1);
+    $data->changeFee(1);
+    $data->changeDestinationAddress('pxgamer');
+    $data->changeMessage('');
+    $data->changeDate(time());
 
-        $this->expectException(SignatureException::class);
-
-        $data->sign('');
-    }
-}
+    $data->sign('');
+})->throws(SignatureException::class);
