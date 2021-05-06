@@ -1,6 +1,6 @@
 # Getting Started
 
-> **Requires:** [PHP 7.2 or later](https://php.net/releases)
+> **Requires:** [PHP 7.4 or later](https://php.net/releases)
 
 First, install Arionum PHP via the `Composer` package manager:
 
