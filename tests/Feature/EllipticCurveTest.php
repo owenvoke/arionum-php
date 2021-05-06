@@ -11,14 +11,14 @@ beforeEach(function () {
     $this->testPrivateKey = 'Lzhp9LopCNY4o9DV7Gwobbrb9j1nf9npfYLQN82UcB216dR24wJuytEvNg2obfJJJrjM4ystTnXiF2uU6TDrxA6PgRyRDsUaAgZrp6b5XAfeCLSqhzqmZN9tmNMWPHC6yvLbTd3od42avYZYjAV3r2zg8uWhHhQgS';
 });
 
-it('CanSignDataUsingAPrivateKey', function (): void {
+it('can sign data using a private key', function (): void {
     $signature = EllipticCurve::sign('test-data', $this->testPrivateKey);
     $verified = EllipticCurve::verify('test-data', $signature, $this->testPublicKey);
 
     expect($verified)->toBeTrue();
 });
 
-it('CanGenerateASignatureForATransaction', function (): void {
+it('can generate a signature for a transaction', function (): void {
     $data = new Transaction();
 
     $data->changePublicKey($this->testPublicKey);

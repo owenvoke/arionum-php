@@ -10,7 +10,7 @@ use OwenVoke\Arionum\Tests\TestCase;
 
 beforeEach()->withArionum();
 
-it('getsTheNodeAddress', function (): void {
+it('gets the node address', function (): void {
     $data = $this->arionum->getNodeAddress();
     expect($data)->toEqual(TestCase::TEST_NODE);
 });
