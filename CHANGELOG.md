@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## Unreleased
+
+## [v4.0.0] - 2021-05-06
+
+### Changed
+- Update namespace to `OwenVoke` and package name to `owenvoke/arionum-php` ([#52](https://github.com/owenvoke/arionum-php/pull/52))
+- Update to require a minimum of PHP 7.4 ([#53](https://github.com/owenvoke/arionum-php/pull/53))
+- Add support and require Guzzle 7.x ([#55](https://github.com/owenvoke/arionum-php/pull/55))
+- Add support for PHP 8 ([#56](https://github.com/owenvoke/arionum-php/pull/56))
+- Update to use Pest for testing ([#57](https://github.com/owenvoke/arionum-php/pull/57))
 
 ## [v3.0.0] - 2019-09-03
 
@@ -162,7 +171,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/owenvoke/arionum-php/compare/master...develop
+[v4.0.0]: https://github.com/owenvoke/arionum-php/compare/v3.0.0...v4.0.0
 [v3.0.0]: https://github.com/owenvoke/arionum-php/compare/v3.0.0-beta.2...v3.0.0
 [v3.0.0-beta.2]: https://github.com/owenvoke/arionum-php/compare/v3.0.0-beta.1...v3.0.0-beta.2
 [v3.0.0-beta.1]: https://github.com/owenvoke/arionum-php/compare/v2.7.0...v3.0.0-beta.1
