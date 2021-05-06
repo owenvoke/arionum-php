@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace OwenVoke\Arionum;
 
+use stdClass;
+use GuzzleHttp\Utils;
 use GuzzleHttp\Client;
-use function GuzzleHttp\json_decode;
-use OwenVoke\Arionum\Exceptions\GenericApiException;
-use OwenVoke\Arionum\Exceptions\GenericLocalException;
 use OwenVoke\Arionum\Models\Account;
 use OwenVoke\Arionum\Models\Transaction;
-use stdClass;
+use OwenVoke\Arionum\Exceptions\GenericApiException;
+use OwenVoke\Arionum\Exceptions\GenericLocalException;
 
 final class Arionum
 {
@@ -551,12 +551,17 @@ final class Arionum
      */
     private function decodeResponse(string $json)
     {
-        $data = json_decode($json, false);
+        /** @var \stdClass */
+        $data = Utils::jsonDecode($json, false);
+
+        if (! isset($data->status) || ! isset($data->data)) {
+            throw new GenericApiException('No status or data could be found in the response');
+        }
 
         if ($data->status === self::API_STATUS_OK) {
             return $data->data;
         }
 
-        throw new GenericApiException($data->data ?? 'An unknown API error occurred.');
+        throw new GenericApiException($data->data ?? 'An unknown API error occurred');
     }
 }

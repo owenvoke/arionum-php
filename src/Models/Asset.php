@@ -63,6 +63,7 @@ final class Asset
         return $this->tradable;
     }
 
+    /** @return array{int,0|1,string,0|1,0|1,0|1} */
     public function toArray(): array
     {
         return [
