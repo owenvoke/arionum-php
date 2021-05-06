@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OwenVoke\Arionum\Tests;
 
-use OwenVoke\Arionum\Arionum;
 use OwenVoke\Arionum\Tests\Concerns\InteractsWithArionum;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

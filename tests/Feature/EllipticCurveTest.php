@@ -1,7 +1,5 @@
 <?php
 
-namespace OwenVoke\Arionum\Tests\Feature;
-
 use OwenVoke\Arionum\Exceptions\SignatureException;
 use OwenVoke\Arionum\Helpers\EllipticCurve;
 use OwenVoke\Arionum\Models\Transaction;
