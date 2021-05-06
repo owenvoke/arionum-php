@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace OwenVoke\Arionum;
 
-use stdClass;
-use GuzzleHttp\Utils;
 use GuzzleHttp\Client;
-use OwenVoke\Arionum\Models\Account;
-use OwenVoke\Arionum\Models\Transaction;
+use GuzzleHttp\Utils;
 use OwenVoke\Arionum\Exceptions\GenericApiException;
 use OwenVoke\Arionum\Exceptions\GenericLocalException;
+use OwenVoke\Arionum\Models\Account;
+use OwenVoke\Arionum\Models\Transaction;
+use stdClass;
 
 final class Arionum
 {
