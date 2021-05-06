@@ -6,28 +6,26 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use OwenVoke\Arionum\Arionum;
-use OwenVoke\Arionum\Exceptions\GenericApiException;
 use OwenVoke\Arionum\Tests\TestCase;
 
 beforeEach()->withArionum();
 
 it('getsTheNodeAddress', function (): void {
     $data = $this->arionum->getNodeAddress();
-    assertEquals(TestCase::TEST_NODE, $data);
+    expect($data)->toEqual(TestCase::TEST_NODE);
 });
 
 it('gets the version for the current node', function (): void {
     $data = $this->arionum->getNodeVersion();
-    assertNotEmpty($data);
+    expect($data)->not->toBeEmpty();
 });
 
 it('gets the sanity details for the current node', function (): void {
     $data = $this->arionum->getSanityDetails();
 
-    assertIsBool($data->sanity_running);
-    assertIsNumeric($data->last_sanity);
-    assertIsBool($data->sanity_sync);
+    expect($data->sanity_running)->toBeBool();
+    expect($data->last_sanity)->toBeNumeric();
+    expect($data->sanity_sync)->toBeBool();
 });
 
 it('gets the information for the current node', function (): void {
@@ -55,13 +53,13 @@ it('gets the information for the current node', function (): void {
 
     $data = $this->arionum->getNodeInfo();
 
-    assertIsString($data->hostname);
-    assertIsString($data->version);
-    assertIsString($data->dbversion);
-    assertIsInt($data->accounts);
-    assertIsInt($data->transactions);
-    assertIsInt($data->mempool);
-    assertIsInt($data->masternodes);
+    expect($data->hostname)->toBeString();
+    expect($data->version)->toBeString();
+    expect($data->dbversion)->toBeString();
+    expect($data->accounts)->toBeInt();
+    expect($data->transactions)->toBeInt();
+    expect($data->mempool)->toBeInt();
+    expect($data->masternodes)->toBeInt();
 
-    assertEquals('https://aro.example.com', $data->hostname);
+    expect($data->hostname)->toEqual('https://aro.example.com');
 });

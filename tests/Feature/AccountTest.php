@@ -9,48 +9,47 @@ $testPublicKey = 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCyk7aKeBJ6LL44w5JGSFp82Wb1Drqic
 
 it('generates a new account', function (): void {
     $data = $this->arionum->generateAccount();
-    assertStringStartsWith('PZ', $data->getPublicKey());
-    assertStringStartsWith('Lz', $data->getPrivateKey());
+
+    expect($data->getPublicKey())->toStartWith('PZ');
+    expect($data->getPrivateKey())->toStartWith('Lz');
 });
 
 it('gets the balance for a test address', function () use ($testAddress): void {
     $data = $this->arionum->getBalance($testAddress);
-    assertIsNumeric($data);
+    expect($data)->toBeNumeric();
 });
 
 it('gets the balance for a test alias', function (): void {
     $data = $this->arionum->getBalanceByAlias('PXGAMER');
-    assertIsNumeric($data);
+    expect($data)->toBeNumeric();
 });
 
 it('gets the balance for a public key', function () use ($testPublicKey): void {
     $data = $this->arionum->getBalanceByPublicKey($testPublicKey);
-    assertIsNumeric($data);
+    expect($data)->toBeNumeric();
 });
 
 it('gets the pending balance for a public key', function () use ($testPublicKey): void {
     $data = $this->arionum->getPendingBalance($testPublicKey);
-    assertIsNumeric($data);
+    expect($data)->toBeNumeric();
 });
 
 it('gets the transactions for an address', function () use ($testAddress): void {
     $data = $this->arionum->getTransactions($testAddress);
-    assertIsArray($data);
-    assertNotEmpty($data);
+    expect($data)->toBeArray()->not->toBeEmpty();
 });
 
 it('gets the transactions for a public key', function () use ($testPublicKey): void {
     $data = $this->arionum->getTransactionsByPublicKey($testPublicKey);
-    assertIsArray($data);
-    assertNotEmpty($data);
+    expect($data)->toBeArray()->not->toBeEmpty();
 });
 
 it('gets the alias for an address', function () use ($testAddress): void {
     $data = $this->arionum->getAlias($testAddress);
-    assertEquals('PXGAMER', $data);
+    expect($data)->toEqual('PXGAMER');
 });
 
 it('checks that an address is valid', function () use ($testAddress): void {
     $data = $this->arionum->checkAddress($testAddress);
-    assertTrue($data);
+    expect($data)->toBeTrue();
 });

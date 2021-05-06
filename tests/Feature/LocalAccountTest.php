@@ -5,8 +5,8 @@ use OwenVoke\Arionum\Models\Account;
 it('can generate a local account', function (): void {
     $account = Account::make();
 
-    assertStringStartsWith('PZ', $account->getPublicKey());
-    assertStringStartsWith('Lz', $account->getPrivateKey());
+    expect($account->getPublicKey())->toStartWith('PZ');
+    expect($account->getPrivateKey())->toStartWith('Lz');
 });
 
 it('can generate a local account via the helper', function (): void {
@@ -14,6 +14,6 @@ it('can generate a local account via the helper', function (): void {
 
     $account = $this->arionum->generateLocalAccount();
 
-    assertStringStartsWith('PZ', $account->getPublicKey());
-    assertStringStartsWith('Lz', $account->getPrivateKey());
+    expect($account->getPublicKey())->toStartWith('PZ');
+    expect($account->getPrivateKey())->toStartWith('Lz');
 });

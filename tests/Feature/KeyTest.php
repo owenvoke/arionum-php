@@ -17,15 +17,16 @@ it('throws an exception when invalid public key is provided', function (): void 
 
 it('gets an address from a public key', function () use ($testAddress, $testPublicKey): void {
     $data = $this->arionum->getAddress($testPublicKey);
-    assertEquals($testAddress, $data);
+    expect($data)->toEqual($testAddress);
 });
 
 it('gets a public key from an address', function () use ($testAddress, $testPublicKey): void {
     $data = $this->arionum->getPublicKey($testAddress);
-    assertTrue($data === $testPublicKey || $data === '');
+    expect($data === $testPublicKey || $data === '')->toBeTrue();
 });
 
-it('checks that the public key signature is valid',
+it(
+    'checks that the public key signature is valid',
     function () use ($testPublicKey, $testSignature, $testSignatureComponents): void {
         $data = $this->arionum->checkSignature(
             $testSignature,
@@ -33,7 +34,7 @@ it('checks that the public key signature is valid',
             $testPublicKey
         );
 
-        $this->assertTrue($data);
+        expect($data)->toBeTrue();
     }
 );
 
@@ -44,5 +45,5 @@ it('checks that the public key signature is invalid', function () use ($testPubl
         $testPublicKey
     );
 
-    assertFalse($data);
+    expect($data)->toBeFalse();
 });

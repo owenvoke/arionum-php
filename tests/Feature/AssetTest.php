@@ -20,8 +20,7 @@ it('can retrieve an asset balance', function () use ($testAddress): void {
 
     $data = $this->arionum->getAssetBalance($testAddress);
 
-    assertIsArray($data);
-    assertEmpty($data);
+    expect($data)->toBeArray()->toBeEmpty();
 });
 
 it('can retrieve orders for an asset', function () use ($testAddress): void {
@@ -35,8 +34,8 @@ it('can retrieve orders for an asset', function () use ($testAddress): void {
     $this->withArionum(null, $client);
 
     $data = $this->arionum->getAssetOrders($testAddress);
-    assertIsArray($data);
-    assertEmpty($data);
+
+    expect($data)->toBeArray()->toBeEmpty();
 });
 
 it('can retrieve available assets', function (): void {
@@ -50,8 +49,8 @@ it('can retrieve available assets', function (): void {
     $this->withArionum(null, $client);
 
     $data = $this->arionum->getAssets();
-    assertIsArray($data);
-    assertEmpty($data);
+
+    expect($data)->toBeArray()->toBeEmpty();
 });
 
 it('can retrieve an asset', function () use ($testAsset): void {
@@ -65,6 +64,6 @@ it('can retrieve an asset', function () use ($testAsset): void {
     $this->withArionum(null, $client);
 
     $data = $this->arionum->getAsset($testAsset);
-    assertIsArray($data);
-    assertEmpty($data);
+
+    expect($data)->toBeArray()->toBeEmpty();
 });
