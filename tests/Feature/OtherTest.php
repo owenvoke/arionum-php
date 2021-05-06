@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-use OwenVoke\Arionum\Arionum;
 use OwenVoke\Arionum\Exceptions\GenericApiException;
 use OwenVoke\Arionum\Models\Transaction;
 use OwenVoke\Arionum\Tests\TestCase;
 use OwenVoke\Arionum\Transaction\Version;
 
-beforeEach(function (): void {
-    $this->arionum = new Arionum(TestCase::TEST_NODE);
-});
+beforeEach()->withArionum();
 
 /** This should never have enough funds. */
 it('throws an exception when sending a transaction from an empty account', function (): void {
