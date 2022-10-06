@@ -35,7 +35,7 @@ use Psr\Http\Client\ClientInterface;
  */
 final class Client
 {
-    public function __construct(private ?string $nodeUri = null, private Builder|null $httpClientBuilder = null)
+    public function __construct(public readonly ?string $nodeUri = null, private Builder|null $httpClientBuilder = null)
     {
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
 
@@ -69,21 +69,6 @@ final class Client
             'transaction', 'transactions' => new Api\Transaction($this),
             default => throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name)),
         };
-    }
-
-    private function setNodeUri(string $uri): void
-    {
-        $this->nodeUri = $uri;
-
-        $builder = $this->getHttpClientBuilder();
-        $builder->removePlugin(AddHostPlugin::class);
-
-        $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri($this->getNodeUri())));
-    }
-
-    public function getNodeUri(): ?string
-    {
-        return $this->nodeUri;
     }
 
     public function __call(string $name, array $args): AbstractApi
