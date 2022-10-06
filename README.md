@@ -7,19 +7,37 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Buy us a tree][ico-treeware-gifting]][link-treeware-gifting]
 
-An API wrapper for the Arionum cryptocurrency node.
+An API wrapper for the Arionum cryptocurrency node
+
+## Requirements
+
+- PHP >= 8.1
+- A [PSR-17 implementation](https://packagist.org/providers/psr/http-factory-implementation)
+- A [PSR-18 implementation](https://packagist.org/providers/psr/http-client-implementation)
 
 ## Install
 
 Via Composer
 
 ```shell
-composer require owenvoke/arionum-php
+composer require owenvoke/arionum-php guzzlehttp/guzzle:^7.5 http-interop/http-factory-guzzle:^1.2
 ```
+
+We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).
 
 ## Usage
 
-Please see the [live usage docs](https://arionum-php.netlify.app), or the [docs](docs) directory, for information on using this library.
+**Basic usage**
+
+```php
+// Include the Composer autoloader
+require_once __DIR__ . '/vendor/autoload.php';
+
+$client = new \OwenVoke\Arionum\Client();
+$client->node()->version();
+```
+
+Please see the [live usage docs](https://arionum-php.netlify.app), or the [docs](./docs) directory, for information on using this library.
 
 ## Change log
 
