@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use OwenVoke\Arionum\Api\Asset;
+use OwenVoke\Arionum\Api\Block;
 
-beforeEach(fn () => $this->apiClass = Asset::class);
+beforeEach(fn () => $this->apiClass = Block::class);
 
 it('can get the current block');
 

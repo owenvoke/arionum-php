@@ -21,9 +21,9 @@ class Asset extends AbstractApi
         ]);
     }
 
-    public function balance(string $address): array
+    public function balance(string $address): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
             'q' => 'assetBalance',
             'account' => $address,
         ]);

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use OwenVoke\Arionum\Api\Asset;
+use OwenVoke\Arionum\Api\Other;
 
-beforeEach(fn () => $this->apiClass = Asset::class);
+beforeEach(fn () => $this->apiClass = Other::class);
 
 it('can get a random number');
 
