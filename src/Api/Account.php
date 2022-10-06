@@ -13,7 +13,7 @@ class Account extends AbstractApi
         ]);
     }
 
-    public function address(string $publicKey): array
+    public function address(string $publicKey): string
     {
         return $this->get(self::API_PATH, [
             'q' => 'getAddress',
@@ -21,7 +21,7 @@ class Account extends AbstractApi
         ]);
     }
 
-    public function alias(string $address): array
+    public function alias(string $address): string
     {
         return $this->get(self::API_PATH, [
             'q' => 'getAlias',
@@ -29,7 +29,7 @@ class Account extends AbstractApi
         ]);
     }
 
-    public function publicKey(string $address): array
+    public function publicKey(string $address): string
     {
         return $this->get(self::API_PATH, [
             'q' => 'getPublicKey',
@@ -37,41 +37,49 @@ class Account extends AbstractApi
         ]);
     }
 
-    public function balance(string $address): array
+    public function balance(string $address): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
             'q' => 'getBalance',
             'account' => $address,
         ]);
     }
 
-    public function balanceByAlias(string $alias): array
+    public function balanceByAlias(string $alias): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
             'q' => 'getBalance',
             'alias' => $alias,
         ]);
     }
 
-    public function balanceByPublicKey(string $publicKey): array
+    public function balanceForPublicKey(string $publicKey): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
             'q' => 'getBalance',
             'public_key' => $publicKey,
         ]);
     }
 
-    public function pendingBalance(string $address): array
+    public function pendingBalance(string $address): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
             'q' => 'getPendingBalance',
             'account' => $address,
         ]);
     }
 
-    public function checkAddress(string $address, ?string $publicKey = null): array
+    public function pendingBalanceForPublicKey(string $publicKey): float
     {
-        return $this->get(self::API_PATH, [
+        return (float) $this->get(self::API_PATH, [
+            'q' => 'getPendingBalance',
+            'public_key' => $publicKey,
+        ]);
+    }
+
+    public function checkAddress(string $address, ?string $publicKey = null): bool
+    {
+        return (bool) $this->get(self::API_PATH, [
             'q' => 'checkAddress',
             'account' => $address,
             'public_key' => $publicKey,

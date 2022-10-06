@@ -2,6 +2,7 @@
 
 namespace OwenVoke\Arionum\HttpClient\Message;
 
+use OwenVoke\Arionum\Exception\RuntimeException;
 use Psr\Http\Message\ResponseInterface;
 
 final class ResponseMediator
@@ -13,7 +14,7 @@ final class ResponseMediator
         if (str_starts_with($response->getHeaderLine('Content-Type'), 'application/json')) {
             $content = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
             if (JSON_ERROR_NONE === json_last_error()) {
-                return $content;
+                return $content['data'] ?? throw new RuntimeException('Error: Field "data" was not set', $content);
             }
         }
 
