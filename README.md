@@ -13,8 +13,8 @@ An API wrapper for the Arionum cryptocurrency node.
 
 Via Composer
 
-```bash
-$ composer require owenvoke/arionum-php
+```shell
+composer require owenvoke/arionum-php
 ```
 
 ## Usage
@@ -27,8 +27,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-```bash
-$ composer test
+```shell
+composer test
 ```
 
 ## Contributing
