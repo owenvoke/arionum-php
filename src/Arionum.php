@@ -16,11 +16,13 @@ final class Arionum
 {
     /** The request endpoint for API calls. */
     public const API_ENDPOINT = '/api.php';
+
     /** The API status code for a successful response. */
     public const API_STATUS_OK = 'ok';
 
     /** @var string */
     private $nodeAddress;
+
     /** @var Client */
     private $client;
 
@@ -38,7 +40,6 @@ final class Arionum
      * Retrieve the address for a specified public key.
      *
      * @param  string  $publicKey
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -55,7 +56,6 @@ final class Arionum
      * Convert a string to Base58.
      *
      * @param  string  $data
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -72,7 +72,6 @@ final class Arionum
      * Retrieve the balance of a specified address.
      *
      * @param  string  $address
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -89,7 +88,6 @@ final class Arionum
      * Retrieve the balance of a specified alias.
      *
      * @param  string  $alias
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -106,7 +104,6 @@ final class Arionum
      * Retrieve the balance of a specified public key.
      *
      * @param  string  $publicKey
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -123,7 +120,6 @@ final class Arionum
      * Retrieve the pending balance of a specified address (includes pending transactions).
      *
      * @param  string  $address
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -141,7 +137,6 @@ final class Arionum
      *
      * @param  string  $address
      * @param  int  $limit
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -160,7 +155,6 @@ final class Arionum
      *
      * @param  string  $publicKey
      * @param  int  $limit
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -178,7 +172,6 @@ final class Arionum
      * Retrieve a specified transaction by its id.
      *
      * @param  string  $transactionId
-     *
      * @return stdClass
      *
      * @throws GenericApiException
@@ -195,7 +188,6 @@ final class Arionum
      * Retrieve the public key of a specified address.
      *
      * @param  string  $address
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -242,7 +234,6 @@ final class Arionum
      * Retrieve a block by its height.
      *
      * @param  int  $height
-     *
      * @return stdClass
      *
      * @throws GenericApiException
@@ -259,7 +250,6 @@ final class Arionum
      * Retrieve the transactions of a specified block.
      *
      * @param  string  $blockId
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -290,7 +280,6 @@ final class Arionum
      * Send a transaction.
      *
      * @param  Transaction  $transaction
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -325,7 +314,6 @@ final class Arionum
      * @param  int  $minimum
      * @param  int  $maximum
      * @param  string|null  $seed
-     *
      * @return int
      *
      * @throws GenericApiException
@@ -347,7 +335,6 @@ final class Arionum
      * @param  string  $signature
      * @param  string  $data
      * @param  string  $publicKey
-     *
      * @return bool
      *
      * @throws GenericApiException
@@ -380,7 +367,6 @@ final class Arionum
      * Retrieve the alias for an account by it's address.
      *
      * @param  string  $address
-     *
      * @return string
      *
      * @throws GenericApiException
@@ -427,7 +413,6 @@ final class Arionum
      *
      * @param  string  $address
      * @param  string|null  $publicKey  An optional corresponding public key.
-     *
      * @return bool
      *
      * @throws GenericApiException
@@ -445,7 +430,6 @@ final class Arionum
      * Retrieve the asset balance for a specific address.
      *
      * @param  string  $address
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -463,7 +447,6 @@ final class Arionum
      *
      * @param  string  $address
      * @param  string|null  $assetId
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -495,7 +478,6 @@ final class Arionum
      * Retrieve a specific asset.
      *
      * @param  string  $assetId
-     *
      * @return array<stdClass>
      *
      * @throws GenericApiException
@@ -527,7 +509,6 @@ final class Arionum
 
     /**
      * @param  array<string, bool|float|int|string|null>  $query
-     *
      * @return mixed
      *
      * @throws GenericApiException
@@ -544,7 +525,6 @@ final class Arionum
 
     /**
      * @param  string  $json
-     *
      * @return mixed
      *
      * @throws GenericApiException

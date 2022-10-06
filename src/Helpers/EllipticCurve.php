@@ -10,7 +10,6 @@ final class EllipticCurve
     /**
      * @param  string  $data
      * @param  string  $key
-     *
      * @return string
      *
      * @throws Exception
@@ -28,7 +27,6 @@ final class EllipticCurve
      * @param  string  $data
      * @param  string  $signature
      * @param  string  $key
-     *
      * @return bool
      *
      * @throws Exception
