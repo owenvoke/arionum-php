@@ -6,14 +6,19 @@ final class Asset
 {
     /** @var int */
     private $maxSupply;
+
     /** @var bool */
     private $tradable;
+
     /** @var float */
     private $price;
+
     /** @var bool */
     private $dividendOnly;
+
     /** @var bool */
     private $autoDivident;
+
     /** @var bool */
     private $allowBid;
 

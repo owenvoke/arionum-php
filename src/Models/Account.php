@@ -10,10 +10,12 @@ use StephenHill\Base58;
 final class Account
 {
     private const CURVE_NAME = 'secp256k1';
+
     private const PRIVATE_KEY_TYPE = OPENSSL_KEYTYPE_EC;
 
     /** @var string */
     private $publicKey;
+
     /** @var string */
     private $privateKey;
 

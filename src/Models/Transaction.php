@@ -13,31 +13,43 @@ final class Transaction
 {
     /* The default value for masternode commands */
     public const VALUE_MASTERNODE_COMMAND = 0.00000001;
+
     /* The default fee for masternode commands */
     public const FEE_MASTERNODE_COMMAND = 0.00000001;
+
     /* The value for masternode creation */
     public const VALUE_MASTERNODE_CREATE = 100000;
+
     /* The value for masternode creation */
     public const FEE_MASTERNODE_CREATE = 10;
+
     /* The value for alias creation */
     public const VALUE_ALIAS_SET = 0.00000001;
+
     /* The fee for alias creation */
     public const FEE_ALIAS_SET = 10;
 
     /** @var float The value to send in the transaction */
     private $value;
+
     /** @var float The fee for the transaction */
     private $fee;
+
     /** @var string The destination address */
     private $destinationAddress;
+
     /** @var string The sender's public key */
     private $publicKey;
+
     /** @var string The sender's private key. Only required if no signature is provided */
     private $privateKey;
+
     /** @var string A message to be included with the transaction. Maximum 128 chars */
     private $message;
+
     /** @var int The version of the transaction */
     private $version = Version::STANDARD;
+
     /**
      * The transaction signature
      * It's recommended that the transaction is signed to avoid sending your private key to the node.
@@ -45,6 +57,7 @@ final class Transaction
      * @var string
      */
     private $signature;
+
     /**
      * The transaction date in unix timestamp format
      * This is required when the transaction is pre-signed.

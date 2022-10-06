@@ -8,14 +8,16 @@ use StephenHill\Base58;
 final class Key
 {
     public const EC_PUBLIC_START = '-----BEGIN PUBLIC KEY-----';
+
     public const EC_PUBLIC_END = '-----END PUBLIC KEY-----';
+
     public const EC_PRIVATE_START = '-----BEGIN EC PRIVATE KEY-----';
+
     public const EC_PRIVATE_END = '-----END EC PRIVATE KEY-----';
 
     /**
      * @param  string  $data
      * @param  bool  $isPrivateKey
-     *
      * @return string
      *
      * @throws Exception
@@ -35,7 +37,6 @@ final class Key
 
     /**
      * @param  string  $data
-     *
      * @return string
      *
      * @throws Exception
@@ -49,7 +50,6 @@ final class Key
 
     /**
      * @param  string  $data
-     *
      * @return string
      *
      * @throws Exception
