@@ -19,7 +19,7 @@ enum Node: string
 
     public static function providedOrRandom(string|null $uri = null): string
     {
-        if (str_starts_with($uri, 'http')) {
+        if (str_starts_with($uri ?? '', 'http')) {
             return $uri;
         }
 

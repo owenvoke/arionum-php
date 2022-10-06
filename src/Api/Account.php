@@ -6,6 +6,13 @@ namespace OwenVoke\Arionum\Api;
 
 class Account extends AbstractApi
 {
+    public function generate(): array
+    {
+        return $this->get(self::API_PATH, [
+            'q' => 'generateAccount',
+        ]);
+    }
+
     public function address(string $publicKey): array
     {
         return $this->get(self::API_PATH, [
@@ -27,13 +34,6 @@ class Account extends AbstractApi
         return $this->get(self::API_PATH, [
             'q' => 'getPublicKey',
             'account' => $address,
-        ]);
-    }
-
-    public function generate(): array
-    {
-        return $this->get(self::API_PATH, [
-            'q' => 'generateAccount',
         ]);
     }
 

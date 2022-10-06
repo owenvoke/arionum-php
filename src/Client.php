@@ -21,11 +21,17 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\Account accounts()
  * @method Api\Account address()
  * @method Api\Account addresses()
+ * @method Api\Asset asset()
+ * @method Api\Asset assets()
+ * @method Api\Block block()
+ * @method Api\Block blocks()
  * @method Api\Node node()
  * @method Api\Node nodes()
  * @method Api\Other other()
  * @method Api\Other misc()
  * @method Api\Other miscellaneous()
+ * @method Api\Transaction transaction()
+ * @method Api\Transaction transactions()
  */
 final class Client
 {
@@ -57,6 +63,7 @@ final class Client
         return match ($name) {
             'account', 'accounts', 'address', 'addresses' => new Api\Account($this),
             'asset', 'assets' => new Api\Asset($this),
+            'block', 'blocks' => new Api\Block($this),
             'node', 'nodes' => new Api\Node($this),
             'other', 'misc', 'miscellaneous' => new Api\Other($this),
             'transaction', 'transactions' => new Api\Transaction($this),
