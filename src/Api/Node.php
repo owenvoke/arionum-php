@@ -20,14 +20,14 @@ class Node extends AbstractApi
         ]);
     }
 
-    public function sanity(): string
+    public function sanity(): array
     {
         return $this->get(self::API_PATH, [
             'q' => 'sanity',
         ]);
     }
 
-    public function masternodes(): string
+    public function masternodes(): array
     {
         return $this->get(self::API_PATH, [
             'q' => 'masternodes',
