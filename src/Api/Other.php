@@ -6,7 +6,7 @@ namespace OwenVoke\Arionum\Api;
 
 class Other extends AbstractApi
 {
-    public function base58(string $data): array
+    public function base58(string $data): string
     {
         return $this->get(self::API_PATH, [
             'q' => 'base58',
@@ -14,9 +14,9 @@ class Other extends AbstractApi
         ]);
     }
 
-    public function randomNumber(int $height, int $minimum, int $maximum, ?string $seed = null): array
+    public function randomNumber(int $height, int $minimum, int $maximum, ?string $seed = null): int
     {
-        return $this->get(self::API_PATH, [
+        return (int) $this->get(self::API_PATH, [
             'q' => 'randomNumber',
             'height' => $height,
             'min' => $minimum,
@@ -25,13 +25,13 @@ class Other extends AbstractApi
         ]);
     }
 
-    public function checkSignature(string $signature, string $data, string $publicKey): array
+    public function checkSignature(string $signature, string $data, string $publicKey): bool
     {
-        return $this->get(self::API_PATH, [
+        return ((string) $this->get(self::API_PATH, [
             'q' => 'checkSignature',
             'signature' => $signature,
             'data' => $data,
             'public_key' => $publicKey,
-        ]);
+        ])) === 'true';
     }
 }

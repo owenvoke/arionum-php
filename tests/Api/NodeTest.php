@@ -92,9 +92,9 @@ it('can get a list of masternodes', function () {
             'hash' => 'c7d66b357c05d0908623a09afd387dd3',
             'masternodes' => [
                 [
-                    'public_key' => "PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvNFCyZbpNpLVwg4Sk8Pe46dyKrqR4GacBGtaeJ9CAXQTc41jYrW2gy91XUkBgMkkAjqsojSVMJ1iasdbcmFdx7wy",
+                    'public_key' => 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvNFCyZbpNpLVwg4Sk8Pe46dyKrqR4GacBGtaeJ9CAXQTc41jYrW2gy91XUkBgMkkAjqsojSVMJ1iasdbcmFdx7wy',
                     'height' => 104148,
-                    'ip' => "35.237.72.244",
+                    'ip' => '35.237.72.244',
                     'last_won' => 137074,
                     'blacklist' => 0,
                     'fails' => 0,
@@ -113,9 +113,9 @@ it('can get a list of masternodes', function () {
         'hash' => 'c7d66b357c05d0908623a09afd387dd3',
         'masternodes' => [
             [
-                'public_key' => "PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvNFCyZbpNpLVwg4Sk8Pe46dyKrqR4GacBGtaeJ9CAXQTc41jYrW2gy91XUkBgMkkAjqsojSVMJ1iasdbcmFdx7wy",
+                'public_key' => 'PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvNFCyZbpNpLVwg4Sk8Pe46dyKrqR4GacBGtaeJ9CAXQTc41jYrW2gy91XUkBgMkkAjqsojSVMJ1iasdbcmFdx7wy',
                 'height' => 104148,
-                'ip' => "35.237.72.244",
+                'ip' => '35.237.72.244',
                 'last_won' => 137074,
                 'blacklist' => 0,
                 'fails' => 0,
