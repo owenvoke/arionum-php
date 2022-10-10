@@ -21,7 +21,15 @@ class Block extends AbstractApi
         ]);
     }
 
-    public function transactions(string $id): array
+    public function transactions(int $height): array
+    {
+        return $this->get(self::API_PATH, [
+            'q' => 'getBlockTransactions',
+            'height' => $height,
+        ]);
+    }
+
+    public function transactionsById(string $id): array
     {
         return $this->get(self::API_PATH, [
             'q' => 'getBlockTransactions',

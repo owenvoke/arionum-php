@@ -26,7 +26,7 @@ it('can get all assets', function () {
                 'height' => 952581,
                 'alias' => 'AUSDTHOUSAND',
                 'balance' => '39.62500000',
-            ]
+            ],
         ]);
 
     /** @var Asset $api */
@@ -44,7 +44,7 @@ it('can get all assets', function () {
             'height' => 952581,
             'alias' => 'AUSDTHOUSAND',
             'balance' => '39.62500000',
-        ]
+        ],
     ]);
 });
 
@@ -69,7 +69,7 @@ it('can get a specific asset', function () {
                 'height' => 952581,
                 'alias' => 'AUSDTHOUSAND',
                 'balance' => '39.62500000',
-            ]
+            ],
         ]);
 
     /** @var Asset $api */
@@ -87,7 +87,7 @@ it('can get a specific asset', function () {
             'height' => 952581,
             'alias' => 'AUSDTHOUSAND',
             'balance' => '39.62500000',
-        ]
+        ],
     ]);
 });
 
@@ -130,7 +130,7 @@ it('can get the asset orders for an address', function () {
                 'val' => 1000,
                 'val_done' => 0,
                 'cancelable' => 1,
-            ]
+            ],
         ]);
 
     /** @var Asset $api */
@@ -151,6 +151,6 @@ it('can get the asset orders for an address', function () {
             'val' => 1000,
             'val_done' => 0,
             'cancelable' => 1,
-        ]
+        ],
     ]);
 });
