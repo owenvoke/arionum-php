@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: nginx/1.20.1
+Date: Fri, 14 Oct 2022 10:54:49 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"status":"ok","data":{"sanity_running":true,"last_sanity":1665744639,"sanity_sync":false},"coin":"arionum"}

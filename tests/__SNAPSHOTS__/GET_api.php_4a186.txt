@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Date: Fri, 14 Oct 2022 10:54:37 GMT
+Server: Apache/2.4.6 (CentOS)
+Content-Length: 206
+Content-Type: application/json
+
+{"status":"ok","data":{"hostname":"http:\/\/peer8.arionum.com","version":"1.0.0-alpha.7","dbversion":"12","accounts":16202,"transactions":10321843,"mempool":1,"masternodes":600,"peers":22},"coin":"arionum"}

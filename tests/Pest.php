@@ -1,5 +1,7 @@
 <?php
 
-use OwenVoke\Arionum\Tests\Concerns\InteractsWithArionum;
+declare(strict_types=1);
 
-uses(InteractsWithArionum::class)->in('Feature');
+use OwenVoke\Arionum\Tests\TestCase;
+
+uses(TestCase::class)->in('Api');

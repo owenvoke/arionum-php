@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: nginx/1.20.1
+Date: Fri, 14 Oct 2022 10:54:34 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"status":"ok","data":{"address":"vAWhKndLBb36GyLMffNoHnXJaNypHRUcw9ay4Q5yM3DfVwGB85yH6AV1ZtBMXzpRQNqPJG1KTNTABomLyq6WV2P","public_key":"PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCzSQ69mPPyAreMUwMYVGxez6om3iPgURWCvofWMPQJSPsZjaaYu4TW56BZVGNbAKGhYKSsqXtgYtgY3gBfvggyZ6x","private_key":"Lzhp9LopCEJksXCMiCKBSzLvg4uTP9xKUhDL1hT5rYHEerMKpANvPqaB72bPRGLnDYnwT7AxskCvRi1kk5f1iHRMFdBwE7RVHk6GtCgTbdyUkYv4qjdBizUFJkS9gv41S5B7HThdKHZ6rNpB3TqxZPgXQ9fGC5tUp"},"coin":"arionum"}
