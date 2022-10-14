@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Date: Fri, 14 Oct 2022 10:54:36 GMT
+Server: Apache
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Length: 77
+Content-Type: application/json
+
+{"status":"error","data":"An asset or an account not found","coin":"arionum"}

@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Date: Fri, 14 Oct 2022 10:54:36 GMT
+Server: Apache/2.4.6 (CentOS)
+Content-Length: 560
+Content-Type: application/json
+
+{"status":"ok","data":{"id":"3JUTwNrsburDnYCBkeGK1zathWpLVbFmkd7oeKJKeKD3cfuzYjJ1NK7dyqkHP3Cg1wanJKnzKw6W4ftXAaij14Hc","generator":"5ADfrJUnLefPsaYjMTR4KmvQ79eHo2rYWnKBRCXConYKYJVAw2adtzb38oUG5EnsXEbTct3p7GagT2VVZ9hfVTVn","height":1725563,"date":1665744719,"nonce":"G3U0VFs53ydb3l1EDUKKSdsnaFgu0OoDRsmk3kyr0","signature":"381yXYvAfgasnX4YFKWNA35yazUk4oB7kffAAV4giKHsN2hXvzEVdNDtZG4UHjkZKPF7vu64usH6vkH55meqMwQHRq9tsetH","difficulty":"10444861862","argon":"$N1RTRElqQXBROTdNZXJuTg$DfKzCXka9P5DLxobMBZM4aK2R+PNTR+2dKRMDQExO9w","transactions":0},"coin":"arionum"}

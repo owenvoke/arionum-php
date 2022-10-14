@@ -9,59 +9,24 @@ beforeEach(fn () => $this->apiClass = Block::class);
 it('can get the current block', function () {
     $api = $this->getApiMock();
 
-    $api->expects($this->once())
-        ->method('get')
-        ->with('/api.php', [
-            'q' => 'currentBlock',
-        ])
-        ->willReturn([
-            'id' => 'dkhnqpyPW2JLD574yCiS6a39FeWyWZT1w61JLbdntBC1anT9rn1S76sFQX1eqSnEe2AA5PrG6RW8hSF7aKGR9US',
-            'generator' => '5ADfrJUnLefPsaYjMTR4KmvQ79eHo2rYWnKBRCXConYKYJVAw2adtzb38oUG5EnsXEbTct3p7GagT2VVZ9hfVTVn',
-            'height' => 1720339,
-            'date' => 1665409519,
-            'nonce' => '01yIM9KRxIUYuS7348pmVy0ToOq1KVEUoCr4tvzZ5rIn',
-            'signature' => 'AN1rKvsxEc94WQvPAtKh7U38QvXTkeksjSg5uQqKd7gFpCjRYaw1cEfQNswNMuCzt6xnZ8x3bmisvDou2R1txd9CsPPPoA3Kk',
-            'difficulty' => '10083709908',
-            'argon' => '$b0RNZjRjT0tVaFNvb3ZzTw$OxKPTgidQHHJhapYov925s5hljQNYukg38XFh9gsypI',
-            'transactions' => 0,
-        ]);
-
     /** @var Block $api */
     expect(
         $api->currentBlock()
-    )->toBe([
-        'id' => 'dkhnqpyPW2JLD574yCiS6a39FeWyWZT1w61JLbdntBC1anT9rn1S76sFQX1eqSnEe2AA5PrG6RW8hSF7aKGR9US',
-        'generator' => '5ADfrJUnLefPsaYjMTR4KmvQ79eHo2rYWnKBRCXConYKYJVAw2adtzb38oUG5EnsXEbTct3p7GagT2VVZ9hfVTVn',
-        'height' => 1720339,
-        'date' => 1665409519,
-        'nonce' => '01yIM9KRxIUYuS7348pmVy0ToOq1KVEUoCr4tvzZ5rIn',
-        'signature' => 'AN1rKvsxEc94WQvPAtKh7U38QvXTkeksjSg5uQqKd7gFpCjRYaw1cEfQNswNMuCzt6xnZ8x3bmisvDou2R1txd9CsPPPoA3Kk',
-        'difficulty' => '10083709908',
-        'argon' => '$b0RNZjRjT0tVaFNvb3ZzTw$OxKPTgidQHHJhapYov925s5hljQNYukg38XFh9gsypI',
-        'transactions' => 0,
+    )->toHaveKeys([
+        'id',
+        'generator',
+        'height',
+        'date',
+        'nonce',
+        'signature',
+        'difficulty',
+        'argon',
+        'transactions',
     ]);
 });
 
 it('can get a specific block by its height', function () {
     $api = $this->getApiMock();
-
-    $api->expects($this->once())
-        ->method('get')
-        ->with('/api.php', [
-            'q' => 'getBlock',
-            'height' => 1720339,
-        ])
-        ->willReturn([
-            'id' => 'dkhnqpyPW2JLD574yCiS6a39FeWyWZT1w61JLbdntBC1anT9rn1S76sFQX1eqSnEe2AA5PrG6RW8hSF7aKGR9US',
-            'generator' => '5ADfrJUnLefPsaYjMTR4KmvQ79eHo2rYWnKBRCXConYKYJVAw2adtzb38oUG5EnsXEbTct3p7GagT2VVZ9hfVTVn',
-            'height' => 1720339,
-            'date' => 1665409519,
-            'nonce' => '01yIM9KRxIUYuS7348pmVy0ToOq1KVEUoCr4tvzZ5rIn',
-            'signature' => 'AN1rKvsxEc94WQvPAtKh7U38QvXTkeksjSg5uQqKd7gFpCjRYaw1cEfQNswNMuCzt6xnZ8x3bmisvDou2R1txd9CsPPPoA3Kk',
-            'difficulty' => '10083709908',
-            'argon' => '$b0RNZjRjT0tVaFNvb3ZzTw$OxKPTgidQHHJhapYov925s5hljQNYukg38XFh9gsypI',
-            'transactions' => 0,
-        ]);
 
     /** @var Block $api */
     expect(
@@ -82,14 +47,6 @@ it('can get a specific block by its height', function () {
 it('can get the transactions for a block', function () {
     $api = $this->getApiMock();
 
-    $api->expects($this->once())
-        ->method('get')
-        ->with('/api.php', [
-            'q' => 'getBlockTransactions',
-            'height' => 1720339,
-        ])
-        ->willReturn([]);
-
     /** @var Block $api */
     expect(
         $api->transactions(1720339)
@@ -98,14 +55,6 @@ it('can get the transactions for a block', function () {
 
 it('can get the transactions for a block by its id', function () {
     $api = $this->getApiMock();
-
-    $api->expects($this->once())
-        ->method('get')
-        ->with('/api.php', [
-            'q' => 'getBlockTransactions',
-            'block' => '26PZgwak3LscM3Mz8bfDBmbETSq9GvXhdom5HwoDMuaMvg9cekKX21hoNtJXixdrvvAwq2BoxKiUdQQnGWym1ZxT',
-        ])
-        ->willReturn([]);
 
     /** @var Block $api */
     expect(

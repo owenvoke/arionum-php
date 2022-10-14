@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Date: Fri, 14 Oct 2022 10:54:34 GMT
+Server: Apache/2.4.6 (CentOS)
+Content-Length: 52
+Content-Type: application/json
+
+{"status":"ok","data":"0.00044441","coin":"arionum"}

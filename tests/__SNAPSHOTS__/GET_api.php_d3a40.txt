@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: nginx/1.20.1
+Date: Fri, 14 Oct 2022 10:54:36 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"status":"ok","data":[{"id":"26PZgwak3LscM3Mz8bfDBmbETSq9GvXhdom5HwoDMuaMvg9cekKX21hoNtJXixdrvvAwq2BoxKiUdQQnGWym1ZxT","max_supply":0,"tradable":1,"price":"0.00000000","dividend_only":0,"auto_dividend":0,"allow_bid":1,"height":952581,"alias":"AUSDTHOUSAND","balance":"39.62500000"}],"coin":"arionum"}
